@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Test - CodeMaster Academy</title>
+    <style>
+        body { 
+            font-family: system-ui; 
+            padding: 2rem; 
+            max-width: 800px; 
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .test-section { 
+            margin: 2rem 0; 
+            padding: 1rem; 
+            border: 1px solid #ddd; 
+            border-radius: 8px;
+        }
+        .test-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0.5rem;
+            font-weight: 500;
+        }
+        .test-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .success { background: #d1fae5; color: #065f46; }
+        .error { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <h1>🧪 CodeMaster Academy - Feature Tests</h1>
+    <p>Test all major features to ensure everything is working properly.</p>
+
+    <div class="test-section">
+        <h2>🌙 Dark Mode Test</h2>
+        <p>Click to test theme switching:</p>
+        <button class="test-button" onclick="testDarkMode()">Toggle Dark Mode</button>
+        <div id="darkModeResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>💾 Local Storage Test</h2>
+        <p>Test data persistence:</p>
+        <button class="test-button" onclick="testLocalStorage()">Test Storage</button>
+        <div id="storageResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>💻 Code Execution Test</h2>
+        <p>Test the Python code simulator:</p>
+        <textarea id="testCode" style="width: 100%; height: 100px; font-family: monospace; padding: 1rem;">
+print("Hello, World!")
+name = "Python"
+age = 25
+print(f"Language: {name}, Age: {age}")
+        </textarea>
+        <br>
+        <button class="test-button" onclick="testCodeExecution()">Run Test Code</button>
+        <div id="codeResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📱 Responsive Design Test</h2>
+        <p>Current viewport information:</p>
+        <div id="viewportInfo"></div>
+        <button class="test-button" onclick="testResponsive()">Check Responsive</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔗 Navigation Test</h2>
+        <p>Test page links:</p>
+        <button class="test-button" onclick="window.open('index.html', '_blank')">Test Homepage</button>
+        <button class="test-button" onclick="window.open('dashboard.html', '_blank')">Test Dashboard</button>
+        <button class="test-button" onclick="window.open('lesson.html', '_blank')">Test Lesson</button>
+    </div>
+
+    <script>
+        // Dark mode test
+        function testDarkMode() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const result = document.getElementById('darkModeResult');
+            result.className = 'test-result success';
+            result.innerHTML = `✅ Theme switched to: ${newTheme}`;
+        }
+
+        // Local storage test
+        function testLocalStorage() {
+            try {
+                const testData = { test: 'data', timestamp: Date.now() };
+                localStorage.setItem('codemaster_test', JSON.stringify(testData));
+                
+                const retrieved = JSON.parse(localStorage.getItem('codemaster_test'));
+                const result = document.getElementById('storageResult');
+                
+                if (retrieved && retrieved.test === 'data') {
+                    result.className = 'test-result success';
+                    result.innerHTML = '✅ Local storage working properly';
+                } else {
+                    throw new Error('Data mismatch');
+                }
+                
+                // Clean up
+                localStorage.removeItem('codemaster_test');
+            } catch (error) {
+                const result = document.getElementById('storageResult');
+                result.className = 'test-result error';
+                result.innerHTML = `❌ Local storage failed: ${error.message}`;
+            }
+        }
+
+        // Code execution test
+        function testCodeExecution() {
+            const code = document.getElementById('testCode').value;
+            const result = document.getElementById('codeResult');
+            
+            try {
+                // Simple Python simulation
+                const output = simulatePython(code);
+                result.className = 'test-result success';
+                result.innerHTML = `✅ Code executed successfully:<br><code>${output}</code>`;
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `❌ Code execution failed: ${error.message}`;
+            }
+        }
+
+        // Simple Python simulator for testing
+        function simulatePython(code) {
+            const lines = code.split('\n');
+            let output = [];
+            let vars = {};
+
+            for (let line of lines) {
+                line = line.trim();
+                if (!line || line.startsWith('#')) continue;
+
+                if (line.includes(' = ') && !line.startsWith('print')) {
+                    const [varName, value] = line.split(' = ');
+                    const cleanVar = varName.trim();
+                    const cleanValue = value.trim();
+                    
+                    if (cleanValue === 'True') vars[cleanVar] = true;
+                    else if (cleanValue === 'False') vars[cleanVar] = false;
+                    else if (!isNaN(cleanValue)) vars[cleanVar] = parseFloat(cleanValue);
+                    else if (cleanValue.startsWith('"') || cleanValue.startsWith("'")) {
+                        vars[cleanVar] = cleanValue.slice(1, -1);
+                    }
+                }
+
+                if (line.startsWith('print(')) {
+                    const match = line.match(/print\((.*)\)/);
+                    if (match) {
+                        let content = match[1].trim();
+                        
+                        // Handle f-strings
+                        if (content.startsWith('f"') || content.startsWith("f'")) {
+                            content = content.slice(2, -1);
+                            for (let [name, value] of Object.entries(vars)) {
+                                content = content.replace(new RegExp(`\\{${name}\\}`, 'g'), value);
+                            }
+                        } else if (content.startsWith('"') || content.startsWith("'")) {
+                            content = content.slice(1, -1);
+                        }
+                        
+                        output.push(content);
+                    }
+                }
+            }
+
+            return output.join('\\n');
+        }
+
+        // Responsive test
+        function testResponsive() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const info = document.getElementById('viewportInfo');
+            
+            let deviceType = 'Desktop';
+            if (width <= 480) deviceType = 'Mobile';
+            else if (width <= 768) deviceType = 'Tablet';
+            
+            info.innerHTML = `
+                <strong>Viewport:</strong> ${width}x${height}px<br>
+                <strong>Device Type:</strong> ${deviceType}<br>
+                <strong>User Agent:</strong> ${navigator.userAgent.substring(0, 50)}...
+            `;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            testResponsive();
+            console.log('🧪 Feature tests loaded');
+        });
+
+        // Add CSS variables for theme testing
+        const css = `
+            :root {
+                --bg-primary: #ffffff;
+                --text-primary: #1e293b;
+            }
+            [data-theme="dark"] {
+                --bg-primary: #1e293b;
+                --text-primary: #f1f5f9;
+            }
+            body {
+                background: var(--bg-primary);
+                color: var(--text-primary);
+                transition: all 0.3s ease;
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = css;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

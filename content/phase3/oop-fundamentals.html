@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Oriented Programming - Phase 3</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase3.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 3: Application</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <span class="progress-text">65% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>3.1 Object-Oriented Programming</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#oop-intro">The Cookie Cutter Analogy</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Classes and Objects</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Bank Account Project</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>3.2 Advanced Data Structures</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Trees and Hierarchies</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Heaps and Priority Queues</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Object-Oriented Programming Fundamentals</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 75 min read</span>
+                    <span class="difficulty difficulty-intermediate">🟠 Intermediate</span>
+                    <span class="progress">1 of 6 sections</span>
+                </div>
+            </header>
+
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <section class="learning-objectives">
+                <h2>🎯 Learning Objectives</h2>
+                <ul>
+                    <li>Design reusable code using classes and objects</li>
+                    <li>Understand encapsulation and data organization</li>
+                    <li>Build real-world programming solutions</li>
+                    <li>Master the fundamentals of object-oriented thinking</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>🍪 The Cookie Cutter Analogy</h3>
+                <div class="concept-card">
+                    <div class="analogy-visual">
+                        <div class="analogy-container">
+                            <div class="analogy-item">
+                                <div class="cookie-cutter">🍪</div>
+                                <h4>Class</h4>
+                                <p>The cookie cutter (blueprint)</p>
+                            </div>
+                            <div class="analogy-arrow">→</div>
+                            <div class="analogy-item">
+                                <div class="cookie-instances">
+                                    <span class="cookie">🍪</span>
+                                    <span class="cookie">🍪</span>
+                                    <span class="cookie">🍪</span>
+                                </div>
+                                <h4>Objects</h4>
+                                <p>The actual cookies (instances)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analogy-explanation">
+                        <h4>Understanding the Analogy</h4>
+                        <ul>
+                            <li><strong>Class</strong>: The cookie cutter - defines shape, size, and properties</li>
+                            <li><strong>Object</strong>: The actual cookie - created from the class blueprint</li>
+                            <li><strong>Attributes</strong>: Cookie properties (flavor, size, decorations)</li>
+                            <li><strong>Methods</strong>: Cookie actions (bake, decorate, eat)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏗️ Building Your First Class</h3>
+                <div class="interactive-builder">
+                    <div class="builder-header">
+                        <h4>Interactive Class Builder</h4>
+                        <p>Build a Student class step by step</p>
+                    </div>
+                    
+                    <div class="builder-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Define the Class</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code class="language-python">class Student:
+    """A class to represent a student"""
+    pass  # We'll add content here</code></pre>
+                                </div>
+                                <button class="next-step-btn" onclick="nextStep(2)">Next Step →</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Add the Constructor (__init__)</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code class="language-python">class Student:
+    def __init__(self, name, age, major):
+        # Constructor: initializes new objects
+        self.name = name      # Instance attribute
+        self.age = age
+        self.major = major
+        self.grades = []      # Empty list for grades</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <strong>__init__</strong> is a special method that runs when creating a new object. 
+                                    It sets up the initial state of the object.
+                                </div>
+                                <button class="next-step-btn" onclick="nextStep(3)">Next Step →</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Add Methods (Functions)</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code class="language-python">class Student:
+    def __init__(self, name, age, major):
+        self.name = name
+        self.age = age
+        self.major = major
+        self.grades = []
+    
+    def add_grade(self, grade):
+        """Add a grade to the student's record"""
+        self.grades.append(grade)
+    
+    def get_average(self):
+        """Calculate the student's average grade"""
+        if not self.grades:
+            return 0
+        return sum(self.grades) / len(self.grades)</code></pre>
+                                </div>
+                                <button class="next-step-btn" onclick="nextStep(4)">Next Step →</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Add String Representation</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code class="language-python">class Student:
+    def __init__(self, name, age, major):
+        self.name = name
+        self.age = age
+        self.major = major
+        self.grades = []
+    
+    def add_grade(self, grade):
+        self.grades.append(grade)
+    
+    def get_average(self):
+        if not self.grades:
+            return 0
+        return sum(self.grades) / len(self.grades)
+    
+    def __str__(self):
+        """String representation of the student"""
+        return f"Student: {self.name}, Major: {self.major}"</code></pre>
+                                </div>
+                                <button class="next-step-btn" onclick="nextStep(5)">Next Step →</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="5">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>Create and Use Objects</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code class="language-python"># Creating objects (instances)
+alice = Student("Alice", 20, "Computer Science")
+bob = Student("Bob", 19, "Mathematics")
+
+# Using methods
+alice.add_grade(95)
+alice.add_grade(87)
+alice.add_grade(92)
+
+print(alice)  # Output: Student: Alice, Major: Computer Science
+print(f"Alice's average: {alice.get_average()}")  # Output: 91.33</code></pre>
+                                </div>
+                                <button class="try-it-btn" onclick="runCompleteExample()">🚀 Try Complete Example</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏦 Real-World Project: Bank Account System</h3>
+                <div class="project-showcase">
+                    <div class="project-preview">
+                        <h4>What You'll Build</h4>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">💰</span>
+                                <span>Account balance management</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📊</span>
+                                <span>Transaction history tracking</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔒</span>
+                                <span>Secure deposit/withdrawal validation</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📄</span>
+                                <span>Account statement generation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-demo">
+                        <h4>Live Demo</h4>
+                        <div class="demo-interface">
+                            <div class="account-display">
+                                <div class="account-info">
+                                    <h5>Account: Alice Johnson</h5>
+                                    <div class="balance">Balance: $<span id="demo-balance">1000.00</span></div>
+                                </div>
+                                <div class="demo-controls">
+                                    <input type="number" id="demo-amount" placeholder="Amount" min="0" step="0.01">
+                                    <button onclick="demoDeposit()" class="demo-btn deposit">Deposit</button>
+                                    <button onclick="demoWithdraw()" class="demo-btn withdraw">Withdraw</button>
+                                </div>
+                            </div>
+                            <div class="transaction-history">
+                                <h6>Recent Transactions</h6>
+                                <div id="demo-transactions" class="transaction-list">
+                                    <div class="transaction">Initial balance: $1000.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="project-btn" onclick="openProjectModal('bank-account')">
+                    🚀 Start Bank Account Project
+                </button>
+            </section>
+
+            <section class="content-section">
+                <h3>🔍 Key OOP Concepts Explained</h3>
+                <div class="concepts-grid">
+                    <div class="concept-card clickable" onclick="showConceptDetail('encapsulation')">
+                        <div class="concept-icon">🔒</div>
+                        <h4>Encapsulation</h4>
+                        <p>Bundling data and methods that operate on that data within a single unit</p>
+                    </div>
+                    
+                    <div class="concept-card clickable" onclick="showConceptDetail('inheritance')">
+                        <div class="concept-icon">🧬</div>
+                        <h4>Inheritance</h4>
+                        <p>Creating new classes based on existing classes, inheriting their properties</p>
+                    </div>
+                    
+                    <div class="concept-card clickable" onclick="showConceptDetail('polymorphism')">
+                        <div class="concept-icon">🎭</div>
+                        <h4>Polymorphism</h4>
+                        <p>The ability of different objects to respond to the same method call</p>
+                    </div>
+                    
+                    <div class="concept-card clickable" onclick="showConceptDetail('abstraction')">
+                        <div class="concept-icon">🎨</div>
+                        <h4>Abstraction</h4>
+                        <p>Hiding complex implementation details and showing only essential features</p>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Loops & Iteration</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Advanced Data Structures →</button>
+            </nav>
+
+            <script>
+function nextLesson() {
+    window.location.href = 'advanced-data-structures.html';  // NOW LINKS TO ADVANCED STRUCTURES
+}
+</script>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content project-modal">
+            <div class="modal-header">
+                <h3 id="projectTitle">Bank Account Project</h3>
+                <button onclick="closeProjectModal()" class="close-btn">×</button>
+            </div>
+            <div class="project-workspace">
+                <div class="project-instructions">
+                    <h4>Project Instructions</h4>
+                    <div id="projectInstructions"></div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Python Editor</span>
+                        <div class="editor-controls">
+                            <button onclick="runProject()" class="run-btn">▶ Run Project</button>
+                            <button onclick="resetProject()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="projectEditor" class="code-editor"></textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button onclick="clearProjectOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="projectOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Concept Detail Modal -->
+    <div class="modal" id="conceptModal">
+        <div class="modal-content concept-modal">
+            <div class="modal-header">
+                <h3 id="conceptTitle">OOP Concept</h3>
+                <button onclick="closeConceptModal()" class="close-btn">×</button>
+            </div>
+            <div class="concept-detail">
+                <div id="conceptContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/phase3-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>

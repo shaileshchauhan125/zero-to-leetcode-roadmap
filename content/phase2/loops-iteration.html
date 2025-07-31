@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops & Iteration - Phase 2</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase2.css">
+    <link rel="stylesheet" href="../../css/loops.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 2: Core Concepts</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <span class="progress-text">75% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>2.2 Loops & Iteration</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#for-loops">For Loop Fundamentals</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>While Loop Control</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Nested Loop Patterns</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Loop Challenge Projects</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Mastering Loops & Iteration</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 90 min read</span>
+                    <span class="difficulty difficulty-intermediate">🟠 Intermediate</span>
+                    <span class="progress">1 of 4 sections</span>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Learning Objectives</h2>
+                <ul>
+                    <li>Master for loops and while loops with confidence</li>
+                    <li>Understand when to use each type of loop</li>
+                    <li>Build complex nested loop patterns</li>
+                    <li>Apply loops to solve real-world problems</li>
+                    <li>Optimize loop performance and avoid infinite loops</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>🔄 The Loop Concept: Automation Masters</h3>
+                <div class="concept-card">
+                    <div class="loop-analogy">
+                        <div class="analogy-visual">
+                            <div class="assembly-line">
+                                <div class="conveyor-belt">
+                                    <div class="item" data-step="1">📦</div>
+                                    <div class="item" data-step="2">📦</div>
+                                    <div class="item" data-step="3">📦</div>
+                                    <div class="item" data-step="4">📦</div>
+                                </div>
+                                <div class="worker">🤖</div>
+                                <div class="action-label">Processing each item...</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="concept-explanation">
+                        Think of loops as an assembly line worker who never gets tired. Just like a worker 
+                        processes each item that comes down the conveyor belt with the same set of actions, 
+                        loops execute the same code repeatedly for each item in a collection or until a 
+                        condition is met.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎢 Interactive Loop Visualizer</h3>
+                <div class="loop-visualizer-container">
+                    <div class="visualizer-controls">
+                        <div class="loop-type-selector">
+                            <button class="loop-type-btn active" onclick="setLoopType('for')">For Loop</button>
+                            <button class="loop-type-btn" onclick="setLoopType('while')">While Loop</button>
+                            <button class="loop-type-btn" onclick="setLoopType('nested')">Nested Loop</button>
+                        </div>
+                        <div class="execution-controls">
+                            <button class="exec-btn" onclick="startVisualization()">▶️ Start</button>
+                            <button class="exec-btn" onclick="stepVisualization()">⏭️ Step</button>
+                            <button class="exec-btn" onclick="pauseVisualization()">⏸️ Pause</button>
+                            <button class="exec-btn" onclick="resetVisualization()">🔄 Reset</button>
+                        </div>
+                        <div class="speed-control">
+                            <label>Speed: </label>
+                            <input type="range" id="speedSlider" min="1" max="10" value="5" onchange="setSpeed(this.value)">
+                            <span id="speedValue">5x</span>
+                        </div>
+                    </div>
+
+                    <div id="for-loop-viz" class="loop-visualization active">
+                        <div class="code-section">
+                            <h4>For Loop Code</h4>
+                            <div class="code-display">
+                                <pre class="code-block"><code id="for-loop-code">fruits = ["apple", "banana", "orange", "grape"]
+
+for fruit in fruits:
+    print(f"Processing {fruit}")
+    print(f"Length: {len(fruit)}")
+    print("---")</code></pre>
+                            </div>
+                        </div>
+                        <div class="execution-section">
+                            <div class="variables-panel">
+                                <h4>Variables</h4>
+                                <div class="variable-list">
+                                    <div class="variable-item">
+                                        <span class="var-name">fruits:</span>
+                                        <span class="var-value" id="fruits-value">["apple", "banana", "orange", "grape"]</span>
+                                    </div>
+                                    <div class="variable-item">
+                                        <span class="var-name">fruit:</span>
+                                        <span class="var-value" id="fruit-value">undefined</span>
+                                    </div>
+                                    <div class="variable-item">
+                                        <span class="var-name">iteration:</span>
+                                        <span class="var-value" id="iteration-value">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="output-panel">
+                                <h4>Output</h4>
+                                <div class="output-display" id="loop-output"></div>
+                            </div>
+                        </div>
+                        <div class="flow-diagram">
+                            <div class="flow-step" id="step-init">
+                                <div class="step-circle">1</div>
+                                <div class="step-label">Initialize</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" id="step-condition">
+                                <div class="step-circle">2</div>
+                                <div class="step-label">Check Condition</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" id="step-execute">
+                                <div class="step-circle">3</div>
+                                <div class="step-label">Execute Body</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" id="step-update">
+                                <div class="step-circle">4</div>
+                                <div class="step-label">Update/Next</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="while-loop-viz" class="loop-visualization">
+                        <div class="code-section">
+                            <h4>While Loop Code</h4>
+                            <div class="code-display">
+                                <pre class="code-block"><code id="while-loop-code">count = 0
+target = 5
+
+while count < target:
+    print(f"Count is: {count}")
+    count += 1
+    
+print("Loop finished!")</code></pre>
+                            </div>
+                        </div>
+                        <div class="execution-section">
+                            <div class="variables-panel">
+                                <h4>Variables</h4>
+                                <div class="variable-list">
+                                    <div class="variable-item">
+                                        <span class="var-name">count:</span>
+                                        <span class="var-value" id="count-value">0</span>
+                                    </div>
+                                    <div class="variable-item">
+                                        <span class="var-name">target:</span>
+                                        <span class="var-value" id="target-value">5</span>
+                                    </div>
+                                    <div class="variable-item">
+                                        <span class="var-name">condition:</span>
+                                        <span class="var-value" id="condition-value">count < target</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="output-panel">
+                                <h4>Output</h4>
+                                <div class="output-display" id="while-output"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="nested-loop-viz" class="loop-visualization">
+                        <div class="code-section">
+                            <h4>Nested Loop Code</h4>
+                            <div class="code-display">
+                                <pre class="code-block"><code id="nested-loop-code">for row in range(3):
+    for col in range(4):
+        print(f"({row},{col})", end=" ")
+    print()  # New line after each row</code></pre>
+                            </div>
+                        </div>
+                        <div class="grid-visualization">
+                            <h4>Grid Visualization</h4>
+                            <div class="nested-grid" id="nestedGrid">
+                                <!-- Grid cells will be generated by JavaScript -->
+                            </div>
+                            <div class="grid-info">
+                                <div class="current-position">
+                                    <span>Current Position: </span>
+                                    <span id="current-pos">(0,0)</span>
+                                </div>
+                                <div class="loop-counters">
+                                    <div>Outer Loop (row): <span id="outer-counter">0</span></div>
+                                    <div>Inner Loop (col): <span id="inner-counter">0</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎯 Loop Patterns & Techniques</h3>
+                <div class="patterns-gallery">
+                    <div class="pattern-tabs">
+                        <button class="pattern-tab active" onclick="showPattern('counting')">Counting Patterns</button>
+                        <button class="pattern-tab" onclick="showPattern('accumulation')">Accumulation</button>
+                        <button class="pattern-tab" onclick="showPattern('filtering')">Filtering</button>
+                        <button class="pattern-tab" onclick="showPattern('searching')">Searching</button>
+                    </div>
+
+                    <div id="counting-pattern" class="pattern-content active">
+                        <h4>🔢 Counting Patterns</h4>
+                        <div class="pattern-examples">
+                            <div class="pattern-card">
+                                <h5>Basic Counting</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Count from 0 to 9
+for i in range(10):
+    print(i, end=" ")
+# Output: 0 1 2 3 4 5 6 7 8 9</code></pre>
+                                </div>
+                            </div>
+                            <div class="pattern-card">
+                                <h5>Counting with Steps</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Count by 2s from 0 to 20
+for i in range(0, 21, 2):
+                                    print(i, end=" ")
+# Output: 0 2 4 6 8 10 12 14 16 18 20</code></pre>
+                                </div>
+                            </div>
+                            <div class="pattern-card">
+                                <h5>Countdown</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Countdown from 10 to 1
+for i in range(10, 0, -1):
+    print(f"T-minus {i}")
+print("Blast off! 🚀")</code></pre>
+                                </div>
+                                <button class="try-pattern-btn" onclick="runPattern('countdown')">Try It</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="accumulation-pattern" class="pattern-content">
+                        <h4>📊 Accumulation Patterns</h4>
+                        <div class="pattern-examples">
+                            <div class="pattern-card">
+                                <h5>Sum Calculation</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Calculate sum of numbers 1-100
+total = 0
+for num in range(1, 101):
+    total += num
+print(f"Sum: {total}")  # Output: Sum: 5050</code></pre>
+                                </div>
+                            </div>
+                            <div class="pattern-card">
+                                <h5>Building Strings</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Build a repeated pattern
+pattern = ""
+for i in range(5):
+    pattern += "★" * (i + 1) + "\n"
+print(pattern)
+# Output:
+# ★
+# ★★
+# ★★★
+# ★★★★
+# ★★★★★</code></pre>
+                                </div>
+                                <button class="try-pattern-btn" onclick="runPattern('stars')">Try It</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="filtering-pattern" class="pattern-content">
+                        <h4>🔍 Filtering Patterns</h4>
+                        <div class="pattern-examples">
+                            <div class="pattern-card">
+                                <h5>Even Numbers Only</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Find all even numbers in a range
+evens = []
+for num in range(1, 21):
+    if num % 2 == 0:
+        evens.append(num)
+print(evens)  # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]</code></pre>
+                                </div>
+                            </div>
+                            <div class="pattern-card">
+                                <h5>Word Length Filter</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Find words longer than 5 characters
+words = ["python", "code", "programming", "loop", "iteration"]
+long_words = []
+for word in words:
+    if len(word) > 5:
+        long_words.append(word)
+print(long_words)  # ['python', 'programming', 'iteration']</code></pre>
+                                </div>
+                                <button class="try-pattern-btn" onclick="runPattern('filter')">Try It</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="searching-pattern" class="pattern-content">
+                        <h4>🎯 Searching Patterns</h4>
+                        <div class="pattern-examples">
+                            <div class="pattern-card">
+                                <h5>Find First Match</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Find first number divisible by 7
+numbers = [3, 8, 14, 22, 35, 41]
+for num in numbers:
+    if num % 7 == 0:
+        print(f"Found: {num}")
+        break  # Exit loop after finding first match
+# Output: Found: 14</code></pre>
+                                </div>
+                            </div>
+                            <div class="pattern-card">
+                                <h5>Count Occurrences</h5>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Count vowels in a string
+text = "Hello World"
+vowel_count = 0
+for letter in text.lower():
+    if letter in "aeiou":
+        vowel_count += 1
+print(f"Vowels: {vowel_count}")  # Output: Vowels: 3</code></pre>
+                                </div>
+                                <button class="try-pattern-btn" onclick="runPattern('vowels')">Try It</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pattern-output" id="patternOutput"></div>
+            </section>
+
+            <section class="content-section">
+                <h3>🚀 Challenge Projects</h3>
+                <div class="challenge-projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>🎲 Number Guessing Game</h4>
+                            <span class="project-difficulty">Intermediate</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Build a complete number guessing game using while loops, user input, and conditional logic.</p>
+                            <div class="project-features">
+                                <h5>Features to implement:</h5>
+                                <ul>
+                                    <li>Random number generation</li>
+                                    <li>User input validation</li>
+                                    <li>Hint system (higher/lower)</li>
+                                    <li>Attempt counter</li>
+                                    <li>Play again functionality</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="project-btn" onclick="openProjectModal('number-guessing')">
+                            🚀 Start Project
+                        </button>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>🎨 ASCII Art Generator</h4>
+                            <span class="project-difficulty">Advanced</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Create patterns and designs using nested loops and string manipulation.</p>
+                            <div class="project-features">
+                                <h5>Patterns to create:</h5>
+                                <ul>
+                                    <li>Triangle patterns</li>
+                                    <li>Diamond shapes</li>
+                                    <li>Number pyramids</li>
+                                    <li>Custom designs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="project-btn" onclick="openProjectModal('ascii-art')">
+                            🎨 Start Project
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Data Structures</button>
+                <button class="nav-btn next phase-complete" onclick="completePhase2()">Complete Phase 2 → Phase 3</button>
+            </nav>
+            <!-- Add to control-flow.html and update others -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content project-modal">
+            <div class="modal-header">
+                <h3 id="projectTitle">Loop Challenge Project</h3>
+                <button onclick="closeProjectModal()" class="close-btn">×</button>
+            </div>
+            <div class="project-workspace">
+                <div class="project-instructions">
+                    <h4>Project Instructions</h4>
+                    <div id="projectInstructions"></div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Python Editor</span>
+                        <div class="editor-controls">
+                            <button onclick="runProject()" class="run-btn">▶ Run Project</button>
+                            <button onclick="resetProject()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="projectEditor" class="code-editor"></textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button onclick="clearProjectOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="projectOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/loops-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+function completePhase2() {
+    const celebration = `🎉 PHASE 2 CORE CONCEPTS COMPLETE! 🎉
+
+You've mastered essential programming concepts:
+✅ Data Structures - Lists, dictionaries, sets, tuples
+✅ Loops & Iteration - Powerful repetition patterns
+
+🚀 Ready for Phase 3: Application & OOP?`;
+
+    alert(celebration);
+    
+    setTimeout(() => {
+        const proceed = confirm("🚀 Ready to start Phase 3: Application?");
+        if (proceed) {
+            window.location.href = '../phase3/oop-fundamentals.html';
+        } else {
+            window.location.href = '../../dashboard.html';
+        }
+    }, 1500);
+}
+
+function previousLesson() {
+    window.location.href = 'data-structures.html';
+}
+</script>
+</body>
+</html>

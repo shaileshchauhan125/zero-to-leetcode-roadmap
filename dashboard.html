@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CodeMaster Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo">
+                    <h2>🎯 CodeMaster Academy</h2>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                    <div class="user-profile">
+                        <div class="avatar">👤</div>
+                        <span class="username">Welcome, Learner!</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard-main">
+            <!-- Progress Overview -->
+            <section class="progress-overview">
+                <div class="progress-card">
+                    <h3>Your Learning Progress</h3>
+                    <div class="progress-circle-container">
+                        <div class="progress-circle" data-progress="0">
+                            <svg width="120" height="120">
+                                <circle cx="60" cy="60" r="50" class="progress-bg"></circle>
+                                <circle cx="60" cy="60" r="50" class="progress-fill" id="progressCircle"></circle>
+                            </svg>
+                            <div class="progress-text">
+                                <span class="percentage" id="progressPercentage">0%</span>
+                                <span class="label">Complete</span>
+                            </div>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <span class="stat-number" id="completedLessons">0</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="studyStreak">0</span>
+                                <span class="stat-label">Day Streak</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Phases -->
+            <!-- Update the phase timeline in dashboard.html -->
+<div class="phase-item active" data-phase="1" onclick="startPhase(1)">
+    <div class="step-circle">
+        <span class="step-number">1</span>
+    </div>
+    <div class="step-content">
+        <h3 class="phase-title">Foundations</h3>
+        <p class="phase-description">Variables, loops, conditionals</p>
+        <div class="phase-progress">
+            <div class="progress-bar" style="width: 15%"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Update the Continue Learning section in dashboard.html -->
+<section class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="actions-grid">
+        <!-- Updated Continue Learning Card -->
+        <div class="action-card" onclick="continueToPhase2()">
+            <div class="card-icon">🚀</div>
+            <h4>Continue Learning</h4>
+            <p id="currentLessonText">Ready for Phase 2: Core Concepts</p>
+            <div class="completion-badge">Phase 1 ✅ Complete</div>
+            <button class="action-button">Start Phase 2</button>
+        </div>
+
+        <div class="action-card" onclick="window.location.href='content/phase1/variables-datatypes.html'">
+            <div class="card-icon">📦</div>
+            <h4>Start from Beginning</h4>
+            <p>Variables & Data Types</p>
+            <button class="action-button">Phase 1.1</button>
+        </div>
+
+        <div class="action-card" onclick="openPhaseSelector()">
+            <div class="card-icon">🎯</div>
+            <h4>Jump to Phase</h4>
+            <p>Select any available phase</p>
+            <button class="action-button">Select Phase</button>
+        </div>
+
+        <div class="action-card" onclick="window.location.href='practice-hub.html'">
+            <div class="card-icon">💻</div>
+            <h4>Practice Hub</h4>
+            <p>Interactive coding challenges</p>
+            <button class="action-button">Practice Now</button>
+        </div>
+
+        <div class="action-card" onclick="showAchievements()">
+            <div class="card-icon">🏆</div>
+            <h4>Achievements</h4>
+            <p>View your progress badges</p>
+            <div class="badge-count" id="badgeCount">3</div>
+            <button class="action-button">View Badges</button>
+        </div>
+
+        <div class="action-card" onclick="openStudyPlan()">
+            <div class="card-icon">📅</div>
+            <h4>Study Plan</h4>
+            <p>Personalized learning schedule</p>
+            <button class="action-button">View Plan</button>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Phases Timeline with Real Links -->
+<section class="phases-timeline">
+    <h3>Your Complete Learning Journey</h3>
+    <div class="timeline-container">
+        <!-- Phase 1: Foundations - Complete -->
+        <div class="phase-item completed" data-phase="1">
+            <div class="phase-number">1</div>
+            <div class="phase-content">
+                <h3 class="phase-title">Foundations</h3>
+                <p class="phase-description">Your First Conversation with the Computer</p>
+                <div class="phase-modules">
+                    <div class="module-link completed" onclick="window.location.href='content/phase1/variables-datatypes.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Variables & Data Types</span>
+                        <span class="completion-time">45 min</span>
+                    </div>
+                    <div class="module-link completed" onclick="window.location.href='content/phase1/mathematical-operations.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Mathematical Operations</span>
+                        <span class="completion-time">60 min</span>
+                    </div>
+                    <div class="module-link completed" onclick="window.location.href='content/phase1/control-flow.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Control Flow & Decision Making</span>
+                        <span class="completion-time">65 min</span>
+                    </div>
+                </div>
+                <div class="phase-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-text">100% Complete • 170 min total</span>
+                </div>
+                <div class="phase-badge complete">🎉 MASTERED</div>
+            </div>
+        </div>
+        <!-- Phase 2: Core Concepts - Complete -->
+        <div class="phase-item completed" data-phase="2">
+            <div class="phase-number">2</div>
+            <div class="phase-content">
+                <h3 class="phase-title">Core Concepts</h3>
+                <p class="phase-description">Data Structure Mastery & Iteration</p>
+                <div class="phase-modules">
+                    <div class="module-link completed" onclick="window.location.href='content/phase2/data-structures.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Data Structure Mastery</span>
+                        <span class="completion-time">80 min</span>
+                    </div>
+                    <div class="module-link completed" onclick="window.location.href='content/phase2/loops-iteration.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Loops & Iteration</span>
+                        <span class="completion-time">70 min</span>
+                    </div>
+                </div>
+                <div class="phase-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-text">100% Complete • 150 min total</span>
+                </div>
+                <div class="phase-badge complete">🎉 MASTERED</div>
+            </div>
+        </div>
+        <!-- Phase 3: Application - Complete -->
+        <div class="phase-item completed" data-phase="3">
+            <div class="phase-number">3</div>
+            <div class="phase-content">
+                <h3 class="phase-title">Application</h3>
+                <p class="phase-description">Object-Oriented Programming & Advanced Structures</p>
+                <div class="phase-modules">
+                    <div class="module-link completed" onclick="window.location.href='content/phase3/oop-fundamentals.html'">
+                        <span class="module-icon">✅</span>
+                        <span>OOP Fundamentals</span>
+                        <span class="completion-time">90 min</span>
+                    </div>
+                    <div class="module-link completed" onclick="window.location.href='content/phase3/advanced-data-structures.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Advanced Data Structures</span>
+                        <span class="completion-time">120 min</span>
+                    </div>
+                </div>
+                <div class="phase-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="progress-text">100% Complete • 210 min total</span>
+                </div>
+                <div class="phase-badge complete">🎉 MASTERED</div>
+            </div>
+        </div>
+        <!-- Phase 4: Advanced Topics - In Progress -->
+        <div class="phase-item active" data-phase="4">
+            <div class="phase-number">4</div>
+            <div class="phase-content">
+                <h3 class="phase-title">Advanced Topics</h3>
+                <p class="phase-description">Algorithms and Optimization Mastery</p>
+                <div class="phase-modules">
+                    <div class="module-link completed" onclick="window.location.href='content/phase4/sorting-algorithms.html'">
+                        <span class="module-icon">✅</span>
+                        <span>Sorting Algorithms Theater</span>
+                        <span class="completion-time">90 min</span>
+                    </div>
+                    <div class="module-link available" onclick="window.location.href='content/phase4/problem-patterns.html'">
+                        <span class="module-icon">🔓</span>
+                        <span>Problem Patterns & Recognition</span>
+                        <span class="coming-soon">Ready Soon</span>
+                    </div>
+                    <div class="module-link locked">
+                        <span class="module-icon">🔒</span>
+                        <span>Time & Space Complexity</span>
+                        <span class="coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                <div class="phase-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 33%"></div>
+                    </div>
+                    <span class="progress-text">33% Complete • 90 of 270 min</span>
+                </div>
+                <button class="phase-continue-btn" onclick="window.location.href='content/phase4/sorting-algorithms.html'">
+                    🎭 Continue Sorting Theater
+                </button>
+            </div>
+        </div>
+        <!-- Phase 5: Mastery & Review - Locked -->
+        <div class="phase-item locked" data-phase="5">
+            <div class="phase-number">5</div>
+            <div class="phase-content">
+                <h3 class="phase-title">Mastery & Review</h3>
+                <p class="phase-description">LeetCode Preparation & Interview Mastery</p>
+                <div class="phase-modules">
+                    <div class="module-link locked">
+                        <span class="module-icon">🔒</span>
+                        <span>LeetCode Strategy Framework</span>
+                        <span class="coming-soon">Complete Phase 4</span>
+                    </div>
+                    <div class="module-link locked">
+                        <span class="module-icon">🔒</span>
+                        <span>Mock Interview Simulator</span>
+                        <span class="coming-soon">Complete Phase 4</span>
+                    </div>
+                    <div class="module-link locked">
+                        <span class="module-icon">🔒</span>
+                        <span>Final Portfolio Projects</span>
+                        <span class="coming-soon">Complete Phase 4</span>
+                    </div>
+                </div>
+                <div class="phase-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text">Locked • Complete Phase 4 to unlock</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Continue Learning Section -->
+<section class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="actions-grid">
+        <div class="action-card primary" onclick="window.location.href='content/phase4/sorting-algorithms.html'">
+            <div class="card-icon">🎭</div>
+            <h4>Continue Learning</h4>
+            <p>Sorting Algorithms Theater</p>
+            <div class="progress-indicator">Phase 4 • 33% Complete</div>
+            <button class="action-button">Continue Theater</button>
+        </div>
+
+        <div class="action-card" onclick="openLearningPath()">
+            <div class="card-icon">🗺️</div>
+            <h4>Learning Path</h4>
+            <p>Your personalized roadmap</p>
+            <div class="achievement-count">4/5 Phases</div>
+            <button class="action-button">View Path</button>
+        </div>
+
+        <div class="action-card" onclick="window.location.href='practice-hub.html'">
+            <div class="card-icon">💻</div>
+            <h4>Practice Hub</h4>
+            <p>Interactive coding challenges</p>
+            <div class="challenge-count">25+ Challenges</div>
+            <button class="action-button">Practice Now</button>
+        </div>
+
+        <div class="action-card" onclick="showAchievements()">
+            <div class="card-icon">🏆</div>
+            <h4>Achievements</h4>
+            <p>Your learning milestones</p>
+            <div class="badge-count" id="badgeCount">12</div>
+            <button class="action-button">View Badges</button>
+        </div>
+
+        <div class="action-card" onclick="openStudyPlan()">
+            <div class="card-icon">📅</div>
+            <h4>Study Plan</h4>
+            <p>Personalized schedule</p>
+            <div class="next-session">Next: Problem Patterns</div>
+            <button class="action-button">View Plan</button>
+        </div>
+
+        <div class="action-card" onclick="showProgress()">
+            <div class="card-icon">📊</div>
+            <h4>Progress Analytics</h4>
+            <p>Track your learning journey</p>
+            <div class="completion-rate">80% Complete</div>
+            <button class="action-button">View Analytics</button>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Access Menu -->
+<section class="quick-access-menu">
+    <h3>Quick Access</h3>
+    <div class="quick-links-grid">
+        <!-- ...existing quick-link-category blocks... -->
+    </div>
+</section>
+
+<!-- Complete Quick Links Menu -->
+<div class="quick-navigation">
+    <h4>📚 Quick Access to All Lessons</h4>
+    
+    <!-- Phase 1: Foundations -->
+    <div class="quick-link-category">
+        <h5>Phase 1: Foundations ✅</h5>
+        <div class="quick-links">
+            <a href="content/phase1/variables-datatypes.html" class="quick-link completed">
+                <span class="link-icon">📦</span>
+                <span>Variables & Data Types</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">45 min</span>
+            </a>
+            <a href="content/phase1/mathematical-operations.html" class="quick-link completed">
+                <span class="link-icon">🧮</span>
+                <span>Mathematical Operations</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">60 min</span>
+            </a>
+            <a href="content/phase1/control-flow.html" class="quick-link completed">
+                <span class="link-icon">🎛️</span>
+                <span>Control Flow & Decision Making</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">65 min</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Phase 2: Core Concepts -->
+    <div class="quick-link-category">
+        <h5>Phase 2: Core Concepts ✅</h5>
+        <div class="quick-links">
+            <a href="content/phase2/data-structures.html" class="quick-link completed">
+                <span class="link-icon">🏗️</span>
+                <span>Data Structure Mastery</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">80 min</span>
+            </a>
+            <a href="content/phase2/loops-iteration.html" class="quick-link completed">
+                <span class="link-icon">🔄</span>
+                <span>Loops & Iteration</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">70 min</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Phase 3: Application -->
+    <div class="quick-link-category">
+        <h5>Phase 3: Application ✅</h5>
+        <div class="quick-links">
+            <a href="content/phase3/oop-fundamentals.html" class="quick-link completed">
+                <span class="link-icon">🏛️</span>
+                <span>OOP Fundamentals</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">90 min</span>
+            </a>
+            <a href="content/phase3/advanced-data-structures.html" class="quick-link completed">
+                <span class="link-icon">🌳</span>
+                <span>Advanced Data Structures</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">120 min</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Phase 4: Advanced Topics -->
+    <div class="quick-link-category">
+        <h5>Phase 4: Advanced Topics ⚡ (Current)</h5>
+        <div class="quick-links">
+            <a href="content/phase4/sorting-algorithms.html" class="quick-link completed current">
+                <span class="link-icon">🎭</span>
+                <span>Sorting Algorithms Theater</span>
+                <span class="completion-badge">✅</span>
+                <span class="time-badge">90 min</span>
+            </a>
+            <a href="content/phase4/problem-patterns.html" class="quick-link available">
+                <span class="link-icon">🎯</span>
+                <span>Problem Patterns & Recognition</span>
+                <span class="ready-badge">Ready Soon</span>
+                <span class="time-badge">100 min</span>
+            </a>
+            <a href="#" class="quick-link locked">
+                <span class="link-icon">⏱️</span>
+                <span>Time & Space Complexity</span>
+                <span class="coming-soon-badge">Soon</span>
+                <span class="time-badge">80 min</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Phase 5: Mastery -->
+    <div class="quick-link-category">
+        <h5>Phase 5: Mastery & Review 🔒</h5>
+        <div class="quick-links">
+            <div class="quick-link locked">
+                <span class="link-icon">🎯</span>
+                <span>LeetCode Strategy Framework</span>
+                <span class="locked-badge">Complete Phase 4</span>
+                <span class="time-badge">120 min</span>
+            </div>
+            <div class="quick-link locked">
+                <span class="link-icon">🎪</span>
+                <span>Mock Interview Simulator</span>
+                <span class="locked-badge">Complete Phase 4</span>
+                <span class="time-badge">150 min</span>
+            </div>
+            <div class="quick-link locked">
+                <span class="link-icon">🚀</span>
+                <span>Final Portfolio Projects</span>
+                <span class="locked-badge">Complete Phase 4</span>
+                <span class="time-badge">200 min</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Code Practice Modal -->
+    <div class="modal" id="practiceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Code Practice</h3>
+                <button class="close-modal" onclick="closePracticeModal()">&times;</button>
+            </div>
+            <div class="practice-area">
+                <div class="problem-description">
+                    <h4>Problem: Hello World</h4>
+                    <p>Write a Python program that prints "Hello, World!" to the console.</p>
+                </div>
+                <div class="code-editor">
+                    <textarea id="codeInput" placeholder="# Write your Python code here
+print('Hello, World!')"></textarea>
+                </div>
+                <div class="editor-controls">
+                    <button onclick="runCode()" class="run-button">Run Code</button>
+                    <button onclick="checkSolution()" class="check-button">Check Solution</button>
+                </div>
+                <div class="output-area" id="codeOutput">
+                    <!-- Output will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/progress.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+        });
+    </script>
+</body>
+</html>
+

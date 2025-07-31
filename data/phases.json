@@ -1,0 +1,157 @@
+ {
+  "phases": [
+    {
+      "id": 1,
+      "title": "Foundations",
+      "description": "Your First Conversation with the Computer",
+      "duration": "2-3 weeks",
+      "objectives": [
+        "Master variables and data types",
+        "Understand control flow with conditionals",
+        "Build basic problem-solving skills"
+      ],
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Variables & Data Types",
+          "description": "Learn how computers store and manipulate information",
+          "duration": "45 min read",
+          "difficulty": "Beginner",
+          "content": {
+            "introduction": "Think of variables as labeled storage boxes in your computer's memory. Each box can hold different types of information.",
+            "concepts": [
+              {
+                "title": "The Storage Box Analogy",
+                "content": "Variables are like labeled storage boxes. Each box has a name (variable name) and can store different types of data.",
+                "code_example": {
+                  "language": "python",
+                  "code": "# Numbers\nage = 25                    # Integer (whole number)\nheight = 5.8               # Float (decimal number)\n\n# Text\nname = \"Alice\"             # String (text)\nis_student = True          # Boolean (True/False)"
+                }
+              },
+              {
+                "title": "Data Type Characteristics",
+                "content": "Python has four primary data types that serve different purposes:",
+                "list": [
+                  "Integers: Whole numbers (positive, negative, zero)",
+                  "Floats: Decimal numbers for precise calculations", 
+                  "Strings: Text data enclosed in quotes",
+                  "Booleans: Logical values (True/False)"
+                ]
+              }
+            ],
+            "interactive_exercise": {
+              "title": "Complete the Code",
+              "prompt": "Fill in the blanks to create variables for a student profile:",
+              "starter_code": "user_name = \"___\"          # Your name here\nuser_age = ___             # Your age here\nis_learning_python = ___   # True or False\n\nprint(f\"Hello {user_name}, you are {user_age} years old!\")",
+              "solution": "user_name = \"John\"\nuser_age = 20\nis_learning_python = True\n\nprint(f\"Hello {user_name}, you are {user_age} years old!\")"
+            },
+            "quiz": [
+              {
+                "question": "What data type would you use to store a person's GPA?",
+                "options": ["Float", "Integer", "String", "Boolean"],
+                "correct": 0,
+                "explanation": "GPA contains decimal values, so Float is the correct choice."
+              }
+            ]
+          }
+        },
+        {
+          "id": "1-2", 
+          "title": "Mathematical Operations & Logic",
+          "description": "Perform calculations and make logical decisions",
+          "duration": "50 min read",
+          "difficulty": "Beginner",
+          "content": {
+            "introduction": "Learn to perform mathematical calculations and logical operations in Python.",
+            "concepts": [
+              {
+                "title": "Arithmetic Operations",
+                "content": "Python supports all basic mathematical operations:",
+                "code_example": {
+                  "language": "python",
+                  "code": "# Basic math operations\naddition = 10 + 5        # 15\nsubtraction = 10 - 5     # 5\nmultiplication = 10 * 5  # 50\ndivision = 10 / 5        # 2.0 (always returns float)\nfloor_division = 10 // 3 # 3 (whole number division)\nremainder = 10 % 3       # 1 (modulo operator)\npower = 2 ** 3          # 8 (exponentiation)"
+                }
+              },
+              {
+                "title": "Comparison Operators",
+                "content": "Use these operators to compare values:",
+                "table": {
+                  "headers": ["Operator", "Meaning", "Example"],
+                  "rows": [
+                    ["==", "Equal to", "5 == 5 → True"],
+                    ["!=", "Not equal to", "5 != 3 → True"],
+                    [">", "Greater than", "5 > 3 → True"],
+                    ["<", "Less than", "3 < 5 → True"],
+                    [">=", "Greater than or equal", "5 >= 5 → True"],
+                    ["<=", "Less than or equal", "3 <= 5 → True"]
+                  ]
+                }
+              },
+              {
+                "title": "Boolean Logic Truth Table",
+                "content": "Understanding how logical operators work:",
+                "table": {
+                  "headers": ["A", "B", "A and B", "A or B", "not A"],
+                  "rows": [
+                    ["True", "True", "True", "True", "False"],
+                    ["True", "False", "False", "True", "False"],
+                    ["False", "True", "False", "True", "True"],
+                    ["False", "False", "False", "False", "True"]
+                  ]
+                }
+              }
+            ],
+            "practice_challenge": {
+              "title": "Grade Calculator",
+              "description": "Create a simple calculator that determines if a student passes based on their average:",
+              "starter_code": "test1 = 85\ntest2 = 92\ntest3 = 78\n\n# Calculate average\naverage = # Your code here\npassing_grade = # Your code here (average >= 80)\n\nprint(f\"Average: {average}\")\nprint(f\"Passing: {passing_grade}\")",
+              "solution": "test1 = 85\ntest2 = 92\ntest3 = 78\n\naverage = (test1 + test2 + test3) / 3\npassing_grade = average >= 80\n\nprint(f\"Average: {average}\")\nprint(f\"Passing: {passing_grade}\")"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Core Concepts", 
+      "description": "Master Loops and Data Structures",
+      "duration": "3-4 weeks",
+      "objectives": [
+        "Automate repetitive tasks with loops",
+        "Master Python's core data structures",
+        "Build efficient data processing solutions"
+      ],
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Data Structure Mastery",
+          "description": "Lists, Tuples, Sets, and Dictionaries",
+          "duration": "60 min read",
+          "difficulty": "Intermediate",
+          "content": {
+            "introduction": "Choose the right data structure for each problem and manipulate collections efficiently.",
+            "concepts": [
+              {
+                "title": "The Big Four: Data Structures Comparison",
+                "content": "Understanding when to use each data structure is crucial for efficient programming:",
+                "comparison_table": {
+                  "headers": ["Feature", "list", "tuple", "set", "dict"],
+                  "rows": [
+                    ["Analogy", "Shopping list (editable)", "GPS Coordinates (fixed)", "Unique attendees list", "Phone book (name → number)"],
+                    ["Syntax", "[1, 2, 3]", "(1, 2, 3)", "{1, 2, 3}", "{'name': 'Alice', 'age': 25}"],
+                    ["Mutable?", "✅ Yes", "❌ No", "✅ Yes", "✅ Yes"],
+                    ["Ordered?", "✅ Yes", "✅ Yes", "❌ No", "✅ Yes (Python 3.7+)"],
+                    ["Duplicates?", "✅ Allowed", "✅ Allowed", "❌ Not allowed", "Keys: unique, Values: duplicates OK"],
+                    ["Best For", "Ordered collections", "Immutable sequences", "Membership testing, duplicates removal", "Key-value mapping, lookups"],
+                    ["Access Time", "O(1) by index", "O(1) by index", "O(1) for membership test", "O(1) by key"]
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

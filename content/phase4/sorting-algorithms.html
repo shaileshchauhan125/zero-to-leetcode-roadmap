@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms: The Art of Organization - Phase 4</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase4.css">
+    <link rel="stylesheet" href="../../css/sorting-algorithms.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 4: Advanced Topics</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%"></div>
+                        </div>
+                        <span class="progress-text">33% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>4.1 Sorting Algorithms</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#sorting-theater">Algorithm Theater</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Performance Analysis</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Algorithm Comparison</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Custom Implementation</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Sorting Algorithms: The Art of Organization</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 90 min interactive</span>
+                    <span class="difficulty difficulty-advanced">🔴 Advanced</span>
+                    <span class="progress">1 of 3 sections</span>
+                </div>
+            </header>
+
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master Algorithm Visualization & Analysis</h2>
+                <ul>
+                    <li>Watch sorting algorithms come alive with step-by-step animations</li>
+                    <li>Compare time and space complexity across different algorithms</li>
+                    <li>Understand when to choose each sorting algorithm in real scenarios</li>
+                    <li>Analyze algorithm performance with live statistics</li>
+                    <li>Build intuition for algorithm optimization and trade-offs</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="sorting-theater">
+                <h3>🎭 Interactive Sorting Algorithm Theater</h3>
+                <div class="theater-description">
+                    <p>Welcome to the most comprehensive sorting visualization experience! Watch as different algorithms tackle the same data with unique strategies, speeds, and efficiency patterns.</p>
+                </div>
+
+                <div class="algorithm-theater">
+                    <div class="theater-controls">
+                        <div class="algorithm-selector">
+                            <button class="algo-btn active" data-algorithm="bubble" onclick="selectAlgorithm('bubble')">
+                                🫧 Bubble Sort
+                            </button>
+                            <button class="algo-btn" data-algorithm="selection" onclick="selectAlgorithm('selection')">
+                                🎯 Selection Sort  
+                            </button>
+                            <button class="algo-btn" data-algorithm="insertion" onclick="selectAlgorithm('insertion')">
+                                📥 Insertion Sort
+                            </button>
+                            <button class="algo-btn" data-algorithm="merge" onclick="selectAlgorithm('merge')">
+                                🔀 Merge Sort
+                            </button>
+                            <button class="algo-btn" data-algorithm="quick" onclick="selectAlgorithm('quick')">
+                                ⚡ Quick Sort
+                            </button>
+                            <button class="algo-btn" data-algorithm="heap" onclick="selectAlgorithm('heap')">
+                                🏔️ Heap Sort
+                            </button>
+                        </div>
+
+                        <div class="playback-controls">
+                            <button class="control-btn" onclick="generateNewArray()">🎲 New Array</button>
+                            <button class="control-btn primary" onclick="startSorting()" id="playBtn">
+                                ▶️ Start Sorting
+                            </button>
+                            <button class="control-btn" onclick="pauseSorting()" id="pauseBtn" disabled>
+                                ⏸️ Pause
+                            </button>
+                            <button class="control-btn" onclick="resetSorting()">🔄 Reset</button>
+                            <button class="control-btn" onclick="stepForward()" id="stepBtn">
+                                ⏭️ Step
+                            </button>
+                        </div>
+
+                        <div class="speed-control">
+                            <label for="speedSlider">Animation Speed:</label>
+                            <input type="range" id="speedSlider" min="1" max="10" value="5" 
+                                   oninput="updateSpeed(this.value)">
+                            <span id="speedDisplay">Medium</span>
+                        </div>
+
+                        <div class="array-size-control">
+                            <label for="sizeSlider">Array Size:</label>
+                            <input type="range" id="sizeSlider" min="10" max="100" value="30" 
+                                   oninput="updateArraySize(this.value)">
+                            <span id="sizeDisplay">30</span>
+                        </div>
+                    </div>
+
+                    <div class="visualization-stage">
+                        <div class="algorithm-info-panel">
+                            <div class="current-algorithm">
+                                <h4 id="algorithmTitle">🫧 Bubble Sort</h4>
+                                <p id="algorithmDescription">
+                                    Compares adjacent elements and swaps them if they're in the wrong order. 
+                                    Like bubbles rising to the surface, larger elements "bubble up" to their correct positions.
+                                </p>
+                            </div>
+
+                            <div class="complexity-analysis">
+                                <div class="complexity-item">
+                                    <span class="complexity-label">Time Complexity:</span>
+                                    <span class="complexity-value" id="timeComplexity">O(n²)</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-label">Space Complexity:</span>
+                                    <span class="complexity-value" id="spaceComplexity">O(1)</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-label">Stability:</span>
+                                    <span class="complexity-value" id="stability">Stable</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-label">Best Case:</span>
+                                    <span class="complexity-value" id="bestCase">O(n)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sorting-canvas" id="sortingCanvas">
+                            <!-- Animated bars will be generated here -->
+                        </div>
+
+                        <div class="statistics-panel">
+                            <div class="stat-group">
+                                <div class="stat-item">
+                                    <span class="stat-label">Comparisons:</span>
+                                    <span class="stat-value" id="comparisons">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Swaps:</span>
+                                    <span class="stat-value" id="swaps">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Array Accesses:</span>
+                                    <span class="stat-value" id="arrayAccesses">0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-group">
+                                <div class="stat-item">
+                                    <span class="stat-label">Time Elapsed:</span>
+                                    <span class="stat-value" id="timeElapsed">0.0s</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Progress:</span>
+                                    <span class="stat-value" id="progress">0%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Status:</span>
+                                    <span class="stat-value" id="status">Ready</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📊 Algorithm Deep Dive & Comparison</h3>
+                <div class="algorithm-comparison">
+                    <div class="comparison-controls">
+                        <button class="comparison-btn" onclick="runComparison()">
+                            🏁 Race All Algorithms
+                        </button>
+                        <button class="comparison-btn" onclick="showComplexityChart()">
+                            📈 Complexity Chart
+                        </button>
+                        <button class="comparison-btn" onclick="bestWorstCaseAnalysis()">
+                            ⚖️ Best vs Worst Case
+                        </button>
+                    </div>
+
+                    <div class="comparison-results" id="comparisonResults">
+                        <div class="race-track">
+                            <div class="race-header">
+                                <h4>🏁 Algorithm Performance Race</h4>
+                                <p>Same data, different strategies - watch how each algorithm performs!</p>
+                            </div>
+                            
+                            <div class="race-lanes" id="raceLanes">
+                                <!-- Race visualization will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🧪 Algorithm Laboratory</h3>
+                <div class="algorithm-lab">
+                    <div class="lab-description">
+                        <h4>🔬 Experiment with Different Scenarios</h4>
+                        <p>Test how algorithms perform under various conditions: sorted data, reverse sorted, random, nearly sorted, and arrays with duplicates.</p>
+                    </div>
+
+                    <div class="lab-controls">
+                        <div class="data-type-selector">
+                            <h5>Choose Your Data Pattern:</h5>
+                            <button class="data-btn active" onclick="generateData('random')">🎲 Random</button>
+                            <button class="data-btn" onclick="generateData('sorted')">📈 Already Sorted</button>
+                            <button class="data-btn" onclick="generateData('reverse')">📉 Reverse Sorted</button>
+                            <button class="data-btn" onclick="generateData('nearly')">📊 Nearly Sorted</button>
+                            <button class="data-btn" onclick="generateData('duplicates')">🔄 Many Duplicates</button>
+                            <button class="data-btn" onclick="generateData('few-unique')">🎯 Few Unique Values</button>
+                        </div>
+
+                        <div class="experiment-results">
+                            <h5>📋 Experiment Results:</h5>
+                            <div class="results-table" id="experimentResults">
+                                <div class="results-header">
+                                    <span>Data Pattern</span>
+                                    <span>Best Algorithm</span>
+                                    <span>Worst Algorithm</span>
+                                    <span>Surprise Factor</span>
+                                </div>
+                                <!-- Results will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>💻 Build Your Own Sorting Algorithm</h3>
+                <div class="custom-implementation">
+                    <div class="implementation-challenge">
+                        <h4>🎯 Challenge: Implement & Visualize</h4>
+                        <p>Choose an algorithm and implement it step by step. Watch your code come to life!</p>
+                        
+                        <div class="challenge-selector">
+                            <button class="challenge-btn" onclick="startChallenge('bubble')">
+                                🫧 Implement Bubble Sort
+                            </button>
+                            <button class="challenge-btn" onclick="startChallenge('selection')">
+                                🎯 Implement Selection Sort
+                            </button>
+                            <button class="challenge-btn" onclick="startChallenge('insertion')">
+                                📥 Implement Insertion Sort
+                            </button>
+                            <button class="challenge-btn advanced" onclick="startChallenge('merge')">
+                                🔀 Advanced: Merge Sort
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="code-challenge-workspace" id="codeWorkspace" style="display: none;">
+                        <div class="challenge-instructions" id="challengeInstructions">
+                            <!-- Dynamic challenge instructions -->
+                        </div>
+                        
+                        <div class="code-editor-section">
+                            <div class="editor-header">
+                                <span>Your Implementation</span>
+                                <div class="editor-controls">
+                                    <button onclick="testImplementation()" class="test-btn">🧪 Test Code</button>
+                                    <button onclick="visualizeImplementation()" class="visualize-btn">👁️ Visualize</button>
+                                    <button onclick="submitImplementation()" class="submit-btn">✅ Submit</button>
+                                </div>
+                            </div>
+                            <textarea id="codeEditor" class="code-editor-textarea"></textarea>
+                        </div>
+
+                        <div class="implementation-feedback" id="implementationFeedback">
+                            <!-- Feedback and results -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🚀 Real-World Applications</h3>
+                <div class="applications-showcase">
+                    <div class="application-cards">
+                        <div class="app-card" onclick="exploreApplication('database')">
+                            <div class="app-icon">🗄️</div>
+                            <h4>Database Indexing</h4>
+                            <p>How sorting powers lightning-fast database queries</p>
+                            <div class="app-algorithm">Uses: Merge Sort, Heap Sort</div>
+                        </div>
+
+                        <div class="app-card" onclick="exploreApplication('search')">
+                            <div class="app-icon">🔍</div>
+                            <h4>Search Engines</h4>
+                            <p>Ranking billions of web pages by relevance</p>
+                            <div class="app-algorithm">Uses: Modified Quick Sort</div>
+                        </div>
+
+                        <div class="app-card" onclick="exploreApplication('graphics')">
+                            <div class="app-icon">🎮</div>
+                            <h4>Computer Graphics</h4>
+                            <p>Rendering objects in the correct visual order</p>
+                            <div class="app-algorithm">Uses: Bucket Sort, Radix Sort</div>
+                        </div>
+
+                        <div class="app-card" onclick="exploreApplication('finance')">
+                            <div class="app-icon">💰</div>
+                            <h4>Financial Trading</h4>
+                            <p>Processing thousands of trades per second</p>
+                            <div class="app-algorithm">Uses: Heap Sort, Tim Sort</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev phase-transition" onclick="previousLesson()">← Previous: Advanced Data Structures</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Problem Patterns →</button>
+            </nav>
+
+            <script>
+            function previousLesson() {
+                window.location.href = '../phase3/advanced-data-structures.html';
+            }
+
+            function nextLesson() {
+                // Placeholder for next lesson
+                alert(`🚀 Coming Next: Problem Patterns & Recognition
+
+    Master the key patterns for LeetCode success:
+    🎯 Two Pointers Technique  
+    🪟 Sliding Window Pattern
+    🔍 Binary Search Mastery
+    🌊 BFS/DFS Graph Traversals
+    🧠 Dynamic Programming Introduction
+
+    This lesson will teach you pattern recognition - the critical skill for solving any coding interview problem!
+
+    Would you like me to create this lesson next?`);
+            }
+            </script>
+        </main>
+    </div>
+
+    <!-- Algorithm Explanation Modal -->
+    <div class="modal" id="algorithmModal">
+        <div class="modal-content algorithm-modal">
+            <div class="modal-header">
+                <h3 id="modalAlgorithmTitle">Algorithm Details</h3>
+                <button onclick="closeAlgorithmModal()" class="close-btn">×</button>
+            </div>
+            <div class="modal-body" id="modalAlgorithmContent">
+                <!-- Dynamic algorithm explanation content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/sorting-algorithms-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>

@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Flow & Decision Making - Phase 1</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase1.css">
+    <link rel="stylesheet" href="../../css/control-flow.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 1: Foundations</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add to control-flow.html and update others -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>1.3 Making Decisions: Control Flow</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#decision-trees">Interactive Decision Trees</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Conditional Logic Patterns</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Grade Calculator Project</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Adventure Game</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Control Flow & Decision Making</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 65 min read</span>
+                    <span class="difficulty difficulty-beginner">🟡 Beginner</span>
+                    <span class="progress">3 of 8 sections</span>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 What You'll Master</h2>
+                <ul>
+                    <li>Make intelligent decisions in your programs using if/elif/else</li>
+                    <li>Create complex decision trees with multiple conditions</li>
+                    <li>Build real-world applications that respond to user input</li>
+                    <li>Combine conditions using logical operators (and, or, not)</li>
+                    <li>Design interactive programs that adapt to different scenarios</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>🌳 Interactive Decision Trees: Your Program's Brain</h3>
+                <div class="concept-card">
+                    <div class="decision-tree-analogy">
+                        <div class="tree-visual">
+                            <div class="decision-tree" id="interactiveTree">
+                                <div class="tree-level">
+                                    <div class="decision-node root" onclick="highlightPath('root')">
+                                        <div class="node-condition">Is it raining?</div>
+                                        <div class="node-input">
+                                            <button class="condition-btn true" onclick="makeDecision('rain', true)">Yes</button>
+                                            <button class="condition-btn false" onclick="makeDecision('rain', false)">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tree-level">
+                                    <div class="decision-node left" id="rain-true">
+                                        <div class="node-condition">Do you have an umbrella?</div>
+                                        <div class="node-input">
+                                            <button class="condition-btn true" onclick="makeDecision('umbrella', true)">Yes</button>
+                                            <button class="condition-btn false" onclick="makeDecision('umbrella', false)">No</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="decision-node right" id="rain-false">
+                                        <div class="node-condition">Is it sunny?</div>
+                                        <div class="node-input">
+                                            <button class="condition-btn true" onclick="makeDecision('sunny', true)">Yes</button>
+                                            <button class="condition-btn false" onclick="makeDecision('sunny', false)">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tree-level">
+                                    <div class="result-node" id="result-umbrella-yes">
+                                        <div class="result-icon">🚶‍♂️</div>
+                                        <div class="result-text">Go outside with umbrella!</div>
+                                    </div>
+                                    
+                                    <div class="result-node" id="result-umbrella-no">
+                                        <div class="result-icon">🏠</div>
+                                        <div class="result-text">Stay inside, it's raining!</div>
+                                    </div>
+                                    
+                                    <div class="result-node" id="result-sunny-yes">
+                                        <div class="result-icon">🌞</div>
+                                        <div class="result-text">Perfect day to go outside!</div>
+                                    </div>
+                                    
+                                    <div class="result-node" id="result-sunny-no">
+                                        <div class="result-icon">☁️</div>
+                                        <div class="result-text">Cloudy day, but okay to go out!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-translation">
+                        <h4>🔄 See It in Python Code</h4>
+                        <div class="code-example">
+                            <pre class="code-block" id="decisionCode"><code class="language-python"># Interactive Decision Tree
+is_raining = True  # Change this based on your choices above
+has_umbrella = False
+is_sunny = False
+
+if is_raining:
+    if has_umbrella:
+        print("🚶‍♂️ Go outside with umbrella!")
+    else:
+        print("🏠 Stay inside, it's raining!")
+else:
+    if is_sunny:
+        print("🌞 Perfect day to go outside!")
+    else:
+        print("☁️ Cloudy day, but okay to go out!")
+        
+# Click the buttons above to see this code change!</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏗️ Conditional Logic Patterns</h3>
+                <div class="patterns-showcase">
+                    <div class="pattern-tabs">
+                        <button class="pattern-tab active" onclick="showPattern('simple')">Simple If</button>
+                        <button class="pattern-tab" onclick="showPattern('if-else')">If-Else</button>
+                        <button class="pattern-tab" onclick="showPattern('elif')">If-Elif-Else</button>
+                        <button class="pattern-tab" onclick="showPattern('nested')">Nested Conditions</button>
+                        <button class="pattern-tab" onclick="showPattern('logical')">Logical Operators</button>
+                    </div>
+
+                    <div id="simple-pattern" class="pattern-content active">
+                        <h4>🎯 Simple If Statement</h4>
+                        <div class="pattern-explanation">
+                            <p><strong>When to use:</strong> When you want to execute code only if a condition is true.</p>
+                            <p><strong>Pattern:</strong> "If this condition is true, then do something."</p>
+                        </div>
+                        
+                        <div class="interactive-example">
+                            <div class="example-inputs">
+                                <label>Enter your age:</label>
+                                <input type="number" id="ageSimple" placeholder="Age" value="18" min="0" max="120">
+                                <button onclick="testSimpleIf()">Test</button>
+                            </div>
+                            <div class="example-output" id="simpleOutput">You are eligible to vote! 🗳️</div>
+                        </div>
+
+                        <div class="code-example">
+                            <pre class="code-block"><code class="language-python"># Simple If Example
+age = 18
+
+if age >= 18:
+    print("You are eligible to vote! 🗳️")
+    
+# If the condition is false, nothing happens
+# The program just continues to the next line</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="if-else-pattern" class="pattern-content">
+                        <h4>⚖️ If-Else Statement</h4>
+                        <div class="pattern-explanation">
+                            <p><strong>When to use:</strong> When you have exactly two possible outcomes.</p>
+                            <p><strong>Pattern:</strong> "If this condition is true, do A, otherwise do B."</p>
+                        </div>
+                        
+                        <div class="interactive-example">
+                            <div class="example-inputs">
+                                <label>Enter a number:</label>
+                                <input type="number" id="numberEven" placeholder="Number" value="42">
+                                <button onclick="testIfElse()">Check Even/Odd</button>
+                            </div>
+                            <div class="example-output" id="ifElseOutput">42 is even! ✅</div>
+                        </div>
+
+                        <div class="code-example">
+                            <pre class="code-block"><code class="language-python"># If-Else Example
+number = 42
+
+if number % 2 == 0:
+    print(f"{number} is even! ✅")
+else:
+    print(f"{number} is odd! 🔸")
+    
+# One of these two blocks will ALWAYS execute</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="elif-pattern" class="pattern-content">
+                        <h4>🎪 If-Elif-Else Chain</h4>
+                        <div class="pattern-explanation">
+                            <p><strong>When to use:</strong> When you have multiple mutually exclusive conditions.</p>
+                            <p><strong>Pattern:</strong> "If A, do this; else if B, do that; else if C, do another thing; otherwise, do default."</p>
+                        </div>
+                        
+                        <div class="interactive-example">
+                            <div class="example-inputs">
+                                <label>Enter your score (0-100):</label>
+                                <input type="number" id="scoreInput" placeholder="Score" value="85" min="0" max="100">
+                                <button onclick="testElif()">Get Grade</button>
+                            </div>
+                            <div class="example-output" id="elifOutput">Score: 85 → Grade: B 📚</div>
+                        </div>
+
+                        <div class="code-example">
+                            <pre class="code-block"><code class="language-python"># If-Elif-Else Example
+score = 85
+
+if score >= 90:
+    grade = "A"
+    emoji = "🏆"
+elif score >= 80:
+    grade = "B" 
+    emoji = "📚"
+elif score >= 70:
+    grade = "C"
+    emoji = "📖"
+elif score >= 60:
+    grade = "D"
+    emoji = "📝"
+else:
+    grade = "F"
+    emoji = "😰"
+
+print(f"Score: {score} → Grade: {grade} {emoji}")</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="nested-pattern" class="pattern-content">
+                        <h4>🪆 Nested Conditions</h4>
+                        <div class="pattern-explanation">
+                            <p><strong>When to use:</strong> When one condition depends on another being true first.</p>
+                            <p><strong>Pattern:</strong> "If A is true, then check if B is true, and if so, do something."</p>
+                        </div>
+                        
+                        <div class="interactive-example">
+                            <div class="example-inputs">
+                                <div class="input-row">
+                                    <label>Temperature (°F):</label>
+                                    <input type="number" id="tempInput" placeholder="Temperature" value="75" min="-20" max="120">
+                                </div>
+                                <div class="input-row">
+                                    <label>Weather:</label>
+                                    <select id="weatherSelect">
+                                        <option value="sunny">Sunny</option>
+                                        <option value="cloudy">Cloudy</option>
+                                        <option value="rainy">Rainy</option>
+                                        <option value="snowy">Snowy</option>
+                                    </select>
+                                </div>
+                                <button onclick="testNested()">Check Activity</button>
+                            </div>
+                            <div class="example-output" id="nestedOutput">Perfect weather for outdoor activities! 🌞</div>
+                        </div>
+
+                        <div class="code-example">
+                            <pre class="code-block"><code class="language-python"># Nested Conditions Example
+temperature = 75
+weather = "sunny"
+
+if temperature > 60:  # First condition: warm enough
+    if weather == "sunny":
+        activity = "Perfect weather for outdoor activities! 🌞"
+    elif weather == "cloudy":
+        activity = "Good weather, maybe bring a light jacket 🧥"
+    else:
+        activity = "Warm but not ideal weather ⛅"
+else:  # Temperature <= 60
+    if weather == "snowy":
+        activity = "Great day for hot cocoa and staying warm! ❄️"
+    else:
+        activity = "Too cold for outdoor activities 🥶"
+
+print(activity)</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="logical-pattern" class="pattern-content">
+                        <h4>🧠 Logical Operators (and, or, not)</h4>
+                        <div class="pattern-explanation">
+                            <p><strong>When to use:</strong> When you need to combine multiple conditions.</p>
+                            <p><strong>Patterns:</strong> "If A AND B", "If A OR B", "If NOT A"</p>
+                        </div>
+                        
+                        <div class="logical-playground">
+                            <div class="condition-tester">
+                                <h5>🎮 Logical Operator Playground</h5>
+                                <div class="condition-inputs">
+                                    <div class="condition-group">
+                                        <label>Age:</label>
+                                        <input type="number" id="logicalAge" value="20" min="0" max="100">
+                                    </div>
+                                    <div class="condition-group">
+                                        <label>Has License:</label>
+                                        <input type="checkbox" id="hasLicense" checked>
+                                    </div>
+                                    <div class="condition-group">
+                                        <label>Has Car:</label>
+                                        <input type="checkbox" id="hasCar" checked>
+                                    </div>
+                                    <button onclick="testLogical()">Test All Conditions</button>
+                                </div>
+                                <div class="logical-results" id="logicalResults"></div>
+                            </div>
+                        </div>
+
+                        <div class="code-example">
+                            <pre class="code-block"><code class="language-python"># Logical Operators Example
+age = 20
+has_license = True
+has_car = True
+
+# AND: Both conditions must be true
+if age >= 18 and has_license:
+    print("✅ Can drive legally")
+
+# OR: At least one condition must be true  
+if has_license or age >= 21:
+    print("✅ Can rent a car from some companies")
+
+# NOT: Reverses the condition
+if not has_car:
+    print("🚌 Might need public transportation")
+
+# Complex combinations
+if age >= 18 and has_license and has_car:
+    print("🚗 Ready for a road trip!")
+elif age >= 18 and has_license:
+    print("🚕 Can drive but might need to borrow/rent a car")
+else:
+    print("🚌 Not ready to drive yet")</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📊 Real-World Project: Grade Calculator</h3>
+                <div class="project-showcase">
+                    <div class="project-description">
+                        <h4>🎯 Project Overview</h4>
+                        <p>Build a comprehensive grade calculator that demonstrates complex conditional logic, input validation, and user-friendly feedback.</p>
+                        
+                        <div class="project-features">
+                            <h5>Features to implement:</h5>
+                            <ul>
+                                <li>Calculate letter grades from numerical scores</li>
+                                <li>Handle multiple grading scales (standard, strict, lenient)</li>
+                                <li>Provide GPA calculation and class statistics</li>
+                                <li>Input validation and error handling</li>
+                                <li>Detailed feedback and improvement suggestions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-demo">
+                        <h4>🚀 Live Grade Calculator Demo</h4>
+                        <div class="calculator-interface">
+                            <div class="calculator-inputs">
+                                <div class="input-section">
+                                    <h5>Student Information</h5>
+                                    <input type="text" id="studentName" placeholder="Student Name" value="Alice Johnson">
+                                    <select id="gradingScale">
+                                        <option value="standard">Standard Scale</option>
+                                        <option value="strict">Strict Scale</option>
+                                        <option value="lenient">Lenient Scale</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-section">
+                                    <h5>Assignment Scores</h5>
+                                    <div class="score-inputs">
+                                        <input type="number" id="exam1" placeholder="Exam 1" value="87" min="0" max="100">
+                                        <input type="number" id="exam2" placeholder="Exam 2" value="92" min="0" max="100">
+                                        <input type="number" id="homework" placeholder="Homework Avg" value="95" min="0" max="100">
+                                        <input type="number" id="participation" placeholder="Participation" value="88" min="0" max="100">
+                                    </div>
+                                </div>
+                                
+                                <button class="calculate-btn" onclick="calculateGrade()">Calculate Grade</button>
+                            </div>
+                            
+                            <div class="calculator-results" id="gradeResults">
+                                <div class="result-card">
+                                    <h5>📊 Results for Alice Johnson</h5>
+                                    <div class="grade-display">
+                                        <div class="final-grade">A-</div>
+                                        <div class="final-score">90.5%</div>
+                                    </div>
+                                    <div class="grade-breakdown">
+                                        <div class="breakdown-item">
+                                            <span>Exams (50%): </span>
+                                            <span>89.5</span>
+                                        </div>
+                                        <div class="breakdown-item">
+                                            <span>Homework (30%): </span>
+                                            <span>95.0</span>
+                                        </div>
+                                        <div class="breakdown-item">
+                                            <span>Participation (20%): </span>
+                                            <span>88.0</span>
+                                        </div>
+                                    </div>
+                                    <div class="feedback">
+                                        <strong>Feedback:</strong> Excellent work! You're performing well across all areas.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="project-btn" onclick="openGradeProject()">
+                        🚀 Build Your Own Grade Calculator
+                    </button>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🗺️ Adventure Game: Choose Your Own Programming Adventure</h3>
+                <div class="adventure-game-section">
+                    <div class="game-description">
+                        <h4>🎮 Interactive Story Game</h4>
+                        <p>Experience the power of conditional logic through an engaging choose-your-own-adventure game. Every choice you make demonstrates if/elif/else in action!</p>
+                    </div>
+
+                    <div class="adventure-game" id="adventureGame">
+                        <div class="game-screen active" id="game-start">
+                            <div class="scene-image">🏫</div>
+                            <div class="scene-text">
+                                <h4>Welcome to CodeMaster Academy!</h4>
+                                <p>You're a new student at the most prestigious programming academy in the world. On your first day, you discover a mysterious USB drive in the computer lab. What do you do?</p>
+                            </div>
+                            <div class="choice-buttons">
+                                <button class="choice-btn" onclick="makeChoice('investigate')">🔍 Investigate the USB drive</button>
+                                <button class="choice-btn" onclick="makeChoice('report')">📝 Report it to the teacher</button>
+                                <button class="choice-btn" onclick="makeChoice('ignore')">🚶‍♂️ Ignore it and continue with class</button>
+                            </div>
+                        </div>
+
+                        <div class="game-screen" id="game-investigate">
+                            <div class="scene-image">💻</div>
+                            <div class="scene-text">
+                                <h4>The Mystery Deepens...</h4>
+                                <p>You plug in the USB drive and find a folder labeled "Secret Python Challenges". Inside are advanced coding puzzles that seem way beyond your current level. Suddenly, you hear footsteps approaching!</p>
+                            </div>
+                            <div class="choice-buttons">
+                                <button class="choice-btn" onclick="makeChoice('hide')">🙈 Quickly hide the USB drive</button>
+                                <button class="choice-btn" onclick="makeChoice('run')">🏃‍♂️ Copy the files and run away</button>
+                                <button class="choice-btn" onclick="makeChoice('stay')">💪 Stay and face whoever is coming</button>
+                            </div>
+                        </div>
+
+                        <div class="game-screen" id="game-report">
+                            <div class="scene-image">👨‍🏫</div>
+                            <div class="scene-text">
+                                <h4>The Wise Teacher</h4>
+                                <p>Your teacher, Professor Python, smiles when you show him the USB drive. "Ah, you found my test! This contains challenges for students who show initiative and honesty. Would you like to try them?"</p>
+                            </div>
+                            <div class="choice-buttons">
+                                <button class="choice-btn" onclick="makeChoice('accept')">✅ Accept the challenge</button>
+                                <button class="choice-btn" onclick="makeChoice('decline')">❌ Politely decline, you're not ready</button>
+                                <button class="choice-btn" onclick="makeChoice('ask')">❓ Ask to work with a partner</button>
+                            </div>
+                        </div>
+
+                        <!-- Additional game screens would continue here -->
+                        
+                        <div class="game-code-display">
+                            <h5>🔍 See the Code Behind Your Adventure</h5>
+                            <div class="code-example">
+                                <pre class="code-block" id="adventureCode"><code class="language-python"># Choose Your Own Adventure - Python Implementation
+def adventure_game():
+    print("Welcome to CodeMaster Academy!")
+    print("You discover a mysterious USB drive...")
+    
+    choice = input("What do you do? (investigate/report/ignore): ").lower()
+    
+    if choice == "investigate":
+        print("You plug in the USB drive...")
+        next_choice = input("Footsteps approach! (hide/run/stay): ").lower()
+        
+        if next_choice == "hide":
+            print("🙈 You hide the USB drive and act innocent.")
+            print("Ending: The Mystery Student")
+        elif next_choice == "run":
+            print("🏃‍♂️ You copy the files and escape!")
+            print("Ending: The Code Thief")
+        else:
+            print("💪 You stay and meet the mysterious figure...")
+            print("Ending: The Brave Confronter")
+            
+    elif choice == "report":
+        print("You report the USB drive to Professor Python...")
+        teacher_response = input("Accept his challenge? (accept/decline/ask): ").lower()
+        
+        if teacher_response == "accept":
+            print("✅ You accept the advanced challenges!")
+            print("Ending: The Honor Student")
+        elif teacher_response == "decline":
+            print("❌ You politely decline for now.")
+            print("Ending: The Cautious Learner")
+        else:
+            print("❓ You ask to work with a partner.")
+            print("Ending: The Collaborative Coder")
+    
+    else:  # ignore
+        print("🚶‍♂️ You ignore the USB drive and focus on class.")
+        print("Ending: The Focused Student")
+
+# Every choice creates a different path using if/elif/else!</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="project-btn" onclick="openAdventureProject()">
+                        🎮 Create Your Own Adventure Game
+                    </button>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎓 Phase 1 Completion Challenge</h3>
+                <div class="completion-challenge">
+                    <div class="challenge-header">
+                        <h4>🏁 Final Challenge: Smart Home Automation</h4>
+                        <p>Combine everything you've learned in Phase 1 to create an intelligent home automation system!</p>
+                    </div>
+                    
+                    <div class="challenge-requirements">
+                        <h5>📋 Requirements:</h5>
+                        <ul>
+                            <li><strong>Variables & Data Types:</strong> Store sensor readings, user preferences, and system status</li>
+                            <li><strong>Mathematical Operations:</strong> Calculate averages, compare thresholds, compute savings</li>
+                            <li><strong>Control Flow:</strong> Make smart decisions based on multiple conditions</li>
+                        </ul>
+                    </div>
+
+                    <button class="challenge-btn" onclick="openFinalChallenge()">
+                        🚀 Start Final Challenge
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Mathematical Operations</button>
+                <button class="nav-btn next phase-complete" onclick="completePhase1()">Complete Phase 1 → Phase 2</button>
+            </nav>
+
+            <script>
+function completePhase1() {
+    const celebration = `🎉 PHASE 1 FOUNDATION COMPLETE! 🎉
+
+You've mastered the fundamentals:
+✅ Variables & Data Types - Information storage
+✅ Mathematical Operations - Logic & calculations  
+✅ Control Flow - Decision making power
+
+🚀 Ready for Phase 2: Core Concepts?`;
+
+    alert(celebration);
+    
+    setTimeout(() => {
+        const proceed = confirm("🚀 Ready to start Phase 2: Core Concepts?");
+        if (proceed) {
+            window.location.href = '../phase2/data-structures.html';
+        } else {
+            window.location.href = '../../dashboard.html';
+        }
+    }, 1500);
+}
+
+function previousLesson() {
+    window.location.href = 'mathematical-operations.html';
+}
+</script>
+        </main>
+    </div>
+
+    <!-- Grade Calculator Project Modal -->
+    <div class="modal" id="gradeProjectModal">
+        <div class="modal-content project-modal">
+            <div class="modal-header">
+                <h3>Grade Calculator Project</h3>
+                <button onclick="closeGradeProject()" class="close-btn">×</button>
+            </div>
+            <div class="project-workspace">
+                <div class="project-instructions">
+                    <h4>Project Instructions</h4>
+                    <div id="gradeInstructions">
+                        <h5>🎯 Build a Complete Grade Calculator</h5>
+                        <p>Create a grade calculator that handles multiple scenarios and provides detailed feedback.</p>
+                        
+                        <h5>📋 Core Features:</h5>
+                        <ol>
+                            <li>Accept multiple assignment scores</li>
+                            <li>Calculate weighted averages</li>
+                            <li>Determine letter grades with multiple scales</li>
+                            <li>Provide personalized feedback</li>
+                            <li>Handle edge cases and invalid input</li>
+                        </ol>
+                        
+                        <h5>🎨 Bonus Features:</h5>
+                        <ul>
+                            <li>GPA calculation</li>
+                            <li>Improvement recommendations</li>
+                            <li>Class statistics</li>
+                            <li>Grade trends analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Grade Calculator</span>
+                        <div class="editor-controls">
+                            <button onclick="runGradeProject()" class="run-btn">▶ Run Calculator</button>
+                            <button onclick="resetGradeProject()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="gradeProjectEditor" class="code-editor"># Smart Grade Calculator Project
+class GradeCalculator:
+    def __init__(self):
+        self.grading_scales = {
+            'standard': {'A': 90, 'B': 80, 'C': 70, 'D': 60},
+            'strict': {'A': 93, 'B': 85, 'C': 77, 'D': 70},
+            'lenient': {'A': 87, 'B': 77, 'C': 67, 'D': 57}
+        }
+    
+    def calculate_weighted_average(self, scores, weights):
+        """Calculate weighted average of scores"""
+        if len(scores) != len(weights):
+            return None
+            
+        total_weighted = 0
+        total_weight = 0
+        
+        for score, weight in zip(scores, weights):
+            # TODO: Add input validation
+            if 0 <= score <= 100:
+                total_weighted += score * weight
+                total_weight += weight
+        
+        return total_weighted / total_weight if total_weight > 0 else 0
+    
+    def get_letter_grade(self, score, scale='standard'):
+        """Convert numerical score to letter grade"""
+        # TODO: Implement the grading logic
+        scale_thresholds = self.grading_scales.get(scale, self.grading_scales['standard'])
+        
+        if score >= scale_thresholds['A']:
+            return 'A'
+        elif score >= scale_thresholds['B']:
+            return 'B'
+        elif score >= scale_thresholds['C']:
+            return 'C'
+        elif score >= scale_thresholds['D']:
+            return 'D'
+        else:
+            return 'F'
+    
+    def generate_feedback(self, final_score, letter_grade, scores):
+        """Generate personalized feedback"""
+        # TODO: Create intelligent feedback based on performance
+        if letter_grade == 'A':
+            return "🏆 Excellent work! You're performing at the highest level."
+        elif letter_grade == 'B':
+            return "📚 Great job! You're doing well with room for improvement."
+        elif letter_grade == 'C':
+            return "📖 Good effort! Consider focusing on areas that need improvement."
+        elif letter_grade == 'D':
+            return "📝 You're passing, but there's significant room for improvement."
+        else:
+            return "😰 Let's work together to improve your performance."
+    
+    def calculate_student_grade(self, student_name, scores, weights, scale='standard'):
+        """Main function to calculate and display student grade"""
+        print(f"\\n📊 Grade Report for {student_name}")
+        print("=" * 40)
+        
+        # TODO: Implement the complete calculation
+        final_score = self.calculate_weighted_average(scores, weights)
+        
+        if final_score is None:
+            print("❌ Error: Invalid input data")
+            return
+        
+        letter_grade = self.get_letter_grade(final_score, scale)
+        feedback = self.generate_feedback(final_score, letter_grade, scores)
+        
+        print(f"Final Score: {final_score:.1f}%")
+        print(f"Letter Grade: {letter_grade}")
+        print(f"Grading Scale: {scale.title()}")
+        print(f"\\nFeedback: {feedback}")
+        
+        return {
+            'score': final_score,
+            'grade': letter_grade,
+            'feedback': feedback
+        }
+
+# Example usage
+def main():
+    calculator = GradeCalculator()
+    
+    # Student data
+    student_name = "Alice Johnson"
+    scores = [87, 92, 95, 88]  # Exam1, Exam2, Homework, Participation
+    weights = [0.25, 0.25, 0.30, 0.20]  # 25%, 25%, 30%, 20%
+    
+    # Calculate grade
+    result = calculator.calculate_student_grade(student_name, scores, weights, 'standard')
+    
+    # TODO: Add more students and create class statistics
+
+if __name__ == "__main__":
+    main()</textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Calculator Output</span>
+                        <button onclick="clearGradeOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="gradeProjectOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adventure Game Project Modal -->
+    <div class="modal" id="adventureProjectModal">
+        <div class="modal-content project-modal">
+            <div class="modal-header">
+                <h3>Adventure Game Project</h3>
+                <button onclick="closeAdventureProject()" class="close-btn">×</button>
+            </div>
+            <div class="project-workspace">
+                <div class="project-instructions">
+                    <h4>Create Your Adventure</h4>
+                    <div id="adventureInstructions">
+                        <h5>🎮 Build an Interactive Story Game</h5>
+                        <p>Design a choose-your-own-adventure game that demonstrates complex conditional logic.</p>
+                        
+                        <h5>🏗️ Game Structure:</h5>
+                        <ol>
+                            <li>Create an engaging opening scenario</li>
+                            <li>Design branching storylines with if/elif/else</li>
+                            <li>Include at least 5 different endings</li>
+                            <li>Add character stats or inventory system</li>
+                            <li>Handle user input validation</li>
+                        </ol>
+                        
+                        <h5>💡 Creative Ideas:</h5>
+                        <ul>
+                            <li>Space exploration adventure</li>
+                            <li>Fantasy quest with dragons</li>
+                            <li>Detective mystery solver</li>
+                            <li>Time travel paradox</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Adventure Game</span>
+                        <div class="editor-controls">
+                            <button onclick="runAdventureProject()" class="run-btn">▶ Play Game</button>
+                            <button onclick="resetAdventureProject()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="adventureProjectEditor" class="code-editor"># Choose Your Own Adventure Game
+import random
+
+class AdventureGame:
+    def __init__(self):
+        self.player_name = ""
+        self.health = 100
+        self.inventory = []
+        self.score = 0
+    
+    def start_game(self):
+        """Initialize and start the adventure"""
+        print("🌟 Welcome to the Coding Quest Adventure! 🌟")
+        print("=" * 50)
+        
+        self.player_name = input("What is your name, brave adventurer? ")
+        print(f"\\nGreetings, {self.player_name}! Your journey begins now...")
+        
+        self.scene_entrance()
+    
+    def scene_entrance(self):
+        """Opening scene of the adventure"""
+        print(f"\\n🏰 {self.player_name}, you stand before the mysterious Tower of Algorithms.")
+        print("Legend says that whoever solves all the puzzles inside will become")
+        print("the greatest programmer in the land!")
+        print(f"\\n💚 Health: {self.health}")
+        print(f"🎒 Inventory: {', '.join(self.inventory) if self.inventory else 'Empty'}")
+        
+        print("\\nWhat do you choose to do?")
+        print("1. 🚪 Enter the tower boldly")
+        print("2. 🔍 Examine the tower carefully first")
+        print("3. 🏃‍♂️ Run away (this quest is too scary!)")
+        
+        choice = input("\\nEnter your choice (1-3): ").strip()
+        
+        # TODO: Implement branching logic here
+        if choice == "1":
+            self.scene_bold_entrance()
+        elif choice == "2":
+            self.scene_careful_examination()
+        elif choice == "3":
+            self.ending_coward()
+        else:
+            print("\\n❌ Invalid choice! Please enter 1, 2, or 3.")
+            self.scene_entrance()
+    
+    def scene_bold_entrance(self):
+        """Player enters boldly"""
+        print(f"\\n⚔️ {self.player_name} charges into the tower!")
+        print("As you burst through the doors, you trigger a trap!")
+        
+        # Random event
+        trap_damage = random.randint(10, 30)
+        self.health -= trap_damage
+        print(f"💥 You take {trap_damage} damage from falling rocks!")
+        print(f"💚 Health: {self.health}")
+        
+        if self.health <= 0:
+            self.ending_defeated()
+            return
+        
+        print("\\nDespite the trap, you find yourself in a grand hall with three doors:")
+        self.scene_three_doors()
+    
+    def scene_careful_examination(self):
+        """Player examines carefully"""
+        print(f"\\n🔍 {self.player_name} carefully studies the tower.")
+        print("You notice ancient runes on the door that glow when you approach.")
+        print("The runes spell out: 'WISDOM OVER HASTE'")
+        
+        # Player gains an advantage
+        wisdom_scroll = "Scroll of Wisdom"
+        self.inventory.append(wisdom_scroll)
+        print(f"\\n📜 You found a {wisdom_scroll}! It might be useful later.")
+        
+        print("\\nYou enter the tower cautiously and find three doors:")
+        self.scene_three_doors()
+    
+    def scene_three_doors(self):
+        """The three doors chamber"""
+        print(f"\\n🚪🚪🚪 Three doors stand before {self.player_name}:")
+        print("🔴 RED DOOR: Strange coding symbols glow ominously")
+        print("🔵 BLUE DOOR: You hear the sound of clicking keyboards")
+        print("🟡 YELLOW DOOR: A gentle humming of servers")
+        
+        # Special option if player has wisdom scroll
+        if "Scroll of Wisdom" in self.inventory:
+            print("\\n📜 Your Scroll of Wisdom reveals a hidden message:")
+            print("'Choose the door that represents collaboration, not competition'")
+        
+        print("\\nWhich door do you choose?")
+        print("1. 🔴 Red Door (The Challenge)")
+        print("2. 🔵 Blue Door (The Community)")  
+        print("3. 🟡 Yellow Door (The Server Room)")
+        
+        choice = input("\\nEnter your choice (1-3): ").strip()
+        
+        # TODO: Continue the branching story
+        if choice == "1":
+            self.scene_red_door()
+        elif choice == "2":
+            self.scene_blue_door()
+        elif choice == "3":
+            self.scene_yellow_door()
+        else:
+            print("\\n❌ Invalid choice! The doors won't budge.")
+            self.scene_three_doors()
+    
+    # TODO: Implement the remaining scenes
+    def scene_red_door(self):
+        print("\\n🔴 You enter the Red Door...")
+        print("A massive coding challenge appears on the wall!")
+        # Continue the red door path
+    
+    def scene_blue_door(self):
+        print("\\n🔵 You enter the Blue Door...")
+        print("You find a room full of helpful programmers!")
+        # Continue the blue door path
+    
+    def scene_yellow_door(self):
+        print("\\n🟡 You enter the Yellow Door...")
+        print("You discover the tower's central server!")
+        # Continue the yellow door path
+    
+    # Ending functions
+    def ending_coward(self):
+        print(f"\\n🏃‍♂️ {self.player_name} runs away from the tower.")
+        print("Sometimes the bravest thing is knowing when you're not ready.")
+        print("\\n📚 ENDING: The Cautious Student")
+        print("Maybe next time you'll be ready for the challenge!")
+    
+    def ending_defeated(self):
+        print(f"\\n💀 {self.player_name} has been defeated!")
+        print("Your health reached zero, but every defeat is a learning experience.")
+        print("\\n📚 ENDING: The Learning Experience")
+        print("In programming, we learn more from failures than successes!")
+    
+    # TODO: Add more endings based on different paths
+
+# Game runner
+def main():
+    game = AdventureGame()
+    game.start_game()
+
+if __name__ == "__main__":
+    main()
+
+# This game demonstrates:
+# - if/elif/else chains for decision making
+# - nested conditions for complex scenarios  
+# - state management with player attributes
+# - input validation and error handling</textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Game Output</span>
+                        <button onclick="clearAdventureOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="adventureProjectOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/control-flow-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>
+

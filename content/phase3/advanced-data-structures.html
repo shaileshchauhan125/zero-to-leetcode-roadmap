@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Data Structures - Phase 3</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase3.css">
+    <link rel="stylesheet" href="../../css/advanced-structures.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 3: Application</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>3.2 Advanced Data Structures</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#trees">Trees: Hierarchical Data</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Heaps & Priority Queues</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Graphs & Networks</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Hash Tables Deep Dive</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Advanced Data Structures & Algorithms</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 120 min read</span>
+                    <span class="difficulty difficulty-advanced">🔴 Advanced</span>
+                    <span class="progress">2 of 3 sections</span>
+                </div>
+            </header>
+
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master Advanced Data Structures</h2>
+                <ul>
+                    <li>Build and traverse binary trees with confidence</li>
+                    <li>Implement heaps for priority queue operations</li>
+                    <li>Create and analyze graph algorithms (BFS/DFS)</li>
+                    <li>Optimize hash table performance for real-world applications</li>
+                    <li>Choose the optimal data structure for complex problems</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3 id="trees">🌳 Trees: Hierarchical Data Mastery</h3>
+                <div class="concept-card">
+                    <div class="tree-analogy">
+                        <div class="family-tree-visual">
+                            <div class="tree-structure">
+                                <div class="tree-level">
+                                    <div class="tree-node root" onclick="highlightNode('root')">
+                                        <div class="node-value">50</div>
+                                        <div class="node-label">Root</div>
+                                    </div>
+                                </div>
+                                <div class="tree-level">
+                                    <div class="tree-node" onclick="highlightNode('left-30')">
+                                        <div class="node-value">30</div>
+                                        <div class="node-label">Left Child</div>
+                                    </div>
+                                    <div class="tree-node" onclick="highlightNode('right-70')">
+                                        <div class="node-value">70</div>
+                                        <div class="node-label">Right Child</div>
+                                    </div>
+                                </div>
+                                <div class="tree-level">
+                                    <div class="tree-node" onclick="highlightNode('left-20')">
+                                        <div class="node-value">20</div>
+                                        <div class="node-label">Leaf</div>
+                                    </div>
+                                    <div class="tree-node" onclick="highlightNode('right-40')">
+                                        <div class="node-value">40</div>
+                                        <div class="node-label">Leaf</div>
+                                    </div>
+                                    <div class="tree-node" onclick="highlightNode('left-60')">
+                                        <div class="node-value">60</div>
+                                        <div class="node-label">Leaf</div>
+                                    </div>
+                                    <div class="tree-node" onclick="highlightNode('right-80')">
+                                        <div class="node-value">80</div>
+                                        <div class="node-label">Leaf</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="concept-explanation">
+                        <strong>Think of trees like family genealogy:</strong> Just as a family tree shows relationships 
+                        between ancestors and descendants, a binary search tree organizes data hierarchically. 
+                        Each "parent" has at most two "children," with left children being smaller and right children being larger.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏗️ Interactive Tree Builder</h3>
+                <div class="tree-builder-container">
+                    <div class="builder-controls">
+                        <div class="input-section">
+                            <input type="number" id="nodeValue" placeholder="Enter value" min="1" max="100">
+                            <button class="control-btn add" onclick="addNode()">🌱 Add Node</button>
+                            <button class="control-btn delete" onclick="deleteNode()">🗑️ Delete Node</button>
+                            <button class="control-btn clear" onclick="clearTree()">🔄 Clear Tree</button>
+                        </div>
+                        <div class="traversal-section">
+                            <h4>Tree Traversals</h4>
+                            <button class="traversal-btn" onclick="traverseTree('inorder')">📝 Inorder</button>
+                            <button class="traversal-btn" onclick="traverseTree('preorder')">📋 Preorder</button>
+                            <button class="traversal-btn" onclick="traverseTree('postorder')">📊 Postorder</button>
+                            <button class="traversal-btn" onclick="traverseTree('levelorder')">🌊 Level Order</button>
+                        </div>
+                    </div>
+
+                    <div class="tree-visualization-area">
+                        <div class="tree-canvas" id="treeCanvas">
+                            <div class="empty-tree-message">
+                                <h4>🌱 Build Your First Tree!</h4>
+                                <p>Add numbers above to see them organized in a binary search tree</p>
+                            </div>
+                        </div>
+                        <div class="traversal-output" id="traversalOutput">
+                            <h4>Traversal Results</h4>
+                            <div class="output-display" id="traversalResults"></div>
+                        </div>
+                    </div>
+
+                    <div class="tree-code-display">
+                        <h4>🔍 See the Python Implementation</h4>
+                        <div class="code-tabs">
+                            <button class="code-tab active" onclick="showCode('tree-class')">Tree Class</button>
+                            <button class="code-tab" onclick="showCode('insert-method')">Insert Method</button>
+                            <button class="code-tab" onclick="showCode('traversal-methods')">Traversals</button>
+                        </div>
+
+                        <div id="tree-class-code" class="code-content active">
+                            <pre class="code-block"><code class="language-python">class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+        self.size = 0
+    
+    def is_empty(self):
+        return self.root is None
+    
+    def get_size(self):
+        return self.size</code></pre>
+                        </div>
+
+                        <div id="insert-method-code" class="code-content">
+                            <pre class="code-block"><code class="language-python">def insert(self, val):
+    """Insert a value into the BST"""
+    if self.root is None:
+        self.root = TreeNode(val)
+        self.size += 1
+        return
+    
+    self._insert_recursive(self.root, val)
+
+def _insert_recursive(self, node, val):
+    if val < node.val:
+        if node.left is None:
+            node.left = TreeNode(val)
+            self.size += 1
+        else:
+            self._insert_recursive(node.left, val)
+    elif val > node.val:
+        if node.right is None:
+            node.right = TreeNode(val)
+            self.size += 1
+        else:
+            self._insert_recursive(node.right, val)</code></pre>
+                        </div>
+
+                        <div id="traversal-methods-code" class="code-content">
+                            <pre class="code-block"><code class="language-python">def inorder_traversal(self, node):
+    """Left -> Root -> Right (sorted order)"""
+    if node:
+        yield from self.inorder_traversal(node.left)
+        yield node.val
+        yield from self.inorder_traversal(node.right)
+
+def preorder_traversal(self, node):
+    """Root -> Left -> Right (copy tree structure)"""
+    if node:
+        yield node.val
+        yield from self.preorder_traversal(node.left)
+        yield from self.preorder_traversal(node.right)
+
+def postorder_traversal(self, node):
+    """Left -> Right -> Root (deletion order)"""
+    if node:
+        yield from self.postorder_traversal(node.left)
+        yield from self.postorder_traversal(node.right)
+        yield node.val</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📊 Heaps: Priority Queue Masters</h3>
+                <div class="heap-concept-card">
+                    <div class="heap-analogy">
+                        <div class="hospital-triage">
+                            <h4>🏥 Hospital Emergency Room Analogy</h4>
+                            <div class="triage-system">
+                                <div class="patient critical">
+                                    <div class="priority-badge">1</div>
+                                    <div class="patient-info">Critical Emergency</div>
+                                </div>
+                                <div class="patient urgent">
+                                    <div class="priority-badge">3</div>
+                                    <div class="patient-info">Urgent Care</div>
+                                </div>
+                                <div class="patient standard">
+                                    <div class="priority-badge">7</div>
+                                    <div class="patient-info">Standard Care</div>
+                                </div>
+                                <div class="patient routine">
+                                    <div class="priority-badge">15</div>
+                                    <div class="patient-info">Routine Checkup</div>
+                                </div>
+                            </div>
+                            <p class="analogy-explanation">
+                                Like a hospital triage system, heaps always serve the highest priority item first. 
+                                In a min-heap, smaller numbers = higher priority (like urgency levels).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heap-playground">
+                    <div class="heap-controls">
+                        <div class="heap-type-selector">
+                            <button class="heap-type-btn active" onclick="setHeapType('min')">Min Heap</button>
+                            <button class="heap-type-btn" onclick="setHeapType('max')">Max Heap</button>
+                        </div>
+                        <div class="heap-operations">
+                            <input type="number" id="heapValue" placeholder="Priority value" min="1" max="100">
+                            <button class="heap-btn insert" onclick="insertHeap()">⬆️ Insert</button>
+                            <button class="heap-btn extract" onclick="extractHeap()">⬇️ Extract</button>
+                            <button class="heap-btn build" onclick="buildRandomHeap()">🎲 Build Random</button>
+                            <button class="heap-btn clear" onclick="clearHeap()">🗑️ Clear</button>
+                        </div>
+                    </div>
+
+                    <div class="heap-visualization">
+                        <div class="heap-display" id="heapVisualization">
+                            <div class="empty-heap-message">
+                                <h4>📊 Build Your Priority Queue!</h4>
+                                <p>Insert values to see heap property maintained</p>
+                            </div>
+                        </div>
+                        <div class="heap-array-view">
+                            <h4>Array Representation</h4>
+                            <div class="array-display" id="heapArrayDisplay">[]</div>
+                            <div class="heap-info">
+                                <span>Size: <span id="heapSize">0</span></span>
+                                <span>Next Extract: <span id="nextExtract">None</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="heap-code-example">
+                        <div class="code-tabs">
+                            <button class="code-tab active" onclick="showHeapCode('heap-class')">Heap Class</button>
+                            <button class="code-tab" onclick="showHeapCode('heap-operations')">Operations</button>
+                            <button class="code-tab" onclick="showHeapCode('heapify')">Heapify Process</button>
+                        </div>
+
+                        <div id="heap-class-code" class="heap-code-content active">
+                            <pre class="code-block"><code class="language-python">import heapq
+
+class MinHeap:
+    def __init__(self):
+        self.heap = []
+    
+    def parent(self, i):
+        return (i - 1) // 2
+    
+    def left_child(self, i):
+        return 2 * i + 1
+    
+    def right_child(self, i):
+        return 2 * i + 2
+    
+    def has_left_child(self, i):
+        return self.left_child(i) < len(self.heap)
+    
+    def has_right_child(self, i):
+        return self.right_child(i) < len(self.heap)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🗺️ Graphs: Network Navigation</h3>
+                <div class="graph-concept-card">
+                    <div class="social-network-analogy">
+                        <h4>👥 Social Network Analogy</h4>
+                        <div class="network-visualization">
+                            <div class="person-node" data-person="alice">
+                                <div class="person-avatar">👩</div>
+                                <div class="person-name">Alice</div>
+                            </div>
+                            <div class="person-node" data-person="bob">
+                                <div class="person-avatar">👨</div>
+                                <div class="person-name">Bob</div>
+                            </div>
+                            <div class="person-node" data-person="charlie">
+                                <div class="person-avatar">🧑</div>
+                                <div class="person-name">Charlie</div>
+                            </div>
+                            <div class="person-node" data-person="diana">
+                                <div class="person-avatar">👩‍🦱</div>
+                                <div class="person-name">Diana</div>
+                            </div>
+                            <!-- Connection lines drawn with CSS/JS -->
+                        </div>
+                        <p class="analogy-explanation">
+                            Graphs are like social networks: people (nodes/vertices) are connected by friendships (edges). 
+                            We can find paths between people, discover communities, and analyze relationships.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="graph-builder">
+                    <div class="graph-controls">
+                        <div class="graph-type-selector">
+                            <button class="graph-type-btn active" onclick="setGraphType('undirected')">Undirected</button>
+                            <button class="graph-type-btn" onclick="setGraphType('directed')">Directed</button>
+                        </div>
+                        <div class="graph-operations">
+                            <input type="text" id="vertexName" placeholder="Vertex name" maxlength="3">
+                            <button class="graph-btn add-vertex" onclick="addVertex()">➕ Add Vertex</button>
+                            <button class="graph-btn add-edge" onclick="startAddEdge()">🔗 Add Edge</button>
+                            <button class="graph-btn clear-graph" onclick="clearGraph()">🗑️ Clear</button>
+                        </div>
+                        <div class="algorithm-controls">
+                            <h4>Graph Algorithms</h4>
+                            <input type="text" id="startVertex" placeholder="Start vertex">
+                            <button class="algo-btn bfs" onclick="runBFS()">🌊 BFS</button>
+                            <button class="algo-btn dfs" onclick="runDFS()">🌳 DFS</button>
+                            <button class="algo-btn shortest" onclick="findShortestPath()">🎯 Shortest Path</button>
+                        </div>
+                    </div>
+
+                    <div class="graph-visualization-area">
+                        <div class="graph-canvas" id="graphCanvas">
+                            <div class="empty-graph-message">
+                                <h4>🗺️ Build Your Network!</h4>
+                                <p>Add vertices and edges to create a graph</p>
+                            </div>
+                        </div>
+                        <div class="algorithm-output">
+                            <h4>Algorithm Results</h4>
+                            <div class="output-display" id="algorithmResults"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🚀 Real-World Project: Social Network Analyzer</h3>
+                <div class="project-showcase">
+                    <div class="project-description">
+                        <h4>🎯 Project Overview</h4>
+                        <p>Build a comprehensive social network analyzer that demonstrates all advanced data structures working together in a real application.</p>
+                        
+                        <div class="project-features">
+                            <h5>Features to implement:</h5>
+                            <ul>
+                                <li><strong>Graph Structure:</strong> Store users and friendships</li>
+                                <li><strong>Binary Search Tree:</strong> Index users by ID for fast lookup</li>
+                                <li><strong>Heap:</strong> Priority queue for friend suggestions</li>
+                                <li><strong>Hash Table:</strong> Fast username-to-user mapping</li>
+                                <li><strong>BFS/DFS:</strong> Find shortest connection paths</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="project-btn" onclick="openSocialNetworkProject()">
+                        🚀 Build Social Network Analyzer
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: OOP Fundamentals</button>
+                <button class="nav-btn next phase-complete" onclick="completePhase3()">Complete Phase 3 → Phase 4</button>
+            </nav>
+
+            <script>
+function completePhase3() {
+    const celebration = `🎉 PHASE 3 APPLICATION MASTERY COMPLETE! 🎉
+
+You've conquered advanced programming concepts:
+✅ Object-Oriented Programming - Code organization
+✅ Advanced Data Structures - Trees, heaps, graphs
+✅ Algorithm Implementation - Professional-level skills
+
+🚀 Ready for Phase 4: Advanced Topics & Algorithms?`;
+
+    alert(celebration);
+    
+    setTimeout(() => {
+        const proceed = confirm("🚀 Ready to start Phase 4: Advanced Topics?");
+        if (proceed) {
+            window.location.href = '../phase4/sorting-algorithms.html';
+        } else {
+            window.location.href = '../../dashboard.html';
+        }
+    }, 1500);
+}
+
+function previousLesson() {
+    window.location.href = 'oop-fundamentals.html';
+}
+</script>
+        </main>
+    </div>
+
+    <script src="../../js/advanced-structures-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>

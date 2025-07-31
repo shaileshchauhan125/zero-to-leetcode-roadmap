@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables & Data Types - Phase 1</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase1.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 1: Foundations</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 15%"></div>
+                        </div>
+                        <span class="progress-text">15% Complete</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add to control-flow.html and update others -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>1.1 Your First Conversation with the Computer</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#storage-box">The Storage Box Analogy</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Data Type Characteristics</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Variable Naming Rules</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Interactive Exercise</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>1.2 Mathematical Operations & Logic</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Arithmetic Operations</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Boolean Logic</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>1.3 Making Decisions</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Control Flow</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Variables & Data Types</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 45 min read</span>
+                    <span class="difficulty difficulty-beginner">🟡 Beginner</span>
+                    <span class="progress">1 of 8 sections</span>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 What You'll Learn</h2>
+                <ul>
+                    <li>Understand how computers store information in memory</li>
+                    <li>Master Python's four primary data types</li>
+                    <li>Write your first Python programs using variables</li>
+                    <li>Debug common variable-related errors</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>📦 The Storage Box Analogy</h3>
+                <div class="concept-card">
+                    <div class="storage-analogy">
+                        <div class="analogy-visual">
+                            <div class="storage-container">
+                                <div class="storage-box" data-type="int">
+                                    <div class="box-label">age</div>
+                                    <div class="box-content">25</div>
+                                    <div class="box-type">Integer</div>
+                                </div>
+                                <div class="storage-box" data-type="float">
+                                    <div class="box-label">height</div>
+                                    <div class="box-content">5.8</div>
+                                    <div class="box-type">Float</div>
+                                </div>
+                                <div class="storage-box" data-type="string">
+                                    <div class="box-label">name</div>
+                                    <div class="box-content">"Alice"</div>
+                                    <div class="box-type">String</div>
+                                </div>
+                                <div class="storage-box" data-type="bool">
+                                    <div class="box-label">is_student</div>
+                                    <div class="box-content">True</div>
+                                    <div class="box-type">Boolean</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="concept-explanation">
+                        Think of variables as labeled storage boxes in your computer's memory. Each box has a name 
+                        (variable name) and can store different types of data. Just like physical storage boxes, 
+                        you can put things in, take things out, and change what's inside.
+                    </p>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-label">Python Variables in Action</span>
+                            <button class="run-code-btn" onclick="runBasicExample()">▶️ Try It</button>
+                        </div>
+                        <pre class="code-block"><code class="language-python"># Numbers
+age = 25                    # Integer (whole number)
+height = 5.8               # Float (decimal number)
+
+# Text
+name = "Alice"             # String (text)
+is_student = True          # Boolean (True/False)
+
+# You can check the type of any variable
+print(type(age))           # <class 'int'>
+print(type(height))        # <class 'float'>
+print(type(name))          # <class 'str'>
+print(type(is_student))    # <class 'bool'>
+
+# Using variables in sentences
+print(f"Hello! My name is {name}")
+print(f"I am {age} years old and {height} feet tall")
+print(f"Am I a student? {is_student}")</code></pre>
+                    </div>
+                    <div class="code-output" id="basicExampleOutput"></div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🔍 Data Type Deep Dive</h3>
+                <div class="data-types-explorer">
+                    <div class="type-tabs">
+                        <button class="type-tab active" onclick="showDataType('integers')">Integers</button>
+                        <button class="type-tab" onclick="showDataType('floats')">Floats</button>
+                        <button class="type-tab" onclick="showDataType('strings')">Strings</button>
+                        <button class="type-tab" onclick="showDataType('booleans')">Booleans</button>
+                    </div>
+
+                    <div id="integers-content" class="type-content active">
+                        <h4>🔢 Integers (int)</h4>
+                        <div class="type-description">
+                            <p><strong>What they are:</strong> Whole numbers, positive or negative, including zero</p>
+                            <p><strong>When to use:</strong> Counting things, ages, scores, array indices</p>
+                            <p><strong>Memory efficient:</strong> Take up less space than floats</p>
+                        </div>
+                        <div class="interactive-demo">
+                            <h5>Try Different Integer Values:</h5>
+                            <div class="demo-inputs">
+                                <input type="number" id="intInput" placeholder="Enter an integer" value="42">
+                                <button onclick="testInteger()">Test Integer</button>
+                            </div>
+                            <div class="demo-output" id="intOutput"></div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-python"># Integer examples
+positive_num = 42
+negative_num = -17
+zero = 0
+large_num = 1000000
+
+# Math with integers
+result = positive_num + negative_num  # 25
+print(f"42 + (-17) = {result}")</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="floats-content" class="type-content">
+                        <h4>🎯 Floats (float)</h4>
+                        <div class="type-description">
+                            <p><strong>What they are:</strong> Numbers with decimal points</p>
+                            <p><strong>When to use:</strong> Measurements, percentages, scientific calculations</p>
+                            <p><strong>Precision:</strong> Can represent very small or very large numbers</p>
+                        </div>
+                        <div class="interactive-demo">
+                            <h5>Explore Float Precision:</h5>
+                            <div class="demo-inputs">
+                                <input type="number" id="floatInput" placeholder="Enter a decimal" step="0.01" value="3.14159">
+                                <button onclick="testFloat()">Test Float</button>
+                            </div>
+                            <div class="demo-output" id="floatOutput"></div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-python"># Float examples
+pi = 3.14159
+temperature = -2.5
+percentage = 85.7
+scientific = 1.23e-4  # Scientific notation
+
+# Precision demonstration
+result = 0.1 + 0.2
+print(f"0.1 + 0.2 = {result}")  # Might not be exactly 0.3!</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="strings-content" class="type-content">
+                        <h4>📝 Strings (str)</h4>
+                        <div class="type-description">
+                            <p><strong>What they are:</strong> Text data enclosed in quotes</p>
+                            <p><strong>When to use:</strong> Names, messages, file paths, any text</p>
+                            <p><strong>Flexible:</strong> Can contain letters, numbers, symbols, emojis</p>
+                        </div>
+                        <div class="interactive-demo">
+                            <h5>String Playground:</h5>
+                            <div class="demo-inputs">
+                                <input type="text" id="stringInput" placeholder="Enter some text" value="Hello, Python!">
+                                <button onclick="testString()">Explore String</button>
+                            </div>
+                            <div class="demo-output" id="stringOutput"></div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-python"># String examples
+single_quotes = 'Hello, World!'
+double_quotes = "Python is awesome!"
+multi_line = """This is a
+multi-line string"""
+
+# String operations
+name = "Alice"
+greeting = f"Hello, {name}!"  # f-string formatting
+length = len(name)  # String length
+upper_name = name.upper()  # Convert to uppercase</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="booleans-content" class="type-content">
+                        <h4>✅ Booleans (bool)</h4>
+                        <div class="type-description">
+                            <p><strong>What they are:</strong> True or False values only</p>
+                            <p><strong>When to use:</strong> Decision making, flags, conditions</p>
+                            <p><strong>Foundation:</strong> Essential for if statements and loops</p>
+                        </div>
+                        <div class="interactive-demo">
+                            <h5>Boolean Logic Tester:</h5>
+                            <div class="demo-inputs">
+                                <select id="boolInput1">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                                <select id="boolOperator">
+                                    <option value="and">and</option>
+                                    <option value="or">or</option>
+                                </select>
+                                <select id="boolInput2">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                                <button onclick="testBoolean()">Test Logic</button>
+                            </div>
+                            <div class="demo-output" id="boolOutput"></div>
+                        </div>
+                        <div class="code-example">
+                            <pre><code class="language-python"># Boolean examples
+is_sunny = True
+is_raining = False
+has_umbrella = True
+
+# Boolean logic
+can_go_outside = is_sunny or (is_raining and has_umbrella)
+print(f"Can go outside? {can_go_outside}")
+
+# Comparison results are booleans
+age = 25
+is_adult = age >= 18  # True
+is_teenager = 13 <= age <= 19  # False</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📝 Variable Naming Rules & Best Practices</h3>
+                <div class="naming-guide">
+                    <div class="rules-grid">
+                        <div class="rule-card valid">
+                            <h4>✅ Valid Names</h4>
+                            <ul>
+                                <li><code>user_name</code> - Snake case (recommended)</li>
+                                <li><code>firstName</code> - Camel case (OK)</li>
+                                <li><code>_private_var</code> - Starting with underscore</li>
+                                <li><code>count1</code> - Letters and numbers</li>
+                                <li><code>CONSTANT_VALUE</code> - All caps for constants</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-card invalid">
+                            <h4>❌ Invalid Names</h4>
+                            <ul>
+                                <li><code>2nd_grade</code> - Can't start with number</li>
+                                <li><code>user-name</code> - No hyphens allowed</li>
+                                <li><code>for</code> - Python keyword</li>
+                                <li><code>my var</code> - No spaces allowed</li>
+                                <li><code>user@name</code> - No special characters</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="naming-tester">
+                        <h4>🧪 Variable Name Validator</h4>
+                        <div class="validator-input">
+                            <input type="text" id="nameInput" placeholder="Enter a variable name" onkeyup="validateName()">
+                            <div class="validation-feedback" id="nameValidation"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🛠️ Hands-On Challenge: Student Profile Creator</h3>
+                <div class="challenge-container">
+                    <div class="challenge-description">
+                        <h4>Your Mission</h4>
+                        <p>Create a complete student profile using all four data types. This exercise will test everything you've learned!</p>
+                        
+                        <div class="requirements">
+                            <h5>Requirements:</h5>
+                            <ul>
+                                <li>Create variables for student name (string), age (integer), GPA (float), and enrollment status (boolean)</li>
+                                <li>Use proper variable naming conventions</li>
+                                <li>Display the profile using f-string formatting</li>
+                                <li>Calculate and display the expected graduation year</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="challenge-btn" onclick="openChallengeModal()">
+                        🚀 Start Challenge
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" disabled>← Previous</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Mathematical Operations →</button>
+            </nav>
+
+            <script>
+function nextLesson() {
+    window.location.href = 'mathematical-operations.html';
+}
+</script>
+        </main>
+    </div>
+
+    <!-- Challenge Modal -->
+    <div class="modal" id="challengeModal">
+        <div class="modal-content challenge-modal">
+            <div class="modal-header">
+                <h3>Student Profile Creator Challenge</h3>
+                <button onclick="closeChallengeModal()" class="close-btn">×</button>
+            </div>
+            <div class="challenge-workspace">
+                <div class="challenge-instructions">
+                    <h4>Instructions</h4>
+                    <p>Complete the code below to create a student profile:</p>
+                    <div class="hints">
+                        <h5>💡 Hints:</h5>
+                        <ul>
+                            <li>Strings must be enclosed in quotes</li>
+                            <li>Use descriptive variable names</li>
+                            <li>GPA should be a decimal number</li>
+                            <li>Boolean values are True or False (capitalized)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="challenge-editor">
+                    <div class="editor-header">
+                        <span>Python Challenge</span>
+                        <div class="editor-controls">
+                            <button onclick="runChallenge()" class="run-btn">▶ Run Code</button>
+                            <button onclick="checkSolution()" class="check-btn">✓ Check Solution</button>
+                            <button onclick="showHint()" class="hint-btn">💡 Hint</button>
+                        </div>
+                    </div>
+                    <textarea id="challengeEditor" class="code-editor"># Student Profile Creator Challenge
+# Fill in the blanks to create a complete student profile
+
+# Create variables for student information
+student_name = "___"          # Your name (string)
+student_age = ___             # Your age (integer)
+student_gpa = ___             # Your GPA (float, like 3.8)
+is_enrolled = ___             # Are you enrolled? (True or False)
+
+# Display the profile (don't change this part)
+print("=" * 30)
+print("    STUDENT PROFILE")
+print("=" * 30)
+print(f"Name: {student_name}")
+print(f"Age: {student_age}")
+print(f"GPA: {student_gpa}")
+print(f"Enrolled: {is_enrolled}")
+
+# Calculate graduation year (assuming 4-year program, current year 2024)
+current_year = 2024
+years_remaining = 4 - (student_age - 18)
+graduation_year = current_year + years_remaining
+print(f"Expected Graduation: {graduation_year}")
+
+# Bonus: Create a summary sentence
+print(f"\n{student_name} is a {student_age}-year-old student with a {student_gpa} GPA.")</textarea>
+                </div>
+                <div class="challenge-output">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button onclick="clearChallengeOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="challengeOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/phase1-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>

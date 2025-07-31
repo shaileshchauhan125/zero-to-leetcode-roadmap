@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Mastery - Phase 2</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase2.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 2: Core Concepts</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="progress-text">45% Complete</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add to control-flow.html and update others -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>2.1 Data Structure Mastery</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#big-four">The Big Four Comparison</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Hands-On Examples</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Challenge Project</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h4>2.2 Loops and Iteration</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>For Loops Mastery</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>While Loops & Control</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Data Structure Mastery</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 60 min read</span>
+                    <span class="difficulty difficulty-intermediate">🟠 Intermediate</span>
+                    <span class="progress">1 of 5 sections</span>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Learning Objectives</h2>
+                <ul>
+                    <li>Choose the right data structure for each problem</li>
+                    <li>Manipulate collections efficiently</li>
+                    <li>Understand time complexity implications</li>
+                    <li>Master Python's core data structures</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>🔑 The Big Four: Data Structures Comparison</h3>
+                <div class="concept-card">
+                    <p class="concept-explanation">
+                        Understanding when to use each data structure is crucial for efficient programming. 
+                        Think of data structures as different tools in a toolbox - each has its optimal use case.
+                    </p>
+
+                    <div class="interactive-comparison">
+                        <div class="comparison-header">
+                            <h4>📊 Interactive Comparison Table</h4>
+                            <p>Click on any cell to learn more about that feature</p>
+                        </div>
+                        
+                        <table class="enhanced-comparison-table" id="dataStructureTable">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th class="list-col">list</th>
+                                    <th class="tuple-col">tuple</th>
+                                    <th class="set-col">set</th>
+                                    <th class="dict-col">dict</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="feature-cell">Analogy</td>
+                                    <td class="clickable-cell" data-info="list-analogy">Shopping list (editable)</td>
+                                    <td class="clickable-cell" data-info="tuple-analogy">GPS Coordinates (fixed)</td>
+                                    <td class="clickable-cell" data-info="set-analogy">Unique attendees list</td>
+                                    <td class="clickable-cell" data-info="dict-analogy">Phone book (name → number)</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Syntax</td>
+                                    <td class="clickable-cell" data-info="list-syntax"><code>[1, 2, 3]</code></td>
+                                    <td class="clickable-cell" data-info="tuple-syntax"><code>(1, 2, 3)</code></td>
+                                    <td class="clickable-cell" data-info="set-syntax"><code>{1, 2, 3}</code></td>
+                                    <td class="clickable-cell" data-info="dict-syntax"><code>{'a': 1}</code></td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Mutable?</td>
+                                    <td class="clickable-cell success" data-info="list-mutable">✅ Yes</td>
+                                    <td class="clickable-cell error" data-info="tuple-mutable">❌ No</td>
+                                    <td class="clickable-cell success" data-info="set-mutable">✅ Yes</td>
+                                    <td class="clickable-cell success" data-info="dict-mutable">✅ Yes</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Ordered?</td>
+                                    <td class="clickable-cell success" data-info="list-ordered">✅ Yes</td>
+                                    <td class="clickable-cell success" data-info="tuple-ordered">✅ Yes</td>
+                                    <td class="clickable-cell error" data-info="set-ordered">❌ No</td>
+                                    <td class="clickable-cell success" data-info="dict-ordered">✅ Yes (Python 3.7+)</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Duplicates?</td>
+                                    <td class="clickable-cell success" data-info="list-duplicates">✅ Allowed</td>
+                                    <td class="clickable-cell success" data-info="tuple-duplicates">✅ Allowed</td>
+                                    <td class="clickable-cell error" data-info="set-duplicates">❌ Not allowed</td>
+                                    <td class="clickable-cell warning" data-info="dict-duplicates">Keys: unique, Values: OK</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Best For</td>
+                                    <td class="clickable-cell" data-info="list-bestfor">Ordered collections</td>
+                                    <td class="clickable-cell" data-info="tuple-bestfor">Immutable sequences</td>
+                                    <td class="clickable-cell" data-info="set-bestfor">Membership testing</td>
+                                    <td class="clickable-cell" data-info="dict-bestfor">Key-value mapping</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-cell">Access Time</td>
+                                    <td class="clickable-cell" data-info="list-time">O(1) by index</td>
+                                    <td class="clickable-cell" data-info="tuple-time">O(1) by index</td>
+                                    <td class="clickable-cell" data-info="set-time">O(1) membership test</td>
+                                    <td class="clickable-cell" data-info="dict-time">O(1) by key</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🛠️ Hands-On Examples</h3>
+                
+                <div class="example-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showExample('lists')">Lists</button>
+                        <button class="tab-btn" onclick="showExample('tuples')">Tuples</button>
+                        <button class="tab-btn" onclick="showExample('sets')">Sets</button>
+                        <button class="tab-btn" onclick="showExample('dicts')">Dictionaries</button>
+                    </div>
+
+                    <div id="lists-example" class="example-content active">
+                        <h4>📝 Lists: Dynamic Arrays</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-label">Lists in Action</span>
+                                <button class="run-code-btn" onclick="runExample('lists')">▶️ Run</button>
+                            </div>
+                            <pre class="code-block"><code class="language-python"># Creating and modifying lists
+shopping_list = ["apples", "bread", "milk"]
+print("Original list:", shopping_list)
+
+# Adding items
+shopping_list.append("eggs")
+shopping_list.insert(1, "bananas")
+print("After adding:", shopping_list)
+
+# Removing items
+shopping_list.remove("bread")
+print("After removing bread:", shopping_list)
+
+# List comprehensions (powerful one-liners)
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers]
+print("Squares:", squares)
+
+# Filtering with comprehensions
+even_squares = [x**2 for x in numbers if x % 2 == 0]
+print("Even squares:", even_squares)</code></pre>
+                        </div>
+                        <div class="example-output" id="lists-output"></div>
+                    </div>
+
+                    <div id="tuples-example" class="example-content">
+                        <h4>📍 Tuples: Immutable Sequences</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-label">Tuples in Action</span>
+                                <button class="run-code-btn" onclick="runExample('tuples')">▶️ Run</button>
+                            </div>
+                            <pre class="code-block"><code class="language-python"># Creating tuples
+coordinates = (10.5, 20.3)
+rgb_color = (255, 128, 0)
+print("Coordinates:", coordinates)
+print("RGB Color:", rgb_color)
+
+# Tuple unpacking
+x, y = coordinates
+red, green, blue = rgb_color
+print(f"X: {x}, Y: {y}")
+print(f"Red: {red}, Green: {green}, Blue: {blue}")
+
+# Tuples as dictionary keys (because they're immutable)
+locations = {
+    (0, 0): "Origin",
+    (10, 20): "Point A",
+    (15, 25): "Point B"
+}
+print("Locations:", locations)
+
+# Named tuples for better readability
+from collections import namedtuple
+Point = namedtuple('Point', ['x', 'y'])
+p1 = Point(10, 20)
+print(f"Point: x={p1.x}, y={p1.y}")</code></pre>
+                        </div>
+                        <div class="example-output" id="tuples-output"></div>
+                    </div>
+
+                    <div id="sets-example" class="example-content">
+                        <h4>🔄 Sets: Unique Collections</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-label">Sets in Action</span>
+                                <button class="run-code-btn" onclick="runExample('sets')">▶️ Run</button>
+                            </div>
+                            <pre class="code-block"><code class="language-python"># Creating sets
+numbers = {1, 2, 3, 4, 5}
+duplicates = {1, 2, 2, 3, 3, 4}
+print("Numbers:", numbers)
+print("Duplicates removed:", duplicates)
+
+# Set operations
+set_a = {1, 2, 3, 4}
+set_b = {3, 4, 5, 6}
+
+print("Union (A | B):", set_a | set_b)
+print("Intersection (A & B):", set_a & set_b)
+print("Difference (A - B):", set_a - set_b)
+print("Symmetric Difference (A ^ B):", set_a ^ set_b)
+
+# Fast membership testing
+large_set = set(range(1000000))
+print("999999 in large_set:", 999999 in large_set)  # Very fast!
+
+# Remove duplicates from a list
+list_with_dupes = [1, 2, 2, 3, 3, 4, 5, 5]
+unique_list = list(set(list_with_dupes))
+print("Unique elements:", unique_list)</code></pre>
+                        </div>
+                        <div class="example-output" id="sets-output"></div>
+                    </div>
+
+                    <div id="dicts-example" class="example-content">
+                        <h4>📚 Dictionaries: Key-Value Power</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-label">Dictionaries in Action</span>
+                                <button class="run-code-btn" onclick="runExample('dicts')">▶️ Run</button>
+                            </div>
+                            <pre class="code-block"><code class="language-python"># Creating dictionaries
+student_grades = {
+    "Alice": 95,
+    "Bob": 87,
+    "Charlie": 92,
+    "Diana": 89
+}
+print("Student grades:", student_grades)
+
+# Adding and updating
+student_grades["Eve"] = 94
+student_grades["Bob"] = 90  # Update Bob's grade
+print("After updates:", student_grades)
+
+# Dictionary methods
+print("Students:", list(student_grades.keys()))
+print("Grades:", list(student_grades.values()))
+print("Items:", list(student_grades.items()))
+
+# Dictionary comprehensions
+grade_letters = {name: "A" if grade >= 90 else "B" 
+                for name, grade in student_grades.items()}
+print("Letter grades:", grade_letters)
+
+# Nested dictionaries
+course_data = {
+    "Math": {"teacher": "Dr. Smith", "room": "101"},
+    "Physics": {"teacher": "Prof. Jones", "room": "205"},
+    "Chemistry": {"teacher": "Dr. Brown", "room": "301"}
+}
+print("Math teacher:", course_data["Math"]["teacher"])</code></pre>
+                        </div>
+                        <div class="example-output" id="dicts-output"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎯 Challenge Project: Contact Manager</h3>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h4>Build a Contact Management System</h4>
+                        <span class="project-difficulty">Intermediate</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Create a comprehensive contact manager that demonstrates all four data structures working together.</p>
+                        <div class="project-features">
+                            <h5>Features to implement:</h5>
+                            <ul>
+                                <li>Store contacts with multiple phone numbers (dict + list)</li>
+                                <li>Track contact groups and categories (sets)</li>
+                                <li>Store immutable contact metadata (tuples)</li>
+                                <li>Search and filter functionality</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="project-btn" onclick="openProjectModal('contact-manager')">
+                        🚀 Start Project
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+    <button class="nav-btn prev phase-transition" onclick="goToPhase1Final()">← Previous: Complete Phase 1</button>
+    <button class="nav-btn next" onclick="nextSection()">Next: Loops & Iteration →</button>
+</nav>
+
+<script>
+function goToPhase1Final() {
+    window.location.href = '../phase1/control-flow.html';
+}
+</script>
+        </main>
+
+        <aside class="notes-panel" id="notesPanel">
+            <div class="notes-header">
+                <h3>📝 My Notes</h3>
+                <button onclick="toggleNotes()" class="close-btn">×</button>
+            </div>
+            <div class="notes-content">
+                <div class="note-editor" id="noteEditor" style="display: none;">
+                    <textarea placeholder="Write your note here..." id="noteTextarea"></textarea>
+                    <div class="editor-controls">
+                        <button onclick="saveNote()" class="save-btn">Save</button>
+                        <button onclick="cancelNote()" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+                <div class="notes-list" id="notesList"></div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Info Modal for Table Cells -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content info-modal">
+            <div class="modal-header">
+                <h3 id="infoTitle">Feature Details</h3>
+                <button onclick="closeInfoModal()" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="infoContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content project-modal">
+            <div class="modal-header">
+                <h3 id="projectTitle">Contact Manager Project</h3>
+                <button onclick="closeProjectModal()" class="close-btn">×</button>
+            </div>
+            <div class="project-workspace">
+                <div class="project-instructions">
+                    <h4>Project Instructions</h4>
+                    <div id="projectInstructions"></div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Python Editor</span>
+                        <div class="editor-controls">
+                            <button onclick="runProject()" class="run-btn">▶ Run Project</button>
+                            <button onclick="resetProject()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="projectEditor" class="code-editor"></textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button onclick="clearProjectOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="projectOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/phase2-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>
+

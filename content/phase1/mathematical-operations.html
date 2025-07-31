@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Operations & Logic - Phase 1</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase1.css">
+    <link rel="stylesheet" href="../../css/math-operations.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 1: Foundations</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="progress-text">45% Complete</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add to control-flow.html and update others -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Topics</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Sorting Algorithms Theater</span>
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 1 of 3 • 90 min</span>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>1.2 Mathematical Operations & Logic</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#arithmetic">Arithmetic Operations</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Comparison Operators</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Boolean Logic & Truth Tables</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Calculator Project</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <header class="lesson-header">
+                <h1>Mathematical Operations & Logic</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 50 min read</span>
+                    <span class="difficulty difficulty-beginner">🟡 Beginner</span>
+                    <span class="progress">2 of 8 sections</span>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 What You'll Learn</h2>
+                <ul>
+                    <li>Master all Python arithmetic operations with confidence</li>
+                    <li>Understand comparison operators and their use cases</li>
+                    <li>Learn boolean logic and create truth tables</li>
+                    <li>Build a functional calculator using mathematical operations</li>
+                    <li>Apply logical thinking to solve computational problems</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h3>➕ Arithmetic Operations: Python's Calculator Powers</h3>
+                <div class="concept-card">
+                    <div class="calculator-analogy">
+                        <div class="calculator-visual">
+                            <div class="calculator">
+                                <div class="calc-screen">
+                                    <div class="calc-display" id="calcDisplay">10 + 5 = 15</div>
+                                </div>
+                                <div class="calc-buttons">
+                                    <button class="calc-btn operator" onclick="demoOperation('+')">+</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('-')">-</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('*')">×</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('/')">/</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('//')">//</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('%')">%</button>
+                                    <button class="calc-btn operator" onclick="demoOperation('**')">**</button>
+                                    <button class="calc-btn special" onclick="clearCalc()">C</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="concept-explanation">
+                        Think of Python as a powerful calculator that never makes mistakes. Just like a calculator, 
+                        Python can perform all basic arithmetic operations, but it also has some special operators 
+                        that make it even more powerful than your typical calculator.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🧮 Interactive Arithmetic Playground</h3>
+                <div class="arithmetic-playground">
+                    <div class="operation-tabs">
+                        <button class="op-tab active" onclick="showOperation('basic')">Basic Math</button>
+                        <button class="op-tab" onclick="showOperation('advanced')">Advanced</button>
+                        <button class="op-tab" onclick="showOperation('modulo')">Modulo Magic</button>
+                        <button class="op-tab" onclick="showOperation('powers')">Powers & Roots</button>
+                    </div>
+
+                    <div id="basic-operations" class="operation-content active">
+                        <h4>➕➖✖️➗ Basic Arithmetic</h4>
+                        <div class="operation-grid">
+                            <div class="operation-card">
+                                <h5>Addition (+)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="add-a" placeholder="First number" value="10">
+                                        <span class="operator">+</span>
+                                        <input type="number" id="add-b" placeholder="Second number" value="5">
+                                        <button onclick="calculateDemo('add')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="add-result">Result: 15</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Addition examples
+total = 10 + 5        # 15
+price = 19.99 + 2.50  # 22.49
+age_sum = 25 + 30     # 55</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="operation-card">
+                                <h5>Subtraction (-)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="sub-a" placeholder="First number" value="20">
+                                        <span class="operator">-</span>
+                                        <input type="number" id="sub-b" placeholder="Second number" value="8">
+                                        <button onclick="calculateDemo('sub')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="sub-result">Result: 12</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Subtraction examples
+difference = 20 - 8   # 12
+change = 100 - 73.45  # 26.55
+countdown = 10 - 1    # 9</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="operation-card">
+                                <h5>Multiplication (*)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="mul-a" placeholder="First number" value="6">
+                                        <span class="operator">×</span>
+                                        <input type="number" id="mul-b" placeholder="Second number" value="7">
+                                        <button onclick="calculateDemo('mul')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="mul-result">Result: 42</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Multiplication examples
+product = 6 * 7       # 42
+area = 12.5 * 8       # 100.0
+dozen = 12 * 3        # 36</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="operation-card">
+                                <h5>Division (/)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="div-a" placeholder="First number" value="20">
+                                        <span class="operator">÷</span>
+                                        <input type="number" id="div-b" placeholder="Second number" value="4">
+                                        <button onclick="calculateDemo('div')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="div-result">Result: 5.0</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Division examples
+quotient = 20 / 4     # 5.0 (always returns float)
+average = 150 / 3     # 50.0
+half = 10 / 2         # 5.0</code></pre>
+                                </div>
+                                <div class="operation-note">
+                                    <strong>Note:</strong> Division (/) always returns a float, even if the result is a whole number!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="advanced-operations" class="operation-content">
+                        <h4>🔧 Advanced Operations</h4>
+                        <div class="operation-grid">
+                            <div class="operation-card">
+                                <h5>Floor Division (//)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="floor-a" placeholder="First number" value="17">
+                                        <span class="operator">//</span>
+                                        <input type="number" id="floor-b" placeholder="Second number" value="5">
+                                        <button onclick="calculateDemo('floor')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="floor-result">Result: 3</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Floor division examples
+whole_parts = 17 // 5   # 3 (rounds down)
+boxes_needed = 23 // 6  # 3 (fits 3 complete boxes)
+hours = 150 // 60       # 2 (150 minutes = 2 hours)</code></pre>
+                                </div>
+                                <div class="operation-explanation">
+                                    <strong>Use case:</strong> When you need whole units only, like "How many complete boxes can I fill?"
+                                </div>
+                            </div>
+
+                            <div class="operation-card">
+                                <h5>Modulo (%)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="mod-a" placeholder="First number" value="17">
+                                        <span class="operator">%</span>
+                                        <input type="number" id="mod-b" placeholder="Second number" value="5">
+                                        <button onclick="calculateDemo('mod')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="mod-result">Result: 2</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Modulo examples
+remainder = 17 % 5      # 2 (17 ÷ 5 = 3 remainder 2)
+leftover = 23 % 6       # 5 (leftover items)
+minutes = 150 % 60      # 30 (150 minutes = 2h 30m)</code></pre>
+                                </div>
+                                <div class="operation-explanation">
+                                    <strong>Use case:</strong> Finding remainders, checking if numbers are even/odd, cycling through values.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modulo-operations" class="operation-content">
+                        <h4>🎯 Modulo Magic: The Remainder Detective</h4>
+                        <div class="modulo-applications">
+                            <div class="modulo-card">
+                                <h5>Even or Odd Detector</h5>
+                                <div class="interactive-demo">
+                                    <input type="number" id="evenOddInput" placeholder="Enter a number" value="42">
+                                    <button onclick="checkEvenOdd()">Check</button>
+                                    <div class="demo-result" id="evenOddResult">42 is EVEN (42 % 2 = 0)</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Even/Odd detection
+number = 42
+if number % 2 == 0:
+    print(f"{number} is EVEN")
+else:
+    print(f"{number} is ODD")</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="modulo-card">
+                                <h5>Cycling Through Days</h5>
+                                <div class="interactive-demo">
+                                    <input type="number" id="dayInput" placeholder="Days from Monday" value="10">
+                                    <button onclick="findDay()">Find Day</button>
+                                    <div class="demo-result" id="dayResult">Day 10 is Thursday</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Day of week calculator
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", 
+        "Friday", "Saturday", "Sunday"]
+day_number = 10
+day = days[day_number % 7]
+print(f"Day {day_number} is {day}")</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="modulo-card">
+                                <h5>Time Conversion</h5>
+                                <div class="interactive-demo">
+                                    <input type="number" id="minutesInput" placeholder="Total minutes" value="150">
+                                    <button onclick="convertTime()">Convert</button>
+                                    <div class="demo-result" id="timeResult">150 minutes = 2 hours, 30 minutes</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Convert minutes to hours and minutes
+total_minutes = 150
+hours = total_minutes // 60    # 2
+minutes = total_minutes % 60   # 30
+print(f"{total_minutes} minutes = {hours} hours, {minutes} minutes")</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="powers-operations" class="operation-content">
+                        <h4>🚀 Powers & Exponents</h4>
+                        <div class="power-showcase">
+                            <div class="power-card">
+                                <h5>Exponentiation (**)</h5>
+                                <div class="operation-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="pow-a" placeholder="Base" value="2">
+                                        <span class="operator">**</span>
+                                        <input type="number" id="pow-b" placeholder="Exponent" value="3">
+                                        <button onclick="calculateDemo('pow')">Calculate</button>
+                                    </div>
+                                    <div class="demo-result" id="pow-result">Result: 8</div>
+                                </div>
+                                <div class="power-examples">
+                                    <div class="example-grid">
+                                        <div class="example-item" onclick="setPowerExample(2, 8)">
+                                            <span class="example-calc">2 ** 8</span>
+                                            <span class="example-result">= 256</span>
+                                            <span class="example-desc">256 bytes</span>
+                                        </div>
+                                        <div class="example-item" onclick="setPowerExample(10, 3)">
+                                            <span class="example-calc">10 ** 3</span>
+                                            <span class="example-result">= 1000</span>
+                                            <span class="example-desc">One thousand</span>
+                                        </div>
+                                        <div class="example-item" onclick="setPowerExample(3, 4)">
+                                            <span class="example-calc">3 ** 4</span>
+                                            <span class="example-result">= 81</span>
+                                            <span class="example-desc">3×3×3×3</span>
+                                        </div>
+                                        <div class="example-item" onclick="setPowerExample(5, 0)">
+                                            <span class="example-calc">5 ** 0</span>
+                                            <span class="example-result">= 1</span>
+                                            <span class="example-desc">Any number⁰ = 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="power-card">
+                                <h5>Square Roots & Fractional Powers</h5>
+                                <div class="root-demo">
+                                    <div class="demo-input">
+                                        <input type="number" id="sqrt-input" placeholder="Number" value="16">
+                                        <button onclick="calculateSquareRoot()">√ Square Root</button>
+                                    </div>
+                                    <div class="demo-result" id="sqrt-result">√16 = 4.0</div>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="code-block"><code># Square roots using fractional exponents
+import math
+
+# Method 1: Using math module
+sqrt_16 = math.sqrt(16)    # 4.0
+
+# Method 2: Using exponentiation
+sqrt_16 = 16 ** 0.5        # 4.0
+
+# Cube root
+cube_root_8 = 8 ** (1/3)   # 2.0
+
+# Fourth root
+fourth_root_16 = 16 ** 0.25  # 2.0</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>⚖️ Comparison Operators: Making Decisions</h3>
+                <div class="comparison-section">
+                    <div class="comparison-visual">
+                        <div class="balance-scale">
+                            <div class="scale-left" id="scaleLeft">
+                                <div class="scale-value">10</div>
+                            </div>
+                            <div class="scale-center">
+                                <div class="scale-operator" id="scaleOperator">></div>
+                                <div class="scale-result" id="scaleResult">True</div>
+                            </div>
+                            <div class="scale-right" id="scaleRight">
+                                <div class="scale-value">5</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-playground">
+                        <h4>🎮 Interactive Comparison Tester</h4>
+                        <div class="comparison-controls">
+                            <input type="number" id="compareA" placeholder="First value" value="10">
+                            <select id="compareOp">
+                                <option value="==">== (equal to)</option>
+                                <option value="!=">!= (not equal to)</option>
+                                <option value=">" selected>> (greater than)</option>
+                                <option value="<">< (less than)</option>
+                                <option value=">=">>= (greater than or equal)</option>
+                                <option value="<=">>= (less than or equal)</option>
+                            </select>
+                            <input type="number" id="compareB" placeholder="Second value" value="5">
+                            <button onclick="performComparison()">Compare</button>
+                        </div>
+                        <div class="comparison-result" id="comparisonResult">
+                            10 > 5 = True
+                        </div>
+                    </div>
+
+                    <div class="comparison-table-section">
+                        <h4>📊 Complete Comparison Reference</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Operator</th>
+                                    <th>Meaning</th>
+                                    <th>Example</th>
+                                    <th>Result</th>
+                                    <th>Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="clickable-row" onclick="setComparison(5, '==', 5)">
+                                    <td><code>==</code></td>
+                                    <td>Equal to</td>
+                                    <td>5 == 5</td>
+                                    <td class="result-true">True</td>
+                                    <td>Checking if values match</td>
+                                </tr>
+                                <tr class="clickable-row" onclick="setComparison(5, '!=', 3)">
+                                    <td><code>!=</code></td>
+                                    <td>Not equal to</td>
+                                    <td>5 != 3</td>
+                                    <td class="result-true">True</td>
+                                    <td>Checking if values differ</td>
+                                </tr>
+                                <tr class="clickable-row" onclick="setComparison(7, '>', 3)">
+                                    <td><code>></code></td>
+                                    <td>Greater than</td>
+                                    <td>7 > 3</td>
+                                    <td class="result-true">True</td>
+                                    <td>Age verification, score comparison</td>
+                                </tr>
+                                <tr class="clickable-row" onclick="setComparison(2, '<', 8)">
+                                    <td><code><</code></td>
+                                    <td>Less than</td>
+                                    <td>2 < 8</td>
+                                    <td class="result-true">True</td>
+                                    <td>Limit checking, range validation</td>
+                                </tr>
+                                <tr class="clickable-row" onclick="setComparison(10, '>=', 10)">
+                                    <td><code>>=</code></td>
+                                    <td>Greater than or equal</td>
+                                    <td>10 >= 10</td>
+                                    <td class="result-true">True</td>
+                                    <td>Minimum requirement checks</td>
+                                </tr>
+                                <tr class="clickable-row" onclick="setComparison(3, '<=', 5)">
+                                    <td><code><=</code></td>
+                                    <td>Less than or equal</td>
+                                    <td>3 <= 5</td>
+                                    <td class="result-true">True</td>
+                                    <td>Maximum limit validation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🧠 Boolean Logic & Truth Tables</h3>
+                <div class="boolean-logic-section">
+                    <div class="truth-table-interactive">
+                        <h4>🎯 Interactive Truth Table Generator</h4>
+                        <div class="truth-controls">
+                            <div class="input-group">
+                                <label>A:</label>
+                                <select id="truthA">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Operator:</label>
+                                <select id="truthOp">
+                                    <option value="and">and</option>
+                                    <option value="or">or</option>
+                                    <option value="not">not A</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>B:</label>
+                                <select id="truthB">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                            <button onclick="calculateTruth()">Calculate</button>
+                        </div>
+                        <div class="truth-result" id="truthResult">
+                            True and True = True
+                        </div>
+                    </div>
+
+                    <div class="complete-truth-table">
+                        <h4>📋 Master Truth Table</h4>
+                        <p>This table shows all possible combinations of boolean operations:</p>
+                        <table class="truth-table">
+                            <thead>
+                                <tr>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>A and B</th>
+                                    <th>A or B</th>
+                                    <th>not A</th>
+                                    <th>not B</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="truth-row" onclick="highlightTruthRow(this, 'true', 'true')">
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-false">False</td>
+                                </tr>
+                                <tr class="truth-row" onclick="highlightTruthRow(this, 'true', 'false')">
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-true">True</td>
+                                </tr>
+                                <tr class="truth-row" onclick="highlightTruthRow(this, 'false', 'true')">
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-false">False</td>
+                                </tr>
+                                <tr class="truth-row" onclick="highlightTruthRow(this, 'false', 'false')">
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-false">False</td>
+                                    <td class="truth-true">True</td>
+                                    <td class="truth-true">True</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="boolean-applications">
+                        <h4>🎲 Real-World Boolean Applications</h4>
+                        <div class="application-cards">
+                            <div class="app-card">
+                                <h5>🎟️ Event Admission</h5>
+                                <div class="scenario">
+                                    <p><strong>Rule:</strong> Can enter if (age >= 18) OR (age >= 16 AND has_permission)</p>
+                                    <div class="scenario-tester">
+                                        <div class="input-row">
+                                            <label>Age:</label>
+                                            <input type="number" id="ageInput" value="17" min="0" max="100">
+                                        </div>
+                                        <div class="input-row">
+                                            <label>Has Permission:</label>
+                                            <input type="checkbox" id="permissionInput" checked>
+                                        </div>
+                                        <button onclick="checkAdmission()">Check Admission</button>
+                                        <div class="scenario-result" id="admissionResult">
+                                            Age 17 with permission: ADMITTED ✅
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="app-card">
+                                <h5>🌦️ Weather Decision</h5>
+                                <div class="scenario">
+                                    <p><strong>Rule:</strong> Go outside if (sunny OR cloudy) AND (NOT raining) AND (temperature > 60)</p>
+                                    <div class="scenario-tester">
+                                        <div class="input-row">
+                                            <label>Weather:</label>
+                                            <select id="weatherInput">
+                                                <option value="sunny">Sunny</option>
+                                                <option value="cloudy">Cloudy</option>
+                                                <option value="stormy">Stormy</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-row">
+                                            <label>Raining:</label>
+                                            <input type="checkbox" id="rainingInput">
+                                        </div>
+                                        <div class="input-row">
+                                            <label>Temperature:</label>
+                                            <input type="number" id="tempInput" value="75" min="-20" max="120">°F
+                                        </div>
+                                        <button onclick="checkWeather()">Check Decision</button>
+                                        <div class="scenario-result" id="weatherResult">
+                                            Sunny, not raining, 75°F: GO OUTSIDE! 🌞
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🧮 Final Challenge: Build Your Calculator</h3>
+                <div class="calculator-project">
+                    <div class="project-description">
+                        <h4>🎯 Project Goal</h4>
+                        <p>Create a fully functional calculator that demonstrates all the mathematical operations and logic you've learned!</p>
+                        
+                        <div class="project-features">
+                            <h5>Calculator Features:</h5>
+                            <ul>
+                                <li>Basic arithmetic operations (+, -, *, /)</li>
+                                <li>Advanced operations (**, //, %)</li>
+                                <li>Input validation and error handling</li>
+                                <li>Memory functions (store/recall)</li>
+                                <li>Scientific functions (square root, powers)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="project-btn" onclick="openCalculatorProject()">
+                        🚀 Start Calculator Project
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Variables & Data Types</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Control Flow →</button>
+            </nav>
+
+            <script>
+            // Updated navigation functions
+            function nextLesson() {
+                window.location.href = 'control-flow.html';  // NOW LINKS TO CONTROL FLOW
+            }
+            </script>
+        </main>
+    </div>
+
+    <!-- Calculator Project Modal -->
+    <div class="modal" id="calculatorModal">
+        <div class="modal-content calculator-project-modal">
+            <div class="modal-header">
+                <h3>Calculator Project</h3>
+                <button onclick="closeCalculatorModal()" class="close-btn">×</button>
+            </div>
+            <div class="calculator-workspace">
+                <div class="project-instructions">
+                    <h4>Project Instructions</h4>
+                    <div id="calculatorInstructions">
+                        <h5>🎯 Build a Complete Calculator</h5>
+                        <p>Create a calculator that can handle all the operations we've learned!</p>
+                        
+                        <h5>📋 Requirements:</h5>
+                        <ol>
+                            <li>Handle basic operations (+, -, *, /)</li>
+                            <li>Include advanced operations (//, %, **)</li>
+                            <li>Add input validation</li>
+                            <li>Handle division by zero</li>
+                            <li>Include a menu system</li>
+                        </ol>
+                        
+                        <h5>💡 Bonus Features:</h5>
+                        <ul>
+                            <li>Memory storage (M+, M-, MR, MC)</li>
+                            <li>Scientific functions (sqrt, square)</li>
+                            <li>History of calculations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-editor">
+                    <div class="editor-header">
+                        <span>Python Calculator</span>
+                        <div class="editor-controls">
+                            <button onclick="runCalculator()" class="run-btn">▶ Run Calculator</button>
+                            <button onclick="resetCalculator()" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                    <textarea id="calculatorEditor" class="code-editor"># Advanced Calculator Project
+import math
+
+class Calculator:
+    def __init__(self):
+        self.memory = 0
+        self.history = []
+    
+    def add(self, a, b):
+        """Addition operation"""
+        result = a + b
+        self.add_to_history(f"{a} + {b} = {result}")
+        return result
+    
+    def subtract(self, a, b):
+        """Subtraction operation"""
+        # TODO: Implement subtraction
+        pass
+    
+    def multiply(self, a, b):
+        """Multiplication operation"""
+        # TODO: Implement multiplication
+        pass
+    
+    def divide(self, a, b):
+        """Division operation with error handling"""
+        # TODO: Implement division with zero check
+        pass
+    
+    def power(self, base, exponent):
+        """Exponentiation operation"""
+        # TODO: Implement power operation
+        pass
+    
+    def floor_divide(self, a, b):
+        """Floor division operation"""
+        # TODO: Implement floor division
+        pass
+    
+    def modulo(self, a, b):
+        """Modulo operation"""
+        # TODO: Implement modulo
+        pass
+    
+    def square_root(self, n):
+        """Square root operation"""
+        # TODO: Implement square root with error checking
+        pass
+    
+    def memory_add(self, value):
+        """Add value to memory"""
+        self.memory += value
+        print(f"Added {value} to memory. Memory: {self.memory}")
+    
+    def memory_recall(self):
+        """Recall value from memory"""
+        return self.memory
+    
+    def memory_clear(self):
+        """Clear memory"""
+        self.memory = 0
+        print("Memory cleared")
+    
+    def add_to_history(self, calculation):
+        """Add calculation to history"""
+        self.history.append(calculation)
+    
+    def show_history(self):
+        """Display calculation history"""
+        if not self.history:
+            print("No calculations yet")
+        else:
+            print("Calculation History:")
+            for calc in self.history[-5:]:  # Show last 5
+                print(f"  {calc}")
+    
+    def get_number_input(self, prompt):
+        """Get and validate number input"""
+        while True:
+            try:
+                return float(input(prompt))
+            except ValueError:
+                print("Please enter a valid number!")
+    
+    def run(self):
+        """Main calculator loop"""
+        print("🧮 Advanced Calculator")
+        print("=" * 30)
+        
+        while True:
+            print("\nOperations:")
+            print("1. Add (+)")
+            print("2. Subtract (-)")
+            print("3. Multiply (*)")
+            print("4. Divide (/)")
+            print("5. Power (**)")
+            print("6. Floor Division (//)")
+            print("7. Modulo (%)")
+            print("8. Square Root (√)")
+            print("9. Memory Functions")
+            print("10. Show History")
+            print("0. Exit")
+            
+            choice = input("\nSelect operation (0-10): ")
+            
+            if choice == '0':
+                print("Thanks for using the calculator!")
+                break
+            elif choice == '1':
+                # TODO: Implement addition menu
+                pass
+            elif choice == '2':
+                # TODO: Implement subtraction menu
+                pass
+            # TODO: Add more menu options
+            
+            else:
+                print("Invalid choice! Please try again.")
+
+# Create and run calculator
+if __name__ == "__main__":
+    calc = Calculator()
+    calc.run()</textarea>
+                </div>
+                <div class="project-output">
+                    <div class="output-header">
+                        <span>Calculator Output</span>
+                        <button onclick="clearCalculatorOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="calculatorOutput" class="code-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/math-operations-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+</body>
+</html>

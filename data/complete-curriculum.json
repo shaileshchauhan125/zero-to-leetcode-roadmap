@@ -1,0 +1,147 @@
+{
+  "platform": {
+    "name": "CodeMaster Academy",
+    "version": "1.0",
+    "description": "Complete Python-to-LeetCode Learning Platform"
+  },
+  "phases": [
+    {
+      "id": 1,
+      "title": "Foundations", 
+      "subtitle": "Your First Conversation with the Computer",
+      "description": "Master variables, data types, and basic control flow",
+      "duration": "2-3 weeks",
+      "difficulty": "Beginner",
+      "objectives": [
+        "Understand how computers store information in memory",
+        "Master Python's four primary data types",
+        "Control program flow with conditionals",
+        "Build your first interactive programs"
+      ],
+      "modules": [
+        {
+          "id": "1.1",
+          "title": "Variables & Data Types",
+          "lessons": [
+            {
+              "id": "variables-intro",
+              "title": "The Storage Box Analogy",
+              "content": {
+                "explanation": "Think of variables as labeled storage boxes in your computer's memory. Each box has a name and can store different types of data.",
+                "code": "# Numbers\nage = 25                    # Integer (whole number)\nheight = 5.8               # Float (decimal number)\n\n# Text\nname = \"Alice\"             # String (text)\nis_student = True          # Boolean (True/False)\n\n# You can check the type of any variable\nprint(type(age))           # <class 'int'>\nprint(type(height))        # <class 'float'>",
+                "exercise": {
+                  "title": "Create Your Profile",
+                  "prompt": "Create variables for your personal information:",
+                  "starter": "# Create your profile\nmy_name = \"___\"\nmy_age = ___\nmy_gpa = ___\nis_student = ___\n\nprint(f\"Hello, I'm {my_name}!\")",
+                  "solution": "my_name = \"John\"\nmy_age = 20\nmy_gpa = 3.8\nis_student = True\n\nprint(f\"Hello, I'm {my_name}!\")"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "1.2", 
+          "title": "Mathematical Operations & Logic",
+          "lessons": [
+            {
+              "id": "operators",
+              "title": "Arithmetic & Comparison Operators",
+              "content": {
+                "explanation": "Python supports all basic mathematical operations and logical comparisons:",
+                "code": "# Basic math operations\naddition = 10 + 5        # 15\nsubtraction = 10 - 5     # 5\nmultiplication = 10 * 5  # 50\ndivision = 10 / 5        # 2.0\n\n# Comparison operations\nprint(10 > 5)            # True\nprint(10 == 10)          # True\nprint(5 != 3)            # True",
+                "truth_table": [
+                  ["A", "B", "A and B", "A or B", "not A"],
+                  ["True", "True", "True", "True", "False"],
+                  ["True", "False", "False", "True", "False"],
+                  ["False", "True", "False", "True", "True"],
+                  ["False", "False", "False", "False", "True"]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Core Concepts",
+      "subtitle": "Master Loops and Data Structures",
+      "description": "Automate tasks with loops and organize data efficiently",
+      "duration": "3-4 weeks", 
+      "difficulty": "Intermediate",
+      "modules": [
+        {
+          "id": "2.1",
+          "title": "Data Structure Mastery",
+          "lessons": [
+            {
+              "id": "data-structures-comparison",
+              "title": "The Big Four: Lists, Tuples, Sets, Dictionaries",
+              "content": {
+                "comparison_table": [
+                  ["Feature", "list", "tuple", "set", "dict"],
+                  ["Analogy", "Shopping list", "GPS Coordinates", "Unique attendees", "Phone book"],
+                  ["Syntax", "[1, 2, 3]", "(1, 2, 3)", "{1, 2, 3}", "{'a': 1}"],
+                  ["Mutable?", "Yes", "No", "Yes", "Yes"],
+                  ["Ordered?", "Yes", "Yes", "No", "Yes (3.7+)"],
+                  ["Duplicates?", "Yes", "Yes", "No", "Keys unique"],
+                  ["Access Time", "O(1) by index", "O(1) by index", "O(1) membership", "O(1) by key"]
+                ],
+                "code": "# Lists: Dynamic arrays\nshopping = ['apples', 'bread', 'milk']\nshopping.append('eggs')\n\n# Dictionaries: Key-value pairs\ngrades = {'Alice': 95, 'Bob': 87}\nprint(grades['Alice'])  # 95\n\n# Sets: Unique collections\nunique_nums = {1, 2, 3, 2, 1}  # {1, 2, 3}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": {
+    "beginner": [
+      {
+        "id": "hello-world",
+        "title": "Your First Program",
+        "description": "Print 'Hello, World!' to the console",
+        "starter_code": "# Write your first Python program\n# Use the print() function to display 'Hello, World!'\n",
+        "solution": "print('Hello, World!')",
+        "tests": ["Output contains 'Hello, World!'"],
+        "hints": [
+          "Use the print() function",
+          "Put your text inside quotes",
+          "Don't forget the parentheses!"
+        ]
+      },
+      {
+        "id": "variables-practice", 
+        "title": "Variable Practice",
+        "description": "Create and use different types of variables",
+        "starter_code": "# Create variables of different types\nname = \"___\"  # String\nage = ___     # Integer\nheight = ___  # Float\nis_student = ___ # Boolean\n\n# Print them all\nprint(f\"Name: {name}\")\nprint(f\"Age: {age}\")\nprint(f\"Height: {height}\")\nprint(f\"Student: {is_student}\")",
+        "solution": "name = \"Alice\"\nage = 20\nheight = 5.6\nis_student = True\n\nprint(f\"Name: {name}\")\nprint(f\"Age: {age}\")\nprint(f\"Height: {height}\")\nprint(f\"Student: {is_student}\")"
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "grade-calculator",
+        "title": "Grade Calculator", 
+        "description": "Calculate average grade and determine pass/fail",
+        "starter_code": "# Grade Calculator\ntest1 = 85\ntest2 = 92\ntest3 = 78\n\n# Calculate the average\naverage = # Your code here\n\n# Determine if passing (>= 80)\npassing = # Your code here\n\nprint(f\"Average: {average}\")\nprint(f\"Passing: {passing}\")",
+        "solution": "test1 = 85\ntest2 = 92\ntest3 = 78\n\naverage = (test1 + test2 + test3) / 3\npassing = average >= 80\n\nprint(f\"Average: {average}\")\nprint(f\"Passing: {passing}\")"
+      }
+    ]
+  },
+  "quizzes": {
+    "phase1": [
+      {
+        "question": "What data type would you use to store a person's GPA?",
+        "options": ["Integer", "Float", "String", "Boolean"],
+        "correct": 1,
+        "explanation": "GPA contains decimal values like 3.75, so Float is correct."
+      },
+      {
+        "question": "Which operator checks if two values are equal?",
+        "options": ["=", "==", "!=", ">="],
+        "correct": 1,
+        "explanation": "== compares values for equality, while = assigns values."
+      }
+    ]
+  }
+}

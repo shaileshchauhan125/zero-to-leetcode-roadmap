@@ -1,0 +1,287 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson - CodeMaster Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<script>
+// Load curriculum data and render dynamically
+async function loadCurriculumData() {
+    try {
+        // In a real app, this would fetch from your JSON file
+        // For now, we'll use embedded data
+        const curriculumData = {
+            "exercises": {
+                "beginner": [
+                    {
+                        "id": "hello-world",
+                        "title": "Your First Program", 
+                        "description": "Print 'Hello, World!' to the console",
+                        "starter_code": "# Write your first Python program\n# Use the print() function to display 'Hello, World!'\n",
+                        "solution": "print('Hello, World!')",
+                        "hints": [
+                            "Use the print() function",
+                            "Put your text inside quotes", 
+                            "Don't forget the parentheses!"
+                        ]
+                    },
+                    {
+                        "id": "student-profile",
+                        "title": "Create Student Profile",
+                        "description": "Create variables for student information",
+                        "starter_code": "# Student Profile\nstudent_name = \"___\"     # Your name\nstudent_age = ___        # Your age\nstudent_gpa = ___        # Your GPA (decimal)\nis_enrolled = ___        # True or False\n\n# Display the profile\nprint(f\"Student: {student_name}\")\nprint(f\"Age: {student_age}\")\nprint(f\"GPA: {student_gpa}\")\nprint(f\"Enrolled: {is_enrolled}\")",
+                        "solution": "student_name = \"Alice Johnson\"\nstudent_age = 20\nstudent_gpa = 3.8\nis_enrolled = True\n\nprint(f\"Student: {student_name}\")\nprint(f\"Age: {student_age}\")\nprint(f\"GPA: {student_gpa}\")\nprint(f\"Enrolled: {is_enrolled}\")",
+                        "hints": [
+                            "Strings need quotes around them",
+                            "Integers don't need quotes",
+                            "Floats are decimal numbers like 3.8",
+                            "Booleans are True or False (capitalized)"
+                        ]
+                    }
+                ]
+            }
+        };
+        
+        return curriculumData;
+    } catch (error) {
+        console.error('Failed to load curriculum:', error);
+        return null;
+    }
+}
+
+// Enhanced exercise modal functionality
+function openExerciseModal(exerciseId) {
+    loadCurriculumData().then(data => {
+        if (!data) return;
+        
+        // Find the exercise
+        const exercise = data.exercises.beginner.find(ex => ex.id === exerciseId) ||
+                        data.exercises.intermediate?.find(ex => ex.id === exerciseId);
+        
+        if (!exercise) {
+            console.error('Exercise not found:', exerciseId);
+            return;
+        }
+        
+        // Populate modal with exercise data
+        const modal = document.getElementById('codeModal');
+        document.getElementById('exerciseTitle').textContent = exercise.title;
+        document.getElementById('exerciseDescription').innerHTML = `
+            <h4>${exercise.title}</h4>
+            <p>${exercise.description}</p>
+        `;
+        
+        // Set up code editor
+        const editor = document.getElementById('codeEditor');
+        editor.value = exercise.starter_code;
+        editor.dataset.starterCode = exercise.starter_code;
+        
+        // Store exercise data for solution checking
+        modal.dataset.solution = exercise.solution;
+        modal.dataset.hints = JSON.stringify(exercise.hints);
+        modal.dataset.exerciseId = exercise.id;
+        
+        // Show modal
+        modal.style.display = 'block';
+        
+        // Focus on code editor
+        setTimeout(() => editor.focus(), 100);
+    });
+}
+
+// Update the existing openExerciseModal call in lesson-engine.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Update any existing exercise buttons to use specific exercise IDs
+    const exerciseButtons = document.querySelectorAll('.try-it-btn');
+    exerciseButtons.forEach((button, index) => {
+        button.onclick = () => {
+            const exerciseIds = ['hello-world', 'student-profile'];
+            openExerciseModal(exerciseIds[index] || 'hello-world');
+        };
+    });
+});
+</script>
+
+<body>
+    <div class="lesson-layout">
+        <!-- Enhanced Sidebar -->
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="goToDashboard()">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3 id="currentPhaseTitle">Phase 1: Foundations</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="phaseProgressBar" style="width: 33%"></div>
+                        </div>
+                        <span class="progress-text" id="phaseProgressText">33% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>1.1 Variables & Data Types</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item completed">
+                            <span class="status-icon">✓</span>
+                            <a href="#intro">Introduction</a>
+                        </li>
+                        <li class="lesson-item completed">
+                            <span class="status-icon">✓</span>
+                            <a href="#concepts">Key Concepts</a>
+                        </li>
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#exercise">Interactive Exercise</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Quiz</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Learning Tools -->
+            <div class="learning-tools">
+                <button class="tool-btn" onclick="toggleNotes()">
+                    📝 Notes (<span id="noteCount">0</span>)
+                </button>
+                <button class="tool-btn" onclick="toggleBookmarks()">
+                    🔖 Bookmarks
+                </button>
+                <button class="tool-btn" onclick="exportProgress()">
+                    📊 Progress
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lesson-content">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">Dashboard</a>
+                <span>→</span>
+                <a href="#phase1">Phase 1</a>
+                <span>→</span>
+                <span>Variables & Data Types</span>
+            </nav>
+
+            <!-- Lesson Header -->
+            <header class="lesson-header">
+                <h1 id="lessonTitle">Variables & Data Types</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ <span id="lessonDuration">45 min read</span></span>
+                    <span class="difficulty difficulty-beginner" id="lessonDifficulty">🟡 Beginner</span>
+                    <span class="progress">1 of 3 sections</span>
+                </div>
+            </header>
+
+            <!-- Learning Objectives -->
+            <section class="learning-objectives">
+                <h2>📚 What You'll Learn</h2>
+                <ul id="learningObjectives">
+                    <!-- Populated by JavaScript -->
+                </ul>
+            </section>
+
+            <!-- Dynamic Content Area -->
+            <div id="lessonContentArea">
+                <!-- Content will be loaded dynamically -->
+            </div>
+
+            <!-- Navigation -->
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousSection()" disabled>
+                    ← Previous
+                </button>
+                <button class="nav-btn next" onclick="nextSection()">
+                    Next →
+                </button>
+            </nav>
+        </main>
+
+        <!-- Enhanced Notes Panel -->
+        <aside class="notes-panel" id="notesPanel">
+            <div class="notes-header">
+                <h3>📝 My Notes</h3>
+                <div class="notes-controls">
+                    <button onclick="addNote()" class="add-note-btn">+ Add Note</button>
+                    <button onclick="toggleNotes()" class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="notes-content">
+                <div class="note-editor" id="noteEditor" style="display: none;">
+                    <textarea placeholder="Write your note here..." id="noteTextarea"></textarea>
+                    <div class="editor-controls">
+                        <button onclick="saveNote()" class="save-btn">Save</button>
+                        <button onclick="cancelNote()" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+                <div class="notes-list" id="notesList">
+                    <!-- Notes will be populated here -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Enhanced Code Editor Modal -->
+    <div class="modal" id="codeModal">
+        <div class="modal-content code-modal-content">
+            <div class="modal-header">
+                <h3 id="exerciseTitle">Interactive Exercise</h3>
+                <button onclick="closeCodeModal()" class="close-btn">×</button>
+            </div>
+            <div class="exercise-content">
+                <div class="exercise-description" id="exerciseDescription">
+                    <!-- Exercise description will be loaded here -->
+                </div>
+                
+                <div class="code-workspace">
+                    <div class="editor-header">
+                        <span>Python Editor</span>
+                        <div class="editor-controls">
+                            <button onclick="formatCode()" class="format-btn">Format</button>
+                            <button onclick="resetCode()" class="reset-btn">Reset</button>
+                            <button onclick="runCode()" class="run-btn">▶ Run</button>
+                        </div>
+                    </div>
+                    <div class="code-editor-container">
+                        <textarea id="codeEditor" class="code-editor" spellcheck="false"></textarea>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button onclick="clearOutput()" class="clear-btn">Clear</button>
+                    </div>
+                    <div id="codeOutput" class="code-output"></div>
+                </div>
+
+                <div class="exercise-actions">
+                    <button onclick="checkSolution()" class="check-btn">✓ Check Solution</button>
+                    <button onclick="showHint()" class="hint-btn">💡 Need a Hint?</button>
+                    <button onclick="showSolution()" class="solution-btn">👁️ Show Solution</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="js/lesson-engine.js"></script>
+    <script src="js/code-editor.js"></script>
+    <script src="js/notes-system.js"></script>
+</body>
+</html>
+
