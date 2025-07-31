@@ -1,0 +1,1399 @@
+/* Time & Space Complexity Analysis Styles */
+
+/* Hero Banner with Complexity Visual */
+.complexity-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a8a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.complexity-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.complexity-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.big-o-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.chart-line {
+    height: 8px;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.chart-line.excellent {
+    background: linear-gradient(90deg, #10b981, #059669);
+    width: 20%;
+}
+
+.chart-line.good {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    width: 35%;
+}
+
+.chart-line.fair {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    width: 60%;
+}
+
+.chart-line.bad {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    width: 85%;
+}
+
+.chart-line.terrible {
+    background: linear-gradient(90deg, #7c2d12, #451a03);
+    width: 100%;
+}
+
+.chart-line::after {
+    content: attr(data-complexity);
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+/* Big O Fundamentals Grid */
+.big-o-fundamentals {
+    margin: 3rem 0;
+}
+
+.complexity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.complexity-card {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.complexity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: all 0.3s ease;
+}
+
+.complexity-card.excellent {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.complexity-card.excellent::before {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.complexity-card.good {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.complexity-card.good::before {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.complexity-card.fair {
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.complexity-card.fair::before {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.complexity-card.bad {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.complexity-card.bad::before {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.complexity-card.terrible {
+    border-color: rgba(124, 45, 18, 0.3);
+}
+
+.complexity-card.terrible::before {
+    background: linear-gradient(90deg, #7c2d12, #451a03);
+}
+
+.complexity-card.catastrophic {
+    border-color: rgba(127, 29, 29, 0.3);
+}
+
+.complexity-card.catastrophic::before {
+    background: linear-gradient(90deg, #7f1d1d, #450a0a);
+}
+
+.complexity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.complexity-card:hover::before {
+    height: 6px;
+}
+
+.complexity-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.complexity-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.complexity-info h5 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.complexity-rating {
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.complexity-card.excellent .complexity-rating {
+    color: #10b981;
+}
+
+.complexity-card.good .complexity-rating {
+    color: #3b82f6;
+}
+
+.complexity-card.fair .complexity-rating {
+    color: #f59e0b;
+}
+
+.complexity-card.bad .complexity-rating {
+    color: #ef4444;
+}
+
+.complexity-card.terrible .complexity-rating {
+    color: #dc2626;
+}
+
+.complexity-card.catastrophic .complexity-rating {
+    color: #7f1d1d;
+}
+
+.complexity-description p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.complexity-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.example {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.complexity-visual-mini {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.mini-chart {
+    height: 40px;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.constant-chart::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #10b981;
+}
+
+.log-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #3b82f6 30%, #3b82f6 100%);
+    clip-path: polygon(0 100%, 20% 70%, 40% 50%, 60% 35%, 80% 25%, 100% 20%, 100% 100%);
+}
+
+.linear-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: #f59e0b;
+    clip-path: polygon(0 100%, 100% 0%, 100% 100%);
+}
+
+.nlogn-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: #ef4444;
+    clip-path: polygon(0 100%, 20% 90%, 40% 70%, 60% 40%, 80% 15%, 100% 0%, 100% 100%);
+}
+
+.quadratic-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: #7c2d12;
+    clip-path: polygon(0 100%, 20% 95%, 40% 80%, 60% 55%, 80% 20%, 100% 0%, 100% 100%);
+}
+
+.exponential-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: #7f1d1d;
+    clip-path: polygon(0 100%, 10% 99%, 20% 95%, 30% 85%, 40% 65%, 50% 35%, 60% 15%, 70% 5%, 80% 1%, 90% 0%, 100% 0%, 100% 100%);
+}
+
+.visual-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Interactive Complexity Visualizer */
+.complexity-visualizer {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.visualizer-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.input-size-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.input-size-control label {
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 120px;
+}
+
+#inputSizeSlider {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    outline: none;
+    appearance: none;
+}
+
+#inputSizeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#inputSizeSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+#inputSizeDisplay {
+    background: var(--accent-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Monaco', 'Consolas', monospace;
+    min-width: 60px;
+    text-align: center;
+}
+
+.complexity-selectors {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.complexity-selectors h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.complexity-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.complexity-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.complexity-checkbox:hover {
+    background: var(--bg-tertiary);
+}
+
+.complexity-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.complexity-checkbox input[type="checkbox"]:checked + .complexity-label {
+    font-weight: bold;
+}
+
+.complexity-label {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.complexity-label.excellent {
+    color: #10b981;
+}
+
+.complexity-label.good {
+    color: #3b82f6;
+}
+
+.complexity-label.fair {
+    color: #f59e0b;
+}
+
+.complexity-label.bad {
+    color: #ef4444;
+}
+
+.complexity-label.terrible {
+    color: #dc2626;
+}
+
+.complexity-label.catastrophic {
+    color: #7f1d1d;
+}
+
+.complexity-chart-container {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+#complexityChart {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background: white;
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.complexity-stats {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.complexity-stats h5 {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.stat-complexity {
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-operations {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Algorithm Analysis Practice */
+.analysis-practice {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.practice-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.practice-intro h4 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.code-analysis-challenges {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.analysis-challenge {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.challenge-header h5 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.difficulty-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.difficulty-badge.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: #d97706;
+}
+
+.difficulty-badge.hard {
+    background: rgba(239, 68, 68, 0.2);
+    color: #dc2626;
+}
+
+.difficulty-badge.expert {
+    background: rgba(127, 29, 29, 0.2);
+    color: #7f1d1d;
+}
+
+.code-snippet {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.code-snippet pre {
+    margin: 0;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.code-snippet code {
+    color: #f8f8f2;
+}
+
+.analysis-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.question-group h6 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.complexity-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.complexity-option {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.complexity-option:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+}
+
+.complexity-option.correct {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.complexity-option.incorrect {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+    border-color: var(--error-color);
+    color: var(--error-color);
+}
+
+.challenge-explanation {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--success-color);
+    margin-top: 2rem;
+}
+
+.practice-score {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.practice-score h4 {
+    margin-bottom: 1rem;
+}
+
+.score-display {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.score-feedback {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Optimization Challenge */
+.optimization-challenge {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.challenge-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.challenge-intro h4 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.optimization-problems {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.optimization-problem {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.problem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.problem-header h5 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.current-complexity, .target-complexity {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.current-complexity {
+    background: rgba(239, 68, 68, 0.2);
+    color: #dc2626;
+}
+
+.target-complexity {
+    background: rgba(16, 185, 129, 0.2);
+    color: #059669;
+}
+
+.complexity-bad {
+    color: #dc2626;
+}
+
+.complexity-good {
+    color: #059669;
+}
+
+.complexity-fair {
+    color: #d97706;
+}
+
+.problem-description {
+    margin-bottom: 2rem;
+}
+
+.problem-description p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.code-snippet.inefficient {
+    border-left: 4px solid #dc2626;
+}
+
+.optimization-workspace {
+    margin-top: 2rem;
+}
+
+.optimization-workspace h6 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.solution-editor {
+    width: 100%;
+    min-height: 200px;
+    background: #1a1a1a;
+    color: #f8f8f2;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.solution-editor::placeholder {
+    color: #6b7280;
+}
+
+.optimization-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.optimize-btn, .hint-btn, .solution-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.optimize-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+}
+
+.hint-btn {
+    background: linear-gradient(135deg, var(--warning-color), #d97706);
+    color: white;
+}
+
+.solution-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.optimize-btn:hover, .hint-btn:hover, .solution-btn:hover {
+    transform: translateY(-2px);
+}
+
+.optimization-feedback {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+/* Interview Communication Simulator */
+.interview-simulator {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.simulator-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.simulator-intro h4 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.scenario-selector {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.scenario-selector h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.scenario-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scenario-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.scenario-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.interview-chat {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-header h5 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.interview-timer {
+    background: var(--warning-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.chat-message.interviewer {
+    background: var(--bg-primary);
+    margin-right: auto;
+    border-left: 3px solid var(--accent-primary);
+}
+
+.chat-message.candidate {
+    background: rgba(16, 185, 129, 0.1);
+    margin-left: auto;
+    border-right: 3px solid var(--success-color);
+}
+
+.message-sender {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.message-content {
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.chat-input {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+#responseInput {
+    flex: 1;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    resize: none;
+}
+
+.send-btn {
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background: var(--accent-secondary);
+}
+
+.interview-tips {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.interview-tips h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.interview-tips ul {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.interview-tips li {
+    margin-bottom: 0.75rem;
+}
+
+.interview-tips strong {
+    color: var(--accent-primary);
+}
+
+/* Mastery Assessment */
+.mastery-assessment {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    border-radius: 16px;
+    padding: 3rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.assessment-intro h4 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.assessment-progress {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.progress-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.progress-item.completed {
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.progress-item.current {
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+}
+
+.progress-item.locked {
+    opacity: 0.6;
+}
+
+.progress-icon {
+    font-size: 1.2rem;
+}
+
+.assessment-requirements {
+    text-align: left;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.assessment-requirements h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.assessment-requirements ul {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.mastery-btn {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.mastery-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.phase-completion {
+    text-align: left;
+    max-width: 600px;
+    margin: 3rem auto 0;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.phase-completion h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.phase-completion ul {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .complexity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .complexity-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .problem-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .optimization-controls {
+        flex-direction: column;
+    }
+    
+    .scenario-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-o-chart {
+        padding: 1rem;
+    }
+    
+    .chart-line::after {
+        display: none;
+    }
+    
+    .complexity-card {
+        padding: 1.5rem;
+    }
+    
+    .complexity-checkboxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .complexity-options {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-size-control {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .input-size-control label {
+        min-width: auto;
+    }
+    
+    .chat-input {
+        flex-direction: column;
+    }
+    
+    .progress-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .complexity-hero {
+        padding: 2rem 1rem;
+    }
+    
+    .big-o-chart {
+        min-width: auto;
+        padding: 1rem;
+    }
+    
+    .complexity-visual-mini {
+        margin-top: 1rem;
+    }
+    
+    .mini-chart {
+        height: 30px;
+    }
+    
+    .complexity-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .solution-editor {
+        min-height: 150px;
+        font-size: 0.8rem;
+    }
+    
+    .mastery-assessment {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Animation keyframes */
+@keyframes complexityPulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.02);
+    }
+}
+
+.complexity-card:hover .complexity-icon {
+    animation: complexityPulse 2s ease-in-out infinite;
+}
+
+@keyframes chartGlow {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+}
+
+#complexityChart:hover {
+    animation: chartGlow 2s ease-in-out infinite;
+}
+
+/* Loading states */
+.loading-complexity {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--accent-primary);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success states */
+.complexity-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.complexity-error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+    border-color: var(--error-color);
+    color: var(--error-color);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .complexity-card,
+    .chart-line,
+    .complexity-option,
+    .scenario-btn,
+    .mastery-btn {
+        transition: none;
+    }
+    
+    .complexity-card:hover .complexity-icon {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .complexity-card {
+        border-width: 3px;
+    }
+    
+    .complexity-option {
+        border-width: 3px;
+    }
+    
+    .chart-line {
+        border: 2px solid var(--text-primary);
+    }
+}
+
+/* Focus states for keyboard navigation */
+.complexity-card:focus,
+.complexity-option:focus,
+.scenario-btn:focus,
+.mastery-btn:focus {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .complexity-hero,
+    .visualization-controls,
+    .interview-simulator,
+    .optimization-challenge {
+        display: none;
+    }
+    
+    .complexity-card,
+    .analysis-challenge {
+        break-inside: avoid;
+        border: 2px solid var(--text-primary);
+        margin-bottom: 1rem;
+    }
+}

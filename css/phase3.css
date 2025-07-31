@@ -1,0 +1,501 @@
+/* Phase 3: Algorithms Foundation - Dynamic & Interactive Theme */
+:root {
+    /* Phase 3 Color Palette - Algorithm Visualization Colors */
+    --phase3-primary: #2563eb;
+    --phase3-secondary: #1d4ed8;
+    --phase3-accent: #3b82f6;
+    --phase3-success: #10b981;
+    --phase3-warning: #f59e0b;
+    --phase3-error: #ef4444;
+    
+    /* Algorithm-specific colors */
+    --phase3-sort-color: #8b5cf6;
+    --phase3-search-color: #06b6d4;
+    --phase3-recursion-color: #f59e0b;
+    --phase3-graph-color: #10b981;
+    
+    /* Phase 3 gradients */
+    --phase3-gradient-main: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --phase3-gradient-accent: linear-gradient(135deg, #2563eb, #3b82f6);
+    --phase3-gradient-success: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* Phase 3 Hero Banner */
+.phase3-hero {
+    background: var(--phase3-gradient-main);
+    position: relative;
+    overflow: hidden;
+}
+
+.phase3-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="algorithm-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/><path d="M5,5 L15,15 M15,5 L5,15" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23algorithm-pattern)"/></svg>');
+    animation: patternFlow 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes patternFlow {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-20px, -20px) rotate(360deg); }
+}
+
+/* Algorithm Visualization Containers */
+.algorithm-visualizer {
+    background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+    border: 2px solid var(--phase3-accent);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+}
+
+.algorithm-visualizer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--phase3-gradient-accent);
+}
+
+.algorithm-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.algorithm-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--phase3-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.algorithm-icon {
+    font-size: 2rem;
+    animation: algorithmPulse 2s ease-in-out infinite;
+}
+
+@keyframes algorithmPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Sorting Algorithm Specific Styles */
+.sorting-demo {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+    border-left: 4px solid var(--phase3-sort-color);
+}
+
+.sorting-array {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    height: 200px;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+}
+
+.array-element {
+    background: var(--phase3-sort-color);
+    border-radius: 4px 4px 0 0;
+    min-width: 25px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.array-element.comparing {
+    background: var(--phase3-warning);
+    transform: translateY(-10px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.array-element.swapping {
+    background: var(--phase3-error);
+    animation: swapAnimation 0.6s ease-in-out;
+}
+
+.array-element.sorted {
+    background: var(--phase3-success);
+    animation: sortedGlow 1s ease-in-out;
+}
+
+@keyframes swapAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+@keyframes sortedGlow {
+    0% { box-shadow: 0 0 0 rgba(16, 185, 129, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.8); }
+    100% { box-shadow: 0 0 0 rgba(16, 185, 129, 0.4); }
+}
+
+/* Search Algorithm Styles */
+.search-demo {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(8, 145, 178, 0.1));
+    border-left: 4px solid var(--phase3-search-color);
+}
+
+.search-array {
+    display: flex;
+    gap: 2px;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    justify-content: center;
+}
+
+.search-element {
+    width: 50px;
+    height: 50px;
+    background: var(--phase3-search-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.search-element.current {
+    background: var(--phase3-warning);
+    transform: scale(1.2);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.search-element.found {
+    background: var(--phase3-success);
+    animation: foundPulse 1s ease-in-out infinite;
+}
+
+.search-element.eliminated {
+    background: var(--phase3-error);
+    opacity: 0.3;
+    transform: scale(0.8);
+}
+
+@keyframes foundPulse {
+    0%, 100% { transform: scale(1.2); }
+    50% { transform: scale(1.4); }
+}
+
+/* Recursion Visualization */
+.recursion-demo {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+    border-left: 4px solid var(--phase3-recursion-color);
+}
+
+.recursion-stack {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 8px;
+    margin: 2rem 0;
+    min-height: 200px;
+}
+
+.recursion-frame {
+    background: var(--phase3-recursion-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    position: relative;
+    min-width: 200px;
+    text-align: center;
+}
+
+.recursion-frame.active {
+    background: var(--phase3-success);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.recursion-frame.returning {
+    background: var(--phase3-accent);
+    animation: returnAnimation 0.8s ease-in-out;
+}
+
+@keyframes returnAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+/* Graph Algorithm Styles */
+.graph-demo {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+    border-left: 4px solid var(--phase3-graph-color);
+}
+
+.graph-container {
+    position: relative;
+    height: 300px;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.graph-node {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--phase3-graph-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.graph-node.visited {
+    background: var(--phase3-accent);
+    animation: visitedNode 0.6s ease-in-out;
+}
+
+.graph-node.current {
+    background: var(--phase3-warning);
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+.graph-node.path {
+    background: var(--phase3-success);
+    animation: pathGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes visitedNode {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pathGlow {
+    0% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.6); }
+    100% { box-shadow: 0 0 25px rgba(16, 185, 129, 1); }
+}
+
+.graph-edge {
+    position: absolute;
+    height: 2px;
+    background: var(--phase3-primary);
+    transform-origin: left center;
+    transition: all 0.3s ease;
+}
+
+.graph-edge.active {
+    background: var(--phase3-warning);
+    height: 4px;
+    animation: edgeFlow 1s ease-in-out infinite;
+}
+
+@keyframes edgeFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 0; }
+}
+
+/* Algorithm Controls */
+.algorithm-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.algorithm-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.algorithm-btn.start {
+    background: var(--phase3-gradient-success);
+    color: white;
+}
+
+.algorithm-btn.pause {
+    background: var(--phase3-warning);
+    color: white;
+}
+
+.algorithm-btn.reset {
+    background: var(--phase3-error);
+    color: white;
+}
+
+.algorithm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.algorithm-btn:active {
+    transform: translateY(0);
+}
+
+/* Performance Metrics */
+.performance-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid var(--phase3-accent);
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--phase3-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Complexity Analysis */
+.complexity-analysis {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(29, 78, 216, 0.05));
+    border: 1px solid var(--phase3-accent);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.complexity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.complexity-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--phase3-accent);
+    text-align: center;
+}
+
+.complexity-notation {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--phase3-primary);
+    font-family: 'Monaco', 'Consolas', monospace;
+    margin-bottom: 0.5rem;
+}
+
+.complexity-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Phase 3 Specific Animations */
+@keyframes algorithmFlow {
+    0% { transform: translateX(-100px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.phase3-entrance {
+    animation: algorithmFlow 0.8s ease-out;
+}
+
+/* Responsive Design for Phase 3 */
+@media (max-width: 768px) {
+    .sorting-array, .search-array {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1rem 0.5rem;
+    }
+    
+    .array-element, .search-element {
+        min-width: 20px;
+        font-size: 0.7rem;
+    }
+    
+    .graph-container {
+        height: 250px;
+    }
+    
+    .graph-node {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .algorithm-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .performance-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Phase 3 Loading States */
+.phase3-loading {
+    background: var(--phase3-gradient-main);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

@@ -1,0 +1,819 @@
+/* Mock Interview Simulator Styles */
+
+/* Hero Banner */
+.interview-hero {
+    background: linear-gradient(135deg, #7c3aed 0%, #3730a3 50%, #1e1b4b 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.interview-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="interview-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23interview-grid)"/></svg>');
+    opacity: 0.6;
+}
+
+.interview-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mock-interview-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.interview-screen {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 2px solid rgba(124, 58, 237, 0.3);
+}
+
+.interviewer-avatar {
+    font-size: 4rem;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: avatarPulse 2s ease-in-out infinite;
+}
+
+.coding-panel {
+    font-size: 3rem;
+    color: #10b981;
+    animation: codingBlink 1.5s ease-in-out infinite;
+}
+
+.performance-meter {
+    font-size: 3rem;
+    color: #f59e0b;
+    animation: meterFlash 2.5s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes codingBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes meterFlash {
+    0%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.7; }
+    50% { opacity: 0.4; }
+}
+
+.setup-label {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Interview Configuration */
+.interview-config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.config-section {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.config-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Company Selection */
+.company-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.company-option {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.company-option:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.company-option.selected {
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.company-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-info h5 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.company-info p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.company-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(124, 58, 237, 0.2);
+    color: #a855f7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Level Selection */
+.level-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.level-option {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.level-option:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+}
+
+.level-option.selected {
+    border-color: var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.level-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.level-badge.entry {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.level-badge.mid {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.level-badge.senior {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.level-details h6 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.level-details p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Focus Selection */
+.focus-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.focus-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.focus-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.focus-option input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.focus-option input[type="checkbox"]:checked + .checkmark {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.focus-option input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.focus-content h6 {
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.focus-content p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Duration Selection */
+.duration-selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.duration-option {
+    flex: 1;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.duration-option:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+}
+
+.duration-option.active {
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.duration-time {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.duration-desc {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Interview Preview */
+.interview-preview {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.interview-preview h4 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.config-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.summary-item {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.summary-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.summary-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.start-interview-btn {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.start-interview-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+}
+
+.start-interview-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* AI Interviewer Profiles */
+.interviewer-profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.interviewer-card {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.interviewer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.interviewer-card .interviewer-avatar {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: none;
+}
+
+.interviewer-card .interviewer-avatar.alex {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.interviewer-card .interviewer-avatar.sarah {
+    background: linear-gradient(135deg, #ec4899, #be185d);
+}
+
+.interviewer-card .interviewer-avatar.raj {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.interviewer-info h5 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.interviewer-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.interviewer-style {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.style-tag {
+    background: rgba(124, 58, 237, 0.2);
+    color: #a855f7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Analytics Preview */
+.analytics-dashboard-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.analytics-section {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.analytics-section h5 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.metric-card {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-name {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    min-width: 120px;
+}
+
+.bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-color), #059669);
+    transition: width 0.3s ease;
+}
+
+.skill-score {
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Timeline */
+.approach-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.timeline-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.timeline-item.completed .timeline-icon {
+    background: var(--success-color);
+    color: white;
+}
+
+.timeline-item.partial .timeline-icon {
+    background: var(--warning-color);
+    color: white;
+}
+
+.timeline-content strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Mastery Levels */
+.mastery-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.mastery-level {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.level-icon {
+    font-size: 3rem;
+}
+
+.level-info h5 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.level-info p {
+    color: var(--text-secondary);
+}
+
+.level-requirements,
+.level-rewards {
+    margin-bottom: 1.5rem;
+}
+
+.level-requirements h6,
+.level-rewards h6 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.level-requirements ul,
+.level-rewards ul {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Progress Overview */
+.current-progress {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    margin: 3rem 0;
+}
+
+.current-progress h4 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.progress-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.progress-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.progress-btn {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progress-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .interview-config-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .interviewer-profiles {
+        grid-template-columns: 1fr;
+    }
+    
+    .analytics-dashboard-preview {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .interview-screen {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .company-option,
+    .level-option {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .duration-selector {
+        flex-direction: column;
+    }
+    
+    .config-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .level-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .interview-config-grid {
+        gap: 2rem;
+    }
+    
+    .config-section {
+        padding: 1.5rem;
+    }
+    
+    .company-option,
+    .level-option {
+        padding: 1rem;
+    }
+    
+    .interviewer-card {
+        padding: 1.5rem;
+    }
+    
+    .mastery-level {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation for selected states */
+@keyframes selectionGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+}
+
+.company-option.selected,
+.level-option.selected,
+.duration-option.active {
+    animation: selectionGlow 2s ease-in-out infinite;
+}
