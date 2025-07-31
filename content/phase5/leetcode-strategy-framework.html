@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Strategy Framework - Phase 5</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+    <link rel="stylesheet" href="../../css/leetcode-strategy.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 5: LeetCode Mastery</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%"></div>
+                        </div>
+                        <span class="progress-text">33% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>5.1 LeetCode Strategy Framework</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#strategy-system">The MASTER System</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Problem Classification Engine</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Solution Templates</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Timed Practice Arena</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase5" class="breadcrumb-link">Phase 5: LeetCode Mastery</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">LeetCode Strategy Framework</span>
+            </div>
+
+            <header class="lesson-header">
+                <h1>LeetCode Strategy Framework</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 120 min intensive</span>
+                    <span class="difficulty difficulty-expert">🏆 Expert</span>
+                    <span class="progress">1 of 3 sections</span>
+                </div>
+                <div class="hero-banner strategy-hero">
+                    <div class="banner-content">
+                        <h2>🎯 Master the Systematic Approach to Any Coding Problem</h2>
+                        <p>Learn the exact framework that top engineers use to solve LeetCode problems efficiently. This systematic approach will transform you from someone who struggles with coding problems to someone who tackles them with confidence and precision.</p>
+                    </div>
+                    <div class="strategy-visual">
+                        <div class="master-framework">
+                            <div class="framework-step" data-step="M">M</div>
+                            <div class="framework-step" data-step="A">A</div>
+                            <div class="framework-step" data-step="S">S</div>
+                            <div class="framework-step" data-step="T">T</div>
+                            <div class="framework-step" data-step="E">E</div>
+                            <div class="framework-step" data-step="R">R</div>
+                        </div>
+                        <div class="framework-label">The MASTER Framework</div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Transform Into a LeetCode Master</h2>
+                <ul>
+                    <li>Master the systematic 6-step MASTER framework for any coding problem</li>
+                    <li>Automatically classify problems and select optimal solution patterns</li>
+                    <li>Develop lightning-fast problem recognition and approach selection</li>
+                    <li>Build confidence through structured thinking and systematic execution</li>
+                    <li>Practice with real LeetCode problems using professional techniques</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="strategy-system">
+                <h3>🏆 The MASTER System: Your Secret Weapon</h3>
+                <div class="system-intro">
+                    <p>Every successful software engineer who excels at technical interviews uses a systematic approach. The <strong>MASTER framework</strong> is that system - a battle-tested methodology that transforms chaotic problem-solving into a structured, repeatable process.</p>
+                </div>
+
+                <div class="master-framework-detailed">
+                    <!-- Step M: Map the Problem -->
+                    <div class="framework-step-detailed" data-step="map">
+                        <div class="step-header" onclick="expandFrameworkStep('map')">
+                            <div class="step-icon">🗺️</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">M</span>ap the Problem</h4>
+                                <div class="step-subtitle">Understand What You're Really Solving</div>
+                                <div class="step-duration">⏱️ 2-3 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-map" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Transform the problem statement into a crystal-clear understanding of what needs to be solved.</p>
+                                
+                                <h5>🎯 Key Actions:</h5>
+                                <ul class="action-list">
+                                    <li><strong>Read actively:</strong> Don't just scan - understand every word</li>
+                                    <li><strong>Identify inputs/outputs:</strong> What goes in? What comes out?</li>
+                                    <li><strong>Find constraints:</strong> Array size limits, value ranges, edge cases</li>
+                                    <li><strong>Spot patterns:</strong> Does this remind you of problems you've seen?</li>
+                                    <li><strong>Ask clarifying questions:</strong> What assumptions can you make?</li>
+                                </ul>
+                                
+                                <div class="pro-tip">
+                                    <h6>💡 Pro Tip:</h6>
+                                    <p>Spend more time here! 70% of coding interview failures happen because candidates misunderstood the problem. A clear map leads to a clear solution.</p>
+                                </div>
+                                
+                                <div class="interactive-example">
+                                    <h6>🎮 Interactive Example:</h6>
+                                    <button class="example-btn" onclick="showMappingExample()">
+                                        Practice Problem Mapping
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step A: Analyze Patterns -->
+                    <div class="framework-step-detailed" data-step="analyze">
+                        <div class="step-header" onclick="expandFrameworkStep('analyze')">
+                            <div class="step-icon">🔍</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">A</span>nalyze Patterns</h4>
+                                <div class="step-subtitle">Identify the Underlying Problem Type</div>
+                                <div class="step-duration">⏱️ 1-2 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-analyze" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Recognize which algorithmic pattern(s) this problem follows.</p>
+                                
+                                <h5>🧠 Pattern Recognition Checklist:</h5>
+                                <div class="pattern-checklist">
+                                    <div class="pattern-item">
+                                        <input type="checkbox" id="pattern-two-pointers">
+                                        <label for="pattern-two-pointers">
+                                            <strong>Two Pointers:</strong> Sorted array, pairs, palindromes
+                                        </label>
+                                    </div>
+                                    <div class="pattern-item">
+                                        <input type="checkbox" id="pattern-sliding-window">
+                                        <label for="pattern-sliding-window">
+                                            <strong>Sliding Window:</strong> Subarray/substring optimization
+                                        </label>
+                                    </div>
+                                    <div class="pattern-item">
+                                        <input type="checkbox" id="pattern-binary-search">
+                                        <label for="pattern-binary-search">
+                                            <strong>Binary Search:</strong> Sorted data, find boundary/target
+                                        </label>
+                                    </div>
+                                    <div class="pattern-item">
+                                        <input type="checkbox" id="pattern-dfs-bfs">
+                                        <label for="pattern-dfs-bfs">
+                                            <strong>DFS/BFS:</strong> Tree/graph traversal, connected components
+                                        </label>
+                                    </div>
+                                    <div class="pattern-item">
+                                        <input type="checkbox" id="pattern-dp">
+                                        <label for="pattern-dp">
+                                            <strong>Dynamic Programming:</strong> Optimal substructure, overlapping subproblems
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="pattern-ai-assistant">
+                                    <h6>🤖 AI Pattern Assistant:</h6>
+                                    <button class="ai-btn" onclick="getPatternSuggestion()">
+                                        Analyze This Problem's Pattern
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step S: Structure the Solution -->
+                    <div class="framework-step-detailed" data-step="structure">
+                        <div class="step-header" onclick="expandFrameworkStep('structure')">
+                            <div class="step-icon">🏗️</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">S</span>tructure the Solution</h4>
+                                <div class="step-subtitle">Design Before You Code</div>
+                                <div class="step-duration">⏱️ 3-5 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-structure" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Create a clear roadmap for your implementation before writing any code.</p>
+                                
+                                <h5>📋 Solution Blueprint:</h5>
+                                <div class="blueprint-template">
+                                    <div class="blueprint-section">
+                                        <h6>1. High-Level Approach</h6>
+                                        <textarea placeholder="Describe your approach in 2-3 sentences..." class="blueprint-input"></textarea>
+                                    </div>
+                                    <div class="blueprint-section">
+                                        <h6>2. Data Structures Needed</h6>
+                                        <textarea placeholder="What data structures will you use and why?" class="blueprint-input"></textarea>
+                                    </div>
+                                    <div class="blueprint-section">
+                                        <h6>3. Algorithm Steps</h6>
+                                        <textarea placeholder="Break down the algorithm into 3-5 clear steps..." class="blueprint-input"></textarea>
+                                    </div>
+                                    <div class="blueprint-section">
+                                        <h6>4. Edge Cases to Handle</h6>
+                                        <textarea placeholder="What edge cases need special handling?" class="blueprint-input"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-validation">
+                                    <button class="validate-btn" onclick="validateStructure()">
+                                        🧠 Validate My Structure
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step T: Test-Driven Development -->
+                    <div class="framework-step-detailed" data-step="test">
+                        <div class="step-header" onclick="expandFrameworkStep('test')">
+                            <div class="step-icon">🧪</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">T</span>est-Driven Development</h4>
+                                <div class="step-subtitle">Define Success Before Coding</div>
+                                <div class="step-duration">⏱️ 2-3 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-test" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Create comprehensive test cases that will validate your solution.</p>
+                                
+                                <h5>📝 Test Case Categories:</h5>
+                                <div class="test-categories">
+                                    <div class="test-category">
+                                        <h6>✅ Happy Path</h6>
+                                        <p>Normal inputs that demonstrate the core functionality</p>
+                                        <div class="test-examples" id="happy-tests"></div>
+                                    </div>
+                                    <div class="test-category">
+                                        <h6>⚠️ Edge Cases</h6>
+                                        <p>Boundary conditions and special scenarios</p>
+                                        <div class="test-examples" id="edge-tests"></div>
+                                    </div>
+                                    <div class="test-category">
+                                        <h6>❌ Error Cases</h6>
+                                        <p>Invalid inputs and error conditions</p>
+                                        <div class="test-examples" id="error-tests"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="test-generator">
+                                    <h6>🎯 Intelligent Test Generator:</h6>
+                                    <button class="generate-btn" onclick="generateTestCases()">
+                                        Generate Test Cases for This Problem
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step E: Execute & Implement -->
+                    <div class="framework-step-detailed" data-step="execute">
+                        <div class="step-header" onclick="expandFrameworkStep('execute')">
+                            <div class="step-icon">💻</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">E</span>xecute & Implement</h4>
+                                <div class="step-subtitle">Code with Confidence and Clarity</div>
+                                <div class="step-duration">⏱️ 15-25 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-execute" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Transform your structured plan into clean, working code.</p>
+                                
+                                <h5>⚡ Implementation Best Practices:</h5>
+                                <div class="implementation-practices">
+                                    <div class="practice-item">
+                                        <div class="practice-icon">🎯</div>
+                                        <div class="practice-content">
+                                            <h6>Start with the Template</h6>
+                                            <p>Begin with the pattern template you identified in step A</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <div class="practice-icon">💬</div>
+                                        <div class="practice-content">
+                                            <h6>Think Out Loud</h6>
+                                            <p>Explain your thinking as you code - interviewers love this!</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <div class="practice-icon">🧱</div>
+                                        <div class="practice-content">
+                                            <h6>Build Incrementally</h6>
+                                            <p>Implement one step at a time, testing as you go</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <div class="practice-icon">🔍</div>
+                                        <div class="practice-content">
+                                            <h6>Handle Edge Cases</h6>
+                                            <p>Address the edge cases you identified in step T</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="live-coding-area">
+                                    <h6>💻 Live Coding Environment:</h6>
+                                    <div class="coding-interface">
+                                        <div class="code-editor">
+                                            <textarea id="solution-code" placeholder="Write your solution here...
+
+def solve_problem():
+    # Step 1: Initialize variables
+    
+    # Step 2: Main algorithm logic
+    
+    # Step 3: Handle edge cases
+    
+    # Step 4: Return result
+    pass" rows="15"></textarea>
+                                        </div>
+                                        <div class="coding-controls">
+                                            <button class="run-btn" onclick="runSolution()">▶ Run Solution</button>
+                                            <button class="test-btn" onclick="testSolution()">🧪 Test All Cases</button>
+                                            <button class="hint-btn" onclick="getImplementationHint()">💡 Get Hint</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step R: Review & Optimize -->
+                    <div class="framework-step-detailed" data-step="review">
+                        <div class="step-header" onclick="expandFrameworkStep('review')">
+                            <div class="step-icon">🔄</div>
+                            <div class="step-info">
+                                <h4><span class="step-letter">R</span>eview & Optimize</h4>
+                                <div class="step-subtitle">Perfect Your Solution</div>
+                                <div class="step-duration">⏱️ 5-10 minutes</div>
+                            </div>
+                            <div class="expand-arrow">▶</div>
+                        </div>
+                        
+                        <div class="step-content" id="content-review" style="display: none;">
+                            <div class="step-description">
+                                <p><strong>Goal:</strong> Analyze and improve your solution for maximum impact.</p>
+                                
+                                <h5>🎯 Review Checklist:</h5>
+                                <div class="review-checklist">
+                                    <div class="review-section">
+                                        <h6>✅ Correctness Validation</h6>
+                                        <ul>
+                                            <li>Does it handle all test cases?</li>
+                                            <li>Are edge cases covered?</li>
+                                            <li>Is the logic sound?</li>
+                                        </ul>
+                                    </div>
+                                    <div class="review-section">
+                                        <h6>⚡ Performance Analysis</h6>
+                                        <ul>
+                                            <li>What's the time complexity?</li>
+                                            <li>What's the space complexity?</li>
+                                            <li>Can it be optimized further?</li>
+                                        </ul>
+                                    </div>
+                                    <div class="review-section">
+                                        <h6>🎨 Code Quality</h6>
+                                        <ul>
+                                            <li>Is the code readable?</li>
+                                            <li>Are variable names descriptive?</li>
+                                            <li>Would other engineers understand this?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="automated-review">
+                                    <h6>🤖 AI Code Reviewer:</h6>
+                                    <button class="review-btn" onclick="getCodeReview()">
+                                        Get Professional Code Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎯 MASTER Framework in Action</h3>
+                <div class="framework-demo">
+                    <div class="demo-intro">
+                        <h4>🚀 Watch the Framework Solve Real Problems</h4>
+                        <p>See how the MASTER framework transforms a confusing LeetCode problem into a systematic, solvable challenge. Follow along as we demonstrate each step with actual problems.</p>
+                    </div>
+
+                    <div class="problem-selector">
+                        <h5>Choose a Problem to Solve Together:</h5>
+                        <div class="problem-options">
+                            <button class="problem-btn" onclick="demonstrateProblem('two-sum')">
+                                <div class="problem-title">1. Two Sum</div>
+                                <div class="problem-difficulty easy">Easy</div>
+                                <div class="problem-pattern">Hash Map Pattern</div>
+                            </button>
+                            <button class="problem-btn" onclick="demonstrateProblem('longest-substring')">
+                                <div class="problem-title">3. Longest Substring</div>
+                                <div class="problem-difficulty medium">Medium</div>
+                                <div class="problem-pattern">Sliding Window</div>
+                            </button>
+                            <button class="problem-btn" onclick="demonstrateProblem('binary-search')">
+                                <div class="problem-title">704. Binary Search</div>
+                                <div class="problem-difficulty easy">Easy</div>
+                                <div class="problem-pattern">Binary Search</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demonstration-area" id="demonstrationArea" style="display: none;">
+                        <!-- Dynamic demonstration content will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🧠 Problem Classification Engine</h3>
+                <div class="classification-engine">
+                    <div class="engine-intro">
+                        <h4>🤖 AI-Powered Problem Analysis</h4>
+                        <p>Paste any LeetCode problem, and our advanced AI will instantly classify it, suggest the optimal approach, and provide a structured solution path using the MASTER framework.</p>
+                    </div>
+
+                    <div class="classification-interface">
+                        <div class="problem-input-section">
+                            <textarea id="problemInput" placeholder="Paste a LeetCode problem here...
+
+Example:
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]." rows="12"></textarea>
+                            
+                            <div class="input-controls">
+                                <button class="analyze-btn" onclick="classifyProblem()">
+                                    🧠 Analyze with MASTER Framework
+                                </button>
+                                <button class="example-btn" onclick="loadExampleProblem()">
+                                    📝 Load Example Problem
+                                </button>
+                                <button class="clear-btn" onclick="clearProblemInput()">
+                                    🗑️ Clear Input
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="analysis-results" id="classificationResults" style="display: none;">
+                            <!-- Dynamic classification results -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>⚡ Timed Practice Arena</h3>
+                <div class="practice-arena">
+                    <div class="arena-intro">
+                        <h4>🏟️ Real Interview Simulation</h4>
+                        <p>Practice the MASTER framework under real interview conditions. Choose your difficulty level and time constraints to simulate actual technical interviews.</p>
+                    </div>
+
+                    <div class="practice-setup">
+                        <div class="setup-options">
+                            <div class="option-group">
+                                <h5>⏱️ Time Limit:</h5>
+                                <div class="time-options">
+                                    <button class="time-btn" onclick="setTimeLimit(30)">30 min</button>
+                                    <button class="time-btn active" onclick="setTimeLimit(45)">45 min</button>
+                                    <button class="time-btn" onclick="setTimeLimit(60)">60 min</button>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h5>📊 Difficulty Level:</h5>
+                                <div class="difficulty-options">
+                                    <button class="diff-btn" onclick="setDifficulty('easy')">🟢 Easy</button>
+                                    <button class="diff-btn active" onclick="setDifficulty('medium')">🟡 Medium</button>
+                                    <button class="diff-btn" onclick="setDifficulty('hard')">🔴 Hard</button>
+                                    <button class="diff-btn" onclick="setDifficulty('mixed')">🌈 Mixed</button>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h5>🎯 Focus Area:</h5>
+                                <select id="focusArea" class="focus-selector">
+                                    <option value="all">All Patterns</option>
+                                    <option value="arrays">Arrays & Strings</option>
+                                    <option value="trees">Trees & Graphs</option>
+                                    <option value="dynamic">Dynamic Programming</option>
+                                    <option value="system">System Design</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="start-practice-btn" onclick="startTimedPractice()">
+                            🚀 Start Timed Practice Session
+                        </button>
+                    </div>
+
+                    <div class="practice-session" id="practiceSession" style="display: none;">
+                        <!-- Timed practice interface will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏆 Mastery Certification</h3>
+                <div class="certification-system">
+                    <div class="cert-intro">
+                        <h4>🎓 Prove Your LeetCode Mastery</h4>
+                        <p>Complete comprehensive challenges that test your ability to apply the MASTER framework effectively across different problem types and difficulty levels.</p>
+                    </div>
+
+                    <div class="certification-requirements">
+                        <h5>📋 Certification Requirements</h5>
+                        <div class="requirements-grid">
+                            <div class="requirement-item">
+                                <div class="req-icon">🎯</div>
+                                <div class="req-content">
+                                    <h6>Framework Mastery</h6>
+                                    <p>Demonstrate proper use of all 6 MASTER steps</p>
+                                    <div class="req-progress">0/6 steps mastered</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="req-icon">⚡</div>
+                                <div class="req-content">
+                                    <h6>Speed & Accuracy</h6>
+                                    <p>Solve 10 problems correctly within time limits</p>
+                                    <div class="req-progress">0/10 problems completed</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="req-icon">🧠</div>
+                                <div class="req-content">
+                                    <h6>Pattern Recognition</h6>
+                                    <p>Correctly identify patterns in 15+ diverse problems</p>
+                                    <div class="req-progress">0/15 patterns identified</div>
+                                </div>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="req-icon">💻</div>
+                                <div class="req-content">
+                                    <h6>Code Quality</h6>
+                                    <p>Write clean, optimized solutions with proper complexity</p>
+                                    <div class="req-progress">0/5 quality reviews passed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="certification-btn" onclick="startCertification()">
+                        🏆 Begin LeetCode Mastery Certification
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Optimization Techniques</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Mock Interview Simulator →</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../../js/leetcode-strategy-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+    // Progress tracking for existing dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+        // Extract lesson info from current page
+        const currentPath = window.location.pathname;
+        const lessonTitle = document.querySelector('h1')?.textContent || 'Phase 5 Lesson';
+        
+        // Mark lesson as visited
+        setTimeout(() => {
+            localStorage.setItem(`lesson-${currentPath}`, JSON.stringify({
+                title: lessonTitle,
+                completed: true,
+                timestamp: Date.now()
+            }));
+            
+            // Trigger dashboard update if function exists
+            if (window.updateDashboardProgress) {
+                window.updateDashboardProgress();
+            }
+        }, 30000); // After 30 seconds of engagement
+    });
+
+    function previousLesson() {
+        // Link to Phase 4 final lesson
+        window.location.href = '../phase4/optimization-techniques.html';
+    }
+
+    function nextLesson() {
+        // Link to next Phase 5 lesson
+        window.location.href = 'mock-interview-simulator.html';
+    }
+
+    // Report completion to dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            if (typeof reportLessonComplete === 'function') {
+                reportLessonComplete(5, 'LeetCode Strategy Framework');
+            }
+        }, 30000);
+    });
+    </script>
+</body>
+</html>

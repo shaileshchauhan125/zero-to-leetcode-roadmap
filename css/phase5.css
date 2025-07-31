@@ -1,0 +1,720 @@
+/* Phase 5: LeetCode Mastery - Professional & Interview-Ready Theme */
+:root {
+    /* Phase 5 Color Palette - Professional Interview Colors */
+    --phase5-primary: #1e293b;
+    --phase5-secondary: #334155;
+    --phase5-accent: #0ea5e9;
+    --phase5-success: #22c55e;
+    --phase5-warning: #f59e0b;
+    --phase5-error: #ef4444;
+    
+    /* LeetCode-specific colors */
+    --phase5-easy: #00b8a3;
+    --phase5-medium: #ffc01e;
+    --phase5-hard: #ff375f;
+    --phase5-interview: #6366f1;
+    --phase5-portfolio: #8b5cf6;
+    
+    /* Phase 5 gradients */
+    --phase5-gradient-main: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    --phase5-gradient-accent: linear-gradient(135deg, #0ea5e9, #06b6d4);
+    --phase5-gradient-success: linear-gradient(135deg, #22c55e, #16a34a);
+    --phase5-gradient-portfolio: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+/* Phase 5 Hero Banner */
+.phase5-hero {
+    background: var(--phase5-gradient-main);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.phase5-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="interview-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="2" height="2" fill="rgba(255,255,255,0.1)"/><rect x="10" y="10" width="2" height="2" fill="rgba(255,255,255,0.05)"/><rect x="20" y="20" width="2" height="2" fill="rgba(255,255,255,0.08)"/><path d="M5,5 L25,25 M25,5 L5,25" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23interview-pattern)"/></svg>');
+    animation: interviewPatternMove 30s linear infinite;
+}
+
+@keyframes interviewPatternMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 30px); }
+}
+
+/* LeetCode Strategy Framework */
+.strategy-framework {
+    background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+    border: 2px solid var(--phase5-accent);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.1);
+}
+
+.strategy-framework::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--phase5-gradient-accent);
+}
+
+.fast-methodology {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.fast-step {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.fast-step:hover {
+    transform: translateY(-8px);
+    border-color: var(--phase5-accent);
+    box-shadow: 0 15px 35px rgba(14, 165, 233, 0.15);
+}
+
+.fast-letter {
+    width: 60px;
+    height: 60px;
+    background: var(--phase5-gradient-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1.5rem;
+    animation: fastPulse 2s ease-in-out infinite;
+}
+
+@keyframes fastPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.fast-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--phase5-primary);
+    margin-bottom: 1rem;
+}
+
+.fast-description {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Problem Difficulty System */
+.difficulty-system {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.difficulty-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.difficulty-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.difficulty-card.easy::before {
+    background: var(--phase5-easy);
+}
+
+.difficulty-card.medium::before {
+    background: var(--phase5-medium);
+}
+
+.difficulty-card.hard::before {
+    background: var(--phase5-hard);
+}
+
+.difficulty-card:hover {
+    transform: translateY(-5px);
+}
+
+.difficulty-card.easy:hover {
+    box-shadow: 0 12px 30px rgba(0, 184, 163, 0.2);
+}
+
+.difficulty-card.medium:hover {
+    box-shadow: 0 12px 30px rgba(255, 192, 30, 0.2);
+}
+
+.difficulty-card.hard:hover {
+    box-shadow: 0 12px 30px rgba(255, 55, 95, 0.2);
+}
+
+.difficulty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.difficulty-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.difficulty-card.easy .difficulty-name {
+    color: var(--phase5-easy);
+}
+
+.difficulty-card.medium .difficulty-name {
+    color: var(--phase5-medium);
+}
+
+.difficulty-card.hard .difficulty-name {
+    color: var(--phase5-hard);
+}
+
+.difficulty-count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--phase5-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.difficulty-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Mock Interview Interface */
+.interview-simulator {
+    background: linear-gradient(145deg, #1e293b, #334155);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.interview-simulator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--phase5-interview);
+}
+
+.interview-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interviewer-avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--phase5-interview);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    animation: interviewerBlink 3s ease-in-out infinite;
+}
+
+@keyframes interviewerBlink {
+    0%, 90%, 100% { transform: scale(1); }
+    95% { transform: scale(0.95); }
+}
+
+.interview-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--phase5-success);
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.interview-timer {
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--phase5-warning);
+}
+
+.coding-environment {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-editor {
+    background: transparent;
+    border: none;
+    color: #e2e8f0;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    width: 100%;
+    min-height: 200px;
+    resize: vertical;
+    outline: none;
+}
+
+.interview-feedback {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--phase5-accent);
+}
+
+.feedback-score {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--phase5-success);
+    display: block;
+}
+
+.score-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+/* Portfolio Projects Showcase */
+.portfolio-showcase {
+    background: var(--phase5-gradient-portfolio);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-showcase::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(255,255,255,0.1), transparent);
+    animation: portfolioRotate 8s linear infinite;
+}
+
+@keyframes portfolioRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-project {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio-project:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.project-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-status.completed {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--phase5-success);
+    border: 1px solid var(--phase5-success);
+}
+
+.project-status.in-progress {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--phase5-warning);
+    border: 1px solid var(--phase5-warning);
+}
+
+.project-status.not-started {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+    border: 1px solid #9ca3af;
+}
+
+/* Progress Tracking System */
+.progress-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.progress-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    border-left: 4px solid var(--phase5-accent);
+    transition: all 0.3s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.15);
+}
+
+.progress-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--phase5-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.progress-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--phase5-gradient-accent);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* Interview Preparation Checklist */
+.prep-checklist {
+    background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+    border: 2px solid var(--phase5-accent);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.checklist-item:hover {
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.checklist-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--phase5-accent);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.checklist-checkbox.checked {
+    background: var(--phase5-success);
+    border-color: var(--phase5-success);
+    color: white;
+}
+
+.checklist-text {
+    flex: 1;
+    color: var(--phase5-primary);
+    font-weight: 500;
+}
+
+.checklist-item.completed .checklist-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Company-Specific Preparation */
+.company-prep {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.company-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.company-card:hover {
+    border-color: var(--phase5-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.1);
+}
+
+.company-logo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.company-name {
+    font-weight: bold;
+    color: var(--phase5-primary);
+    margin-bottom: 0.5rem;
+}
+
+.company-difficulty {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.company-difficulty.faang {
+    background: rgba(255, 55, 95, 0.1);
+    color: var(--phase5-hard);
+}
+
+.company-difficulty.startup {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--phase5-medium);
+}
+
+.company-difficulty.enterprise {
+    background: rgba(0, 184, 163, 0.1);
+    color: var(--phase5-easy);
+}
+
+/* Phase 5 Controls */
+.phase5-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.phase5-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.phase5-btn.primary {
+    background: var(--phase5-gradient-accent);
+    color: white;
+}
+
+.phase5-btn.interview {
+    background: var(--phase5-interview);
+    color: white;
+}
+
+.phase5-btn.portfolio {
+    background: var(--phase5-gradient-portfolio);
+    color: white;
+}
+
+.phase5-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design for Phase 5 */
+@media (max-width: 768px) {
+    .fast-methodology {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .difficulty-system {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .company-prep {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .interview-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .phase5-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Phase 5 Success and Completion States */
+.phase5-completion {
+    background: var(--phase5-gradient-main);
+    color: white;
+    text-align: center;
+    padding: 3rem;
+    border-radius: 24px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.phase5-completion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/></circle><circle cx="30" cy="70" r="1" fill="rgba(255,255,255,0.1)" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/></circle></svg>');
+}
+
+.completion-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: completionGlow 2s ease-in-out infinite;
+}
+
+@keyframes completionGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    50% { text-shadow: 0 0 40px rgba(255,255,255,0.8); }
+}
+
+.completion-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.completion-message {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}

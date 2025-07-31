@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Projects System - Phase 5</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+    <link rel="stylesheet" href="../../css/portfolio-projects.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 5: LeetCode Mastery</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>5.3 Portfolio Projects System</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#project-showcase">Project Showcase</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Capstone Builder</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Algorithm Visualizer</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Final Certification</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase5" class="breadcrumb-link">Phase 5: LeetCode Mastery</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Portfolio Projects System</span>
+            </div>
+
+            <header class="lesson-header">
+                <h1>Portfolio Projects System</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 240 min capstone</span>
+                    <span class="difficulty difficulty-master">👑 Master</span>
+                    <span class="progress">Final Phase 5 Project</span>
+                </div>
+                <div class="hero-banner portfolio-hero">
+                    <div class="banner-content">
+                        <h2>🏆 Showcase Your Mastery Through Real Projects</h2>
+                        <p>Transform from student to creator! Build impressive projects that demonstrate everything you've learned. Create algorithm visualizers, full-stack applications, and interactive demos that will wow potential employers and complete your journey to coding mastery.</p>
+                    </div>
+                    <div class="portfolio-visual">
+                        <div class="project-gallery">
+                            <div class="project-preview" data-project="visualizer">
+                                <div class="project-icon">🎨</div>
+                                <div class="project-title">Algorithm Visualizer</div>
+                            </div>
+                            <div class="project-preview" data-project="webapp">
+                                <div class="project-icon">🌐</div>
+                                <div class="project-title">Full-Stack App</div>
+                            </div>
+                            <div class="project-preview" data-project="game">
+                                <div class="project-icon">🎮</div>
+                                <div class="project-title">Coding Game</div>
+                            </div>
+                            <div class="project-preview" data-project="library">
+                                <div class="project-icon">📚</div>
+                                <div class="project-title">Data Structure Library</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-label">Build Your Developer Portfolio</div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Create Portfolio-Worthy Projects</h2>
+                <ul>
+                    <li>Build 4 comprehensive projects that demonstrate your full skill set</li>
+                    <li>Create interactive algorithm visualizations that showcase your understanding</li>
+                    <li>Develop a full-stack web application from concept to deployment</li>
+                    <li>Design and implement your own data structure library with tests</li>
+                    <li>Publish and share your work to build your professional developer portfolio</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="project-showcase">
+                <h3>🏛️ Your Developer Portfolio Showcase</h3>
+                <div class="showcase-intro">
+                    <p>Your portfolio is your professional calling card. Each project demonstrates different aspects of your skills - from algorithm understanding to full-stack development. These aren't just exercises; they're real applications you'll be proud to show employers.</p>
+                </div>
+
+                <div class="current-portfolio">
+                    <div class="portfolio-header">
+                        <h4>📂 Your Project Portfolio</h4>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="projectsCompleted">0</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="linesOfCode">0</span>
+                                <span class="stat-label">Lines of Code</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="portfolioScore">0%</span>
+                                <span class="stat-label">Portfolio Score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-grid" id="projectGrid">
+                        <!-- Projects will be dynamically populated -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎨 Project 1: Interactive Algorithm Visualizer</h3>
+                <div class="project-section">
+                    <div class="project-intro">
+                        <div class="project-overview">
+                            <h4>🎯 Project Overview</h4>
+                            <p>Create an interactive web application that visualizes sorting algorithms in real-time. Users can see exactly how algorithms like Bubble Sort, Quick Sort, and Merge Sort work step-by-step.</p>
+                            
+                            <div class="project-features">
+                                <h5>Key Features to Implement:</h5>
+                                <ul>
+                                    <li>🎛️ Interactive controls for algorithm speed and array size</li>
+                                    <li>🌈 Color-coded visualization showing comparisons and swaps</li>
+                                    <li>📊 Real-time performance metrics and complexity analysis</li>
+                                    <li>🔊 Optional sound effects for each operation</li>
+                                    <li>📱 Responsive design that works on all devices</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="project-preview-container">
+                            <div class="visualizer-preview" id="visualizerPreview">
+                                <div class="preview-header">
+                                    <h5>🎨 Algorithm Visualizer Preview</h5>
+                                    <div class="preview-controls">
+                                        <button class="preview-btn" onclick="startVisualizerDemo()">▶ Demo</button>
+                                    </div>
+                                </div>
+                                <div class="preview-canvas">
+                                    <canvas id="visualizerCanvas" width="400" height="200"></canvas>
+                                </div>
+                                <div class="preview-stats">
+                                    <span class="stat">Comparisons: <span id="comparisons">0</span></span>
+                                    <span class="stat">Swaps: <span id="swaps">0</span></span>
+                                    <span class="stat">Time: <span id="time">0ms</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-builder">
+                        <h4>🏗️ Build Your Visualizer</h4>
+                        
+                        <div class="builder-steps">
+                            <div class="step-item" data-step="1">
+                                <div class="step-header" onclick="toggleStep(1)">
+                                    <div class="step-number">1</div>
+                                    <div class="step-title">Set Up HTML Structure</div>
+                                    <div class="step-status">⏳ Pending</div>
+                                </div>
+                                <div class="step-content" style="display: none;">
+                                    <p>Create the basic HTML layout for your algorithm visualizer.</p>
+                                    <div class="code-template">
+                                        <h6>📄 HTML Template:</h6>
+                                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Algorithm Visualizer&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="visualizer-container"&gt;
+        &lt;h1&gt;Interactive Sorting Algorithm Visualizer&lt;/h1&gt;
+        
+        &lt;div class="controls"&gt;
+            &lt;select id="algorithm"&gt;
+                &lt;option value="bubble"&gt;Bubble Sort&lt;/option&gt;
+                &lt;option value="quick"&gt;Quick Sort&lt;/option&gt;
+                &lt;option value="merge"&gt;Merge Sort&lt;/option&gt;
+            &lt;/select&gt;
+            
+            &lt;input type="range" id="speed" min="1" max="10" value="5"&gt;
+            &lt;input type="range" id="arraySize" min="10" max="100" value="50"&gt;
+            
+            &lt;button id="startBtn"&gt;Start Sorting&lt;/button&gt;
+            &lt;button id="resetBtn"&gt;Reset Array&lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;canvas id="visualCanvas"&gt;&lt;/canvas&gt;
+        
+        &lt;div class="stats"&gt;
+            &lt;div&gt;Comparisons: &lt;span id="comparisons"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;Swaps: &lt;span id="swaps"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;Time Complexity: &lt;span id="complexity"&gt;O(n²)&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script src="visualizer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                    </div>
+                                    <button class="step-complete-btn" onclick="completeStep(1)">✅ Mark Complete</button>
+                                </div>
+                            </div>
+
+                            <div class="step-item" data-step="2">
+                                <div class="step-header" onclick="toggleStep(2)">
+                                    <div class="step-number">2</div>
+                                    <div class="step-title">Create CSS Styling</div>
+                                    <div class="step-status">⏳ Pending</div>
+                                </div>
+                                <div class="step-content" style="display: none;">
+                                    <p>Design an attractive and responsive interface for your visualizer.</p>
+                                    <div class="code-template">
+                                        <h6>🎨 CSS Template:</h6>
+                                        <pre><code>body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.visualizer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.controls {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(10px);
+}
+
+#visualCanvas {
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    margin: 20px 0;
+}
+
+button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}</code></pre>
+                                    </div>
+                                    <button class="step-complete-btn" onclick="completeStep(2)">✅ Mark Complete</button>
+                                </div>
+                            </div>
+
+                            <div class="step-item" data-step="3">
+                                <div class="step-header" onclick="toggleStep(3)">
+                                    <div class="step-number">3</div>
+                                    <div class="step-title">Implement Sorting Algorithms</div>
+                                    <div class="step-status">⏳ Pending</div>
+                                </div>
+                                <div class="step-content" style="display: none;">
+                                    <p>Write the JavaScript code for the sorting algorithms with visualization.</p>
+                                    <div class="code-template">
+                                        <h6>💻 JavaScript Template:</h6>
+                                        <pre><code>class AlgorithmVisualizer {
+    constructor() {
+        this.canvas = document.getElementById('visualCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.array = [];
+        this.isAnimating = false;
+        this.comparisons = 0;
+        this.swaps = 0;
+        
+        this.initializeCanvas();
+        this.generateRandomArray();
+        this.setupEventListeners();
+    }
+    
+    generateRandomArray(size = 50) {
+        this.array = [];
+        for(let i = 0; i < size; i++) {
+            this.array.push(Math.floor(Math.random() * 300) + 5);
+        }
+        this.drawArray();
+        this.resetStats();
+    }
+    
+    async bubbleSort() {
+        const arr = [...this.array];
+        for(let i = 0; i < arr.length - 1; i++) {
+            for(let j = 0; j < arr.length - i - 1; j++) {
+                this.comparisons++;
+                this.updateStats();
+                
+                // Highlight comparison
+                await this.drawArray([j, j + 1], 'red');
+                
+                if(arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    this.swaps++;
+                    
+                    // Highlight swap
+                    await this.drawArray([j, j + 1], 'green');
+                }
+                
+                await this.sleep(100 - this.speed * 10);
+            }
+        }
+        this.array = arr;
+        await this.drawArray([], 'green'); // Show completion
+    }
+    
+    drawArray(highlights = [], color = 'blue') {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        const barWidth = this.canvas.width / this.array.length;
+        
+        for(let i = 0; i < this.array.length; i++) {
+            const barHeight = (this.array[i] / 305) * this.canvas.height;
+            
+            if(highlights.includes(i)) {
+                this.ctx.fillStyle = color;
+            } else {
+                this.ctx.fillStyle = '#3498db';
+            }
+            
+            this.ctx.fillRect(
+                i * barWidth, 
+                this.canvas.height - barHeight, 
+                barWidth - 1, 
+                barHeight
+            );
+        }
+        
+        return new Promise(resolve => {
+            setTimeout(resolve, 50);
+        });
+    }
+    
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    updateStats() {
+        document.getElementById('comparisons').textContent = this.comparisons;
+        document.getElementById('swaps').textContent = this.swaps;
+    }
+}</code></pre>
+                                    </div>
+                                    <button class="step-complete-btn" onclick="completeStep(3)">✅ Mark Complete</button>
+                                </div>
+                            </div>
+
+                            <div class="step-item" data-step="4">
+                                <div class="step-header" onclick="toggleStep(4)">
+                                    <div class="step-number">4</div>
+                                    <div class="step-title">Add Interactivity & Polish</div>
+                                    <div class="step-status">⏳ Pending</div>
+                                </div>
+                                <div class="step-content" style="display: none;">
+                                    <p>Add final touches, sound effects, and responsive design elements.</p>
+                                    <div class="enhancement-ideas">
+                                        <h6>✨ Enhancement Ideas:</h6>
+                                        <ul>
+                                            <li>🔊 Add sound effects for comparisons and swaps</li>
+                                            <li>🎮 Allow users to input custom arrays</li>
+                                            <li>📈 Show complexity analysis in real-time</li>
+                                            <li>🏆 Add a "race mode" comparing two algorithms</li>
+                                            <li>💾 Save and share visualizations</li>
+                                        </ul>
+                                    </div>
+                                    <button class="step-complete-btn" onclick="completeStep(4)">✅ Mark Complete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-actions">
+                            <button class="action-btn primary" onclick="startProject('visualizer')">
+                                🚀 Start Building Visualizer
+                            </button>
+                            <button class="action-btn secondary" onclick="viewVisualizerExamples()">
+                                👀 View Examples
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🌐 Project 2: Full-Stack Web Application</h3>
+                <div class="project-section">
+                    <div class="project-intro">
+                        <div class="project-overview">
+                            <h4>🎯 Project Overview</h4>
+                            <p>Build a complete web application from front-end to back-end. Choose from several project ideas or create your own. This demonstrates your ability to architect and deploy real-world applications.</p>
+                            
+                            <div class="project-options">
+                                <h5>Choose Your Project:</h5>
+                                <div class="option-grid">
+                                    <div class="project-option" onclick="selectFullStackProject('todo')">
+                                        <div class="option-icon">📝</div>
+                                        <h6>Smart Todo App</h6>
+                                        <p>Task management with AI categorization, priority sorting, and analytics dashboard</p>
+                                        <div class="tech-stack">React • Node.js • MongoDB</div>
+                                    </div>
+                                    
+                                    <div class="project-option" onclick="selectFullStackProject('expense')">
+                                        <div class="option-icon">💰</div>
+                                        <h6>Expense Tracker</h6>
+                                        <p>Personal finance app with budget tracking, spending insights, and data visualization</p>
+                                        <div class="tech-stack">Vue.js • Express • PostgreSQL</div>
+                                    </div>
+                                    
+                                    <div class="project-option" onclick="selectFullStackProject('social')">
+                                        <div class="option-icon">👥</div>
+                                        <h6>Developer Network</h6>
+                                        <p>Social platform for developers to share projects, get feedback, and collaborate</p>
+                                        <div class="tech-stack">React • GraphQL • Firebase</div>
+                                    </div>
+                                    
+                                    <div class="project-option" onclick="selectFullStackProject('learning')">
+                                        <div class="option-icon">📚</div>
+                                        <h6>Learning Platform</h6>
+                                        <p>Course management system with video streaming, progress tracking, and certificates</p>
+                                        <div class="tech-stack">Angular • Django • AWS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-roadmap">
+                        <h4>🗺️ Full-Stack Development Roadmap</h4>
+                        <div class="roadmap-phases">
+                            <div class="phase-item">
+                                <div class="phase-number">1</div>
+                                <div class="phase-content">
+                                    <h5>Planning & Design</h5>
+                                    <ul>
+                                        <li>User research and requirements gathering</li>
+                                        <li>Database schema design</li>
+                                        <li>API endpoint planning</li>
+                                        <li>UI/UX wireframes and mockups</li>
+                                    </ul>
+                                    <div class="phase-duration">Week 1</div>
+                                </div>
+                            </div>
+                            
+                            <div class="phase-item">
+                                <div class="phase-number">2</div>
+                                <div class="phase-content">
+                                    <h5>Backend Development</h5>
+                                    <ul>
+                                        <li>Set up server and database</li>
+                                        <li>Implement authentication system</li>
+                                        <li>Create RESTful API endpoints</li>
+                                        <li>Write comprehensive tests</li>
+                                    </ul>
+                                    <div class="phase-duration">Week 2-3</div>
+                                </div>
+                            </div>
+                            
+                            <div class="phase-item">
+                                <div class="phase-number">3</div>
+                                <div class="phase-content">
+                                    <h5>Frontend Development</h5>
+                                    <ul>
+                                        <li>Build responsive user interface</li>
+                                        <li>Implement state management</li>
+                                        <li>Connect to backend APIs</li>
+                                        <li>Add animations and polish</li>
+                                    </ul>
+                                    <div class="phase-duration">Week 4-5</div>
+                                </div>
+                            </div>
+                            
+                            <div class="phase-item">
+                                <div class="phase-number">4</div>
+                                <div class="phase-content">
+                                    <h5>Deployment & Polish</h5>
+                                    <ul>
+                                        <li>Set up CI/CD pipeline</li>
+                                        <li>Deploy to cloud platform</li>
+                                        <li>Performance optimization</li>
+                                        <li>Documentation and demo</li>
+                                    </ul>
+                                    <div class="phase-duration">Week 6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="action-btn primary" onclick="startFullStackProject()">
+                            🏗️ Start Full-Stack Project
+                        </button>
+                        <button class="action-btn secondary" onclick="viewFullStackTemplates()">
+                            📋 View Templates
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎮 Project 3: Interactive Coding Game</h3>
+                <div class="project-section">
+                    <div class="project-intro">
+                        <div class="project-overview">
+                            <h4>🎯 Project Overview</h4>
+                            <p>Create an engaging coding game that teaches algorithms through play. This project demonstrates your creativity, game design skills, and ability to make complex concepts accessible.</p>
+                            
+                            <div class="game-concepts">
+                                <h5>Game Ideas:</h5>
+                                <div class="concept-grid">
+                                    <div class="game-concept">
+                                        <div class="concept-icon">🏰</div>
+                                        <h6>Algorithm Castle</h6>
+                                        <p>Tower defense game where players use different algorithms to defend against waves of bugs</p>
+                                    </div>
+                                    
+                                    <div class="game-concept">
+                                        <div class="concept-icon">🧩</div>
+                                        <h6>Code Puzzle Quest</h6>
+                                        <p>RPG-style adventure where solving coding challenges unlocks new areas and abilities</p>
+                                    </div>
+                                    
+                                    <div class="game-concept">
+                                        <div class="concept-icon">🏃</div>
+                                        <h6>Data Structure Runner</h6>
+                                        <p>Endless runner game where players navigate obstacles using different data structures</p>
+                                    </div>
+                                    
+                                    <div class="game-concept">
+                                        <div class="concept-icon">🎯</div>
+                                        <h6>Complexity Challenge</h6>
+                                        <p>Competitive coding game where players optimize algorithms for speed and efficiency</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-builder">
+                        <h4>🎮 Game Development Framework</h4>
+                        <div class="framework-tabs">
+                            <button class="tab-btn active" onclick="switchTab('gameplay')">🎯 Gameplay</button>
+                            <button class="tab-btn" onclick="switchTab('graphics')">🎨 Graphics</button>
+                            <button class="tab-btn" onclick="switchTab('audio')">🔊 Audio</button>
+                            <button class="tab-btn" onclick="switchTab('progression')">📈 Progression</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="gameplay">
+                            <h5>Core Gameplay Mechanics</h5>
+                            <div class="mechanic-examples">
+                                <div class="mechanic-item">
+                                    <strong>Algorithm Battles:</strong> Players choose algorithms to solve challenges in real-time
+                                </div>
+                                <div class="mechanic-item">
+                                    <strong>Code Construction:</strong> Build and optimize code structures like Tetris blocks
+                                </div>
+                                <div class="mechanic-item">
+                                    <strong>Debug Detective:</strong> Find and fix bugs in code to progress through levels
+                                </div>
+                                <div class="mechanic-item">
+                                    <strong>Efficiency Racing:</strong> Optimize algorithms to beat time and memory limits
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="graphics" style="display: none;">
+                            <h5>Visual Design System</h5>
+                            <div class="graphics-tools">
+                                <p>Use HTML5 Canvas or WebGL for smooth animations and interactive elements</p>
+                                <ul>
+                                    <li>Particle systems for visual feedback</li>
+                                    <li>Smooth transitions between game states</li>
+                                    <li>Responsive design for all devices</li>
+                                    <li>Dark/light theme toggle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="audio" style="display: none;">
+                            <h5>Audio Experience</h5>
+                            <div class="audio-elements">
+                                <ul>
+                                    <li>🎵 Background music that adapts to difficulty</li>
+                                    <li>🔊 Sound effects for successful operations</li>
+                                    <li>🎙️ Optional voice narration for tutorials</li>
+                                    <li>🎧 Spatial audio for immersive experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="progression" style="display: none;">
+                            <h5>Player Progression System</h5>
+                            <div class="progression-elements">
+                                <ul>
+                                    <li>🏆 Achievement system for completing challenges</li>
+                                    <li>📈 Skill trees for different algorithm categories</li>
+                                    <li>⭐ Star rating system for solution efficiency</li>
+                                    <li>🎖️ Leaderboards and social features</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="action-btn primary" onclick="startCodingGame()">
+                            🎮 Start Game Development
+                        </button>
+                        <button class="action-btn secondary" onclick="playGameExamples()">
+                            🕹️ Play Examples
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📚 Project 4: Custom Data Structure Library</h3>
+                <div class="project-section">
+                    <div class="project-intro">
+                        <div class="project-overview">
+                            <h4>🎯 Project Overview</h4>
+                            <p>Build a comprehensive, well-tested library of data structures and algorithms. This project demonstrates your deep understanding of computer science fundamentals and software engineering best practices.</p>
+                            
+                            <div class="library-structure">
+                                <h5>Library Components:</h5>
+                                <div class="structure-tree">
+                                    <div class="tree-node">
+                                        <div class="node-icon">📦</div>
+                                        <div class="node-content">
+                                            <strong>DataStructures Library</strong>
+                                            <div class="node-children">
+                                                <div class="child-node">
+                                                    <span class="child-icon">📋</span>
+                                                    <span>Linear Structures (Stack, Queue, LinkedList)</span>
+                                                </div>
+                                                <div class="child-node">
+                                                    <span class="child-icon">🌳</span>
+                                                    <span>Tree Structures (BST, AVL, Heap)</span>
+                                                </div>
+                                                <div class="child-node">
+                                                    <span class="child-icon">🕸️</span>
+                                                    <span>Graph Structures (Adjacency List/Matrix)</span>
+                                                </div>
+                                                <div class="child-node">
+                                                    <span class="child-icon">🗂️</span>
+                                                    <span>Hash Structures (HashMap, HashSet)</span>
+                                                </div>
+                                                <div class="child-node">
+                                                    <span class="child-icon">⚡</span>
+                                                    <span>Algorithms (Sort, Search, Graph)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="library-features">
+                        <h4>🚀 Professional Library Features</h4>
+                        <div class="feature-categories">
+                            <div class="feature-category">
+                                <h5>💻 Implementation Quality</h5>
+                                <ul>
+                                    <li>Generic/template implementations for type safety</li>
+                                    <li>Memory-efficient algorithms with optimal complexity</li>
+                                    <li>Thread-safe operations where applicable</li>
+                                    <li>Iterator support for standard library integration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-category">
+                                <h5>🧪 Testing & Documentation</h5>
+                                <ul>
+                                    <li>Comprehensive unit test suite (95%+ coverage)</li>
+                                    <li>Performance benchmarking and profiling</li>
+                                    <li>API documentation with examples</li>
+                                    <li>Continuous integration setup</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-category">
+                                <h5>📦 Distribution & Usage</h5>
+                                <ul>
+                                    <li>Package manager integration (npm, PyPI)</li>
+                                    <li>Multiple language bindings</li>
+                                    <li>Interactive demo website</li>
+                                    <li>Contributing guidelines and community support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="implementation-example">
+                        <h4>💡 Implementation Example: Custom Hash Map</h4>
+                        <div class="code-example">
+                            <pre><code>class CustomHashMap:
+    """
+    A high-performance hash map implementation with open addressing
+    and linear probing for collision resolution.
+    
+    Time Complexity: O(1) average case for all operations
+    Space Complexity: O(n) where n is the number of elements
+    """
+    
+    def __init__(self, initial_capacity=16):
+        self.capacity = initial_capacity
+        self.size = 0
+        self.threshold = 0.75
+        self.keys = [None] * self.capacity
+        self.values = [None] * self.capacity
+        self.deleted = [False] * self.capacity
+    
+    def _hash(self, key):
+        """Custom hash function using Python's built-in hash with double hashing"""
+        return hash(key) % self.capacity
+    
+    def _resize(self):
+        """Resize the hash table when load factor exceeds threshold"""
+        old_keys, old_values = self.keys, self.values
+        old_deleted = self.deleted
+        
+        self.capacity *= 2
+        self.size = 0
+        self.keys = [None] * self.capacity
+        self.values = [None] * self.capacity
+        self.deleted = [False] * self.capacity
+        
+        for i in range(len(old_keys)):
+            if old_keys[i] is not None and not old_deleted[i]:
+                self.put(old_keys[i], old_values[i])
+    
+    def put(self, key, value):
+        """Insert or update a key-value pair"""
+        if self.size >= self.capacity * self.threshold:
+            self._resize()
+        
+        index = self._hash(key)
+        original_index = index
+        
+        while (self.keys[index] is not None and 
+               self.keys[index] != key and 
+               not self.deleted[index]):
+            index = (index + 1) % self.capacity
+            if index == original_index:  # Table is full
+                self._resize()
+                return self.put(key, value)
+        
+        if self.keys[index] is None or self.deleted[index]:
+            self.size += 1
+        
+        self.keys[index] = key
+        self.values[index] = value
+        self.deleted[index] = False
+    
+    def get(self, key):
+        """Retrieve value by key"""
+        index = self._hash(key)
+        original_index = index
+        
+        while self.keys[index] is not None:
+            if self.keys[index] == key and not self.deleted[index]:
+                return self.values[index]
+            index = (index + 1) % self.capacity
+            if index == original_index:
+                break
+        
+        raise KeyError(f"Key '{key}' not found")
+    
+    def delete(self, key):
+        """Remove a key-value pair"""
+        index = self._hash(key)
+        original_index = index
+        
+        while self.keys[index] is not None:
+            if self.keys[index] == key and not self.deleted[index]:
+                self.deleted[index] = True
+                self.size -= 1
+                return self.values[index]
+            index = (index + 1) % self.capacity
+            if index == original_index:
+                break
+        
+        raise KeyError(f"Key '{key}' not found")
+    
+    def __len__(self):
+        return self.size
+    
+    def __contains__(self, key):
+        try:
+            self.get(key)
+            return True
+        except KeyError:
+            return False</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="action-btn primary" onclick="startLibraryProject()">
+                            📚 Start Library Development
+                        </button>
+                        <button class="action-btn secondary" onclick="viewLibraryExamples()">
+                            📖 View Documentation
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎓 Final Certification & Portfolio Review</h3>
+                <div class="certification-section">
+                    <div class="certification-intro">
+                        <h4>🏆 Complete Your Journey</h4>
+                        <p>You've built an impressive portfolio of projects that demonstrate your mastery of algorithms, data structures, and full-stack development. Now it's time for the final review and certification.</p>
+                    </div>
+
+                    <div class="certification-requirements">
+                        <h4>📋 Certification Checklist</h4>
+                        <div class="requirements-grid">
+                            <div class="requirement-card">
+                                <div class="req-icon">🎨</div>
+                                <div class="req-content">
+                                    <h5>Algorithm Visualizer</h5>
+                                    <div class="req-criteria">
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="vis-interactive">
+                                            <label for="vis-interactive">Interactive controls implemented</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="vis-algorithms">
+                                            <label for="vis-algorithms">3+ sorting algorithms visualized</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="vis-responsive">
+                                            <label for="vis-responsive">Responsive design completed</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="vis-deployed">
+                                            <label for="vis-deployed">Project deployed and accessible</label>
+                                        </div>
+                                    </div>
+                                    <div class="req-status">0/4 Complete</div>
+                                </div>
+                            </div>
+
+                            <div class="requirement-card">
+                                <div class="req-icon">🌐</div>
+                                <div class="req-content">
+                                    <h5>Full-Stack Application</h5>
+                                    <div class="req-criteria">
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="fs-backend">
+                                            <label for="fs-backend">Backend API implemented</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="fs-frontend">
+                                            <label for="fs-frontend">Frontend interface completed</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="fs-database">
+                                            <label for="fs-database">Database integration working</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="fs-deployed">
+                                            <label for="fs-deployed">Application deployed to cloud</label>
+                                        </div>
+                                    </div>
+                                    <div class="req-status">0/4 Complete</div>
+                                </div>
+                            </div>
+
+                            <div class="requirement-card">
+                                <div class="req-icon">🎮</div>
+                                <div class="req-content">
+                                    <h5>Interactive Coding Game</h5>
+                                    <div class="req-criteria">
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="game-mechanics">
+                                            <label for="game-mechanics">Core gameplay mechanics</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="game-progression">
+                                            <label for="game-progression">Progression system</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="game-polish">
+                                            <label for="game-polish">Visual and audio polish</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="game-deployed">
+                                            <label for="game-deployed">Game published online</label>
+                                        </div>
+                                    </div>
+                                    <div class="req-status">0/4 Complete</div>
+                                </div>
+                            </div>
+
+                            <div class="requirement-card">
+                                <div class="req-icon">📚</div>
+                                <div class="req-content">
+                                    <h5>Data Structure Library</h5>
+                                    <div class="req-criteria">
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="lib-structures">
+                                            <label for="lib-structures">5+ data structures implemented</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="lib-tests">
+                                            <label for="lib-tests">Comprehensive test suite</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="lib-docs">
+                                            <label for="lib-docs">Documentation completed</label>
+                                        </div>
+                                        <div class="criteria-item">
+                                            <input type="checkbox" id="lib-published">
+                                            <label for="lib-published">Library published to package manager</label>
+                                        </div>
+                                    </div>
+                                    <div class="req-status">0/4 Complete</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-showcase">
+                        <h4>🌟 Portfolio Showcase Generator</h4>
+                        <p>Create a professional portfolio website that showcases all your projects with beautiful presentations, live demos, and detailed case studies.</p>
+                        
+                        <div class="showcase-preview">
+                            <div class="preview-browser">
+                                <div class="browser-header">
+                                    <div class="browser-buttons">
+                                        <span class="btn red"></span>
+                                        <span class="btn yellow"></span>
+                                        <span class="btn green"></span>
+                                    </div>
+                                    <div class="browser-url">https://yourname-portfolio.dev</div>
+                                </div>
+                                <div class="browser-content">
+                                    <div class="portfolio-hero">
+                                        <h3>John Developer</h3>
+                                        <p>Full-Stack Developer & Algorithm Enthusiast</p>
+                                    </div>
+                                    <div class="portfolio-projects">
+                                        <div class="project-card">Algorithm Visualizer</div>
+                                        <div class="project-card">Task Management App</div>
+                                        <div class="project-card">Code Adventure Game</div>
+                                        <div class="project-card">DataStructures.js Library</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="showcase-btn" onclick="generatePortfolioSite()">
+                            🎨 Generate Portfolio Website
+                        </button>
+                    </div>
+
+                    <div class="final-certification">
+                        <h4>🏅 CodeMaster Academy Certification</h4>
+                        <div class="certification-card">
+                            <div class="cert-header">
+                                <div class="cert-logo">🏆</div>
+                                <div class="cert-title">
+                                    <h3>Algorithm & Data Structures Mastery</h3>
+                                    <p>Professional Developer Certificate</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-details">
+                                <p>This certifies that <strong>[Your Name]</strong> has successfully completed the comprehensive Algorithm and Data Structures Mastery program, demonstrating:</p>
+                                <ul>
+                                    <li>✅ Advanced algorithm design and analysis skills</li>
+                                    <li>✅ Comprehensive data structure implementation knowledge</li>
+                                    <li>✅ Full-stack web development proficiency</li>
+                                    <li>✅ Software engineering best practices</li>
+                                    <li>✅ Portfolio of professional-quality projects</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cert-actions">
+                                <button class="cert-btn primary" onclick="requestCertification()" disabled>
+                                    🎓 Request Final Certification
+                                </button>
+                                <button class="cert-btn secondary" onclick="downloadCertificate()" disabled>
+                                    📜 Download Certificate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Mock Interview</button>
+                <button class="nav-btn next celebration" onclick="celebrateCompletion()">🎉 Complete Journey! 🎉</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../../js/portfolio-projects-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+function previousLesson() {
+    window.location.href = 'mock-interview-simulator.html';
+}
+
+function celebrateCompletion() {
+    // Your existing celebration code, then redirect to dashboard
+    console.log('🎉 Celebrating Phase 5 completion!');
+    
+    // After celebration animation (5 seconds), redirect to dashboard
+    setTimeout(() => {
+        window.location.href = '../../dashboard.html#phase5-complete';
+    }, 5000);
+}
+
+// Report completion to dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        if (typeof reportLessonComplete === 'function') {
+            reportLessonComplete(5, 'Portfolio Projects System');
+        }
+    }, 30000);
+});
+</script>
+</body>
+</html>

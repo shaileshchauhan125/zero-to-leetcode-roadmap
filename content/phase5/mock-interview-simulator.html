@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Simulator - Phase 5</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+    <link rel="stylesheet" href="../../css/interview-simulator.css">
+    <link rel="stylesheet" href="../../css/phase5.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 5: LeetCode Mastery</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66%"></div>
+                        </div>
+                        <span class="progress-text">66% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>5.2 Mock Interview Simulator</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#interview-setup">Interview Setup</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>AI Interview Experience</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Performance Analytics</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Interview Mastery</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase5" class="breadcrumb-link">Phase 5: LeetCode Mastery</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Mock Interview Simulator</span>
+            </div>
+
+            <header class="lesson-header">
+                <h1>Mock Interview Simulator</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 90 min intensive</span>
+                    <span class="difficulty difficulty-expert">🏆 Master</span>
+                    <span class="progress">2 of 3 sections</span>
+                </div>
+                <div class="hero-banner interview-hero">
+                    <div class="banner-content">
+                        <h2>🎪 Experience Real Technical Interviews with AI</h2>
+                        <p>Step into the most realistic interview simulation ever created. Practice with AI interviewers, get real-time feedback, and master the art of coding under pressure. This is where your MASTER framework skills meet real-world interview scenarios.</p>
+                    </div>
+                    <div class="interview-visual">
+                        <div class="mock-interview-setup">
+                            <div class="interview-screen">
+                                <div class="interviewer-avatar">👨‍💼</div>
+                                <div class="coding-panel">💻</div>
+                                <div class="performance-meter">📊</div>
+                            </div>
+                            <div class="setup-label">AI-Powered Interview Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master Real Technical Interviews</h2>
+                <ul>
+                    <li>Experience realistic technical interviews with AI-powered interviewers</li>
+                    <li>Practice coding under pressure with real-time performance feedback</li>
+                    <li>Master both algorithmic problem-solving AND communication skills</li>
+                    <li>Get detailed analytics on your interview performance across all dimensions</li>
+                    <li>Build confidence through repeated practice in a safe, supportive environment</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="interview-setup">
+                <h3>🎛️ Interview Configuration Center</h3>
+                <div class="setup-intro">
+                    <p>Configure your perfect interview experience. Choose your company type, role level, and interview focus to get the most realistic practice possible. Our AI adapts to your selections to provide authentic interview scenarios.</p>
+                </div>
+
+                <div class="interview-config-grid">
+                    <!-- Company Type Selection -->
+                    <div class="config-section">
+                        <h4>🏢 Company Type</h4>
+                        <div class="company-selector">
+                            <div class="company-option" data-company="faang" onclick="selectCompany('faang')">
+                                <div class="company-icon">🏢</div>
+                                <div class="company-info">
+                                    <h5>FAANG</h5>
+                                    <p>Meta, Apple, Amazon, Netflix, Google</p>
+                                    <div class="company-features">
+                                        <span class="feature">System Design</span>
+                                        <span class="feature">Behavioral</span>
+                                        <span class="feature">Hard Algorithms</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="company-option" data-company="startup" onclick="selectCompany('startup')">
+                                <div class="company-icon">🚀</div>
+                                <div class="company-info">
+                                    <h5>Tech Startup</h5>
+                                    <p>Fast-paced, innovative companies</p>
+                                    <div class="company-features">
+                                        <span class="feature">Full-Stack</span>
+                                        <span class="feature">Product Focus</span>
+                                        <span class="feature">Rapid Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="company-option" data-company="enterprise" onclick="selectCompany('enterprise')">
+                                <div class="company-icon">🏛️</div>
+                                <div class="company-info">
+                                    <h5>Enterprise</h5>
+                                    <p>Large corporations, consulting firms</p>
+                                    <div class="company-features">
+                                        <span class="feature">Architecture</span>
+                                        <span class="feature">Scalability</span>
+                                        <span class="feature">Best Practices</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role Level Selection -->
+                    <div class="config-section">
+                        <h4>📊 Experience Level</h4>
+                        <div class="level-selector">
+                            <div class="level-option" data-level="entry" onclick="selectLevel('entry')">
+                                <div class="level-badge entry">Entry</div>
+                                <div class="level-details">
+                                    <h6>0-2 Years</h6>
+                                    <p>Focus on fundamentals, basic algorithms, and coding ability</p>
+                                </div>
+                            </div>
+                            
+                            <div class="level-option" data-level="mid" onclick="selectLevel('mid')">
+                                <div class="level-badge mid">Mid-Level</div>
+                                <div class="level-details">
+                                    <h6>2-5 Years</h6>
+                                    <p>Complex algorithms, system design basics, leadership questions</p>
+                                </div>
+                            </div>
+                            
+                            <div class="level-option" data-level="senior" onclick="selectLevel('senior')">
+                                <div class="level-badge senior">Senior</div>
+                                <div class="level-details">
+                                    <h6>5+ Years</h6>
+                                    <p>Advanced system design, architecture, team leadership</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interview Focus -->
+                    <div class="config-section">
+                        <h4>🎯 Interview Focus</h4>
+                        <div class="focus-selector">
+                            <label class="focus-option">
+                                <input type="checkbox" value="algorithms" checked>
+                                <span class="checkmark"></span>
+                                <div class="focus-content">
+                                    <h6>🧮 Algorithms & Data Structures</h6>
+                                    <p>Classic coding problems, optimization, complexity analysis</p>
+                                </div>
+                            </label>
+                            
+                            <label class="focus-option">
+                                <input type="checkbox" value="system-design">
+                                <span class="checkmark"></span>
+                                <div class="focus-content">
+                                    <h6>🏗️ System Design</h6>
+                                    <p>Scalable architecture, distributed systems, trade-offs</p>
+                                </div>
+                            </label>
+                            
+                            <label class="focus-option">
+                                <input type="checkbox" value="behavioral">
+                                <span class="checkmark"></span>
+                                <div class="focus-content">
+                                    <h6>🗣️ Behavioral Questions</h6>
+                                    <p>Leadership, teamwork, conflict resolution, career growth</p>
+                                </div>
+                            </label>
+                            
+                            <label class="focus-option">
+                                <input type="checkbox" value="debugging">
+                                <span class="checkmark"></span>
+                                <div class="focus-content">
+                                    <h6>🐛 Code Review & Debugging</h6>
+                                    <p>Find bugs, improve code quality, refactoring skills</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Interview Duration -->
+                    <div class="config-section">
+                        <h4>⏱️ Interview Duration</h4>
+                        <div class="duration-selector">
+                            <div class="duration-option" data-duration="30" onclick="selectDuration(30)">
+                                <div class="duration-time">30 min</div>
+                                <div class="duration-desc">Quick practice session</div>
+                            </div>
+                            <div class="duration-option active" data-duration="45" onclick="selectDuration(45)">
+                                <div class="duration-time">45 min</div>
+                                <div class="duration-desc">Standard interview</div>
+                            </div>
+                            <div class="duration-option" data-duration="60" onclick="selectDuration(60)">
+                                <div class="duration-time">60 min</div>
+                                <div class="duration-desc">Comprehensive session</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interview-preview">
+                    <h4>📋 Your Interview Configuration</h4>
+                    <div class="config-summary" id="configSummary">
+                        <div class="summary-item">
+                            <span class="summary-label">Company:</span>
+                            <span class="summary-value" id="selectedCompany">Select a company type</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Level:</span>
+                            <span class="summary-value" id="selectedLevel">Select experience level</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Focus:</span>
+                            <span class="summary-value" id="selectedFocus">Algorithms & Data Structures</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Duration:</span>
+                            <span class="summary-value" id="selectedDuration">45 minutes</span>
+                        </div>
+                    </div>
+                    
+                    <button class="start-interview-btn" onclick="startMockInterview()" disabled>
+                        🎪 Start Mock Interview
+                    </button>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🤖 AI Interview Experience</h3>
+                <div class="ai-preview">
+                    <h4>Meet Your AI Interviewers</h4>
+                    <p>Our advanced AI interviewers have been trained on thousands of real technical interviews. They adapt their questioning style, follow up on your responses, and provide realistic interview experiences.</p>
+                </div>
+
+                <div class="interviewer-profiles">
+                    <div class="interviewer-card">
+                        <div class="interviewer-avatar alex">👨‍💻</div>
+                        <div class="interviewer-info">
+                            <h5>Alex - Senior Engineer</h5>
+                            <p>Specializes in algorithms and system design. Known for deep technical discussions and optimization challenges.</p>
+                            <div class="interviewer-style">
+                                <span class="style-tag">Technical Deep-Dive</span>
+                                <span class="style-tag">Follow-up Questions</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interviewer-card">
+                        <div class="interviewer-avatar sarah">👩‍💼</div>
+                        <div class="interviewer-info">
+                            <h5>Sarah - Engineering Manager</h5>
+                            <p>Focuses on problem-solving approach and communication. Emphasizes explaining your thought process clearly.</p>
+                            <div class="interviewer-style">
+                                <span class="style-tag">Communication Focus</span>
+                                <span class="style-tag">Behavioral Questions</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interviewer-card">
+                        <div class="interviewer-avatar raj">👨‍🔬</div>
+                        <div class="interviewer-info">
+                            <h5>Raj - Principal Architect</h5>
+                            <p>Expert in system design and scalability. Challenges you to think about real-world constraints and trade-offs.</p>
+                            <div class="interviewer-style">
+                                <span class="style-tag">System Design</span>
+                                <span class="style-tag">Scalability Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📊 Real-Time Performance Analytics</h3>
+                <div class="analytics-preview">
+                    <h4>Comprehensive Interview Analysis</h4>
+                    <p>Get detailed feedback on every aspect of your interview performance. Our AI analyzes your coding, communication, and problem-solving approach in real-time.</p>
+                </div>
+
+                <div class="analytics-dashboard-preview">
+                    <div class="analytics-section">
+                        <h5>💻 Coding Performance</h5>
+                        <div class="metric-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">Code Correctness</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">12 min</div>
+                                <div class="metric-label">Average Solution Time</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">O(n log n)</div>
+                                <div class="metric-label">Optimal Complexity</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-section">
+                        <h5>🗣️ Communication Skills</h5>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <span class="skill-name">Problem Clarification</span>
+                                <div class="bar"><div class="fill" style="width: 90%"></div></div>
+                                <span class="skill-score">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <span class="skill-name">Thought Process</span>
+                                <div class="bar"><div class="fill" style="width: 75%"></div></div>
+                                <span class="skill-score">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <span class="skill-name">Solution Explanation</span>
+                                <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                                <span class="skill-score">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-section">
+                        <h5>🎯 Problem-Solving Approach</h5>
+                        <div class="approach-timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">✅</div>
+                                <div class="timeline-content">
+                                    <strong>Problem Understanding (3 min)</strong>
+                                    <p>Clarified requirements and constraints effectively</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">✅</div>
+                                <div class="timeline-content">
+                                    <strong>Approach Design (5 min)</strong>
+                                    <p>Identified optimal algorithm pattern quickly</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item partial">
+                                <div class="timeline-icon">⚠️</div>
+                                <div class="timeline-content">
+                                    <strong>Implementation (15 min)</strong>
+                                    <p>Code was correct but could be more efficient</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">✅</div>
+                                <div class="timeline-content">
+                                    <strong>Testing & Review (7 min)</strong>
+                                    <p>Thoroughly tested edge cases and optimized</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏆 Interview Mastery Program</h3>
+                <div class="mastery-intro">
+                    <h4>Systematic Interview Preparation</h4>
+                    <p>Our structured program takes you from interview anxiety to interview confidence through progressive challenges and personalized feedback.</p>
+                </div>
+
+                <div class="mastery-levels">
+                    <div class="mastery-level">
+                        <div class="level-header">
+                            <div class="level-icon">🥉</div>
+                            <div class="level-info">
+                                <h5>Bronze Level: Foundation Builder</h5>
+                                <p>Master the basics of technical interviewing</p>
+                            </div>
+                        </div>
+                        <div class="level-requirements">
+                            <h6>Requirements:</h6>
+                            <ul>
+                                <li>Complete 5 algorithm-focused interviews</li>
+                                <li>Achieve 70%+ average coding score</li>
+                                <li>Demonstrate clear problem-solving communication</li>
+                            </ul>
+                        </div>
+                        <div class="level-rewards">
+                            <h6>Unlocks:</h6>
+                            <ul>
+                                <li>Advanced algorithm challenges</li>
+                                <li>System design interview access</li>
+                                <li>Bronze Interview Mastery Badge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mastery-level">
+                        <div class="level-header">
+                            <div class="level-icon">🥈</div>
+                            <div class="level-info">
+                                <h5>Silver Level: Advanced Practitioner</h5>
+                                <p>Handle complex technical scenarios with confidence</p>
+                            </div>
+                        </div>
+                        <div class="level-requirements">
+                            <h6>Requirements:</h6>
+                            <ul>
+                                <li>Complete 3 system design interviews</li>
+                                <li>Achieve 80%+ in behavioral assessments</li>
+                                <li>Successfully debug complex code scenarios</li>
+                            </ul>
+                        </div>
+                        <div class="level-rewards">
+                            <h6>Unlocks:</h6>
+                            <ul>
+                                <li>Senior-level interview simulations</li>
+                                <li>Architecture design challenges</li>
+                                <li>Silver Interview Mastery Badge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mastery-level">
+                        <div class="level-header">
+                            <div class="level-icon">🥇</div>
+                            <div class="level-info">
+                                <h5>Gold Level: Interview Master</h5>
+                                <p>Ready for any technical interview at any company</p>
+                            </div>
+                        </div>
+                        <div class="level-requirements">
+                            <h6>Requirements:</h6>
+                            <ul>
+                                <li>Complete full-cycle interviews (45+ min)</li>
+                                <li>Achieve 90%+ overall performance rating</li>
+                                <li>Demonstrate leadership and mentoring ability</li>
+                            </ul>
+                        </div>
+                        <div class="level-rewards">
+                            <h6>Unlocks:</h6>
+                            <ul>
+                                <li>Executive-level technical discussions</li>
+                                <li>Interview coaching certification</li>
+                                <li>Gold Interview Master Badge</li>
+                                <li>Access to exclusive job network</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="current-progress">
+                    <h4>📈 Your Interview Mastery Progress</h4>
+                    <div class="progress-overview">
+                        <div class="progress-stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Interviews Completed</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="stat-number">--</span>
+                            <span class="stat-label">Average Score</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="stat-number">Bronze</span>
+                            <span class="stat-label">Current Level</span>
+                        </div>
+                    </div>
+                    
+                    <button class="progress-btn" onclick="startMasteryProgram()">
+                        🎯 Begin Interview Mastery Program
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: LeetCode Strategy</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Portfolio Projects →</button>
+            </nav>
+        </main>
+    </div>
+
+    <!-- Mock Interview Interface (Hidden by default) -->
+    <div class="mock-interview-interface" id="interviewInterface" style="display: none;">
+        <!-- This will contain the full interview experience -->
+    </div>
+
+    <script src="../../js/interview-simulator-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+function previousLesson() {
+    window.location.href = 'leetcode-strategy-framework.html';
+}
+
+function nextLesson() {
+    window.location.href = 'portfolio-projects-system.html';
+}
+
+// Report completion to dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        if (typeof reportLessonComplete === 'function') {
+            reportLessonComplete(5, 'Mock Interview Simulator');
+        }
+    }, 30000);
+});
+</script>
+</body>
+</html>

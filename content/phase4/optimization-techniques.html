@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization Techniques - Phase 4</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link rel="stylesheet" href="../../css/phase4.css">
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 4: Advanced Problem Solving</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>4.3 Optimization Techniques</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#optimization-fundamentals">Optimization Fundamentals</a>
+                        </li>
+                        <li class="lesson-item">
+                            <span class="status-icon">📚</span>
+                            <a href="#space-time-tradeoffs">Time-Space Tradeoffs</a>
+                        </li>
+                        <li class="lesson-item">
+                            <span class="status-icon">🚀</span>
+                            <a href="#advanced-techniques">Advanced Techniques</a>
+                        </li>
+                        <li class="lesson-item">
+                            <span class="status-icon">🎯</span>
+                            <a href="#interview-mastery">Interview Mastery</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Problem Solving</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Optimization Techniques</span>
+                
+                <div class="breadcrumb-progress">
+                    <span class="progress-info">Lesson 3 of 3 • 120 min</span>
+                </div>
+            </div>
+
+            <header class="lesson-header">
+                <h1>⚡ Optimization Techniques</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 120 min intensive</span>
+                    <span class="difficulty difficulty-expert">🏆 Expert</span>
+                    <span class="progress">Final Phase 4 Lesson</span>
+                </div>
+                <div class="hero-banner optimization-hero">
+                    <div class="banner-content">
+                        <h2>🚀 Master the Art of Algorithm Optimization</h2>
+                        <p>Transform good solutions into great ones! Learn advanced optimization techniques that separate expert programmers from beginners. Master space-time tradeoffs, cache optimization, and the secrets of writing lightning-fast code that scales.</p>
+                    </div>
+                    <div class="optimization-visual">
+                        <div class="performance-comparison">
+                            <div class="algorithm-before">
+                                <div class="algo-label">Before Optimization</div>
+                                <div class="complexity-display">O(n²)</div>
+                                <div class="performance-bar slow"></div>
+                            </div>
+                            <div class="optimization-arrow">⚡</div>
+                            <div class="algorithm-after">
+                                <div class="algo-label">After Optimization</div>
+                                <div class="complexity-display">O(n log n)</div>
+                                <div class="performance-bar fast"></div>
+                            </div>
+                        </div>
+                        <div class="optimization-label">Dramatic Performance Gains</div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master Advanced Optimization</h2>
+                <ul>
+                    <li>Master fundamental optimization principles and space-time tradeoffs</li>
+                    <li>Apply advanced techniques like memoization, caching, and dynamic programming</li>
+                    <li>Optimize algorithms for real-world constraints and hardware limitations</li>
+                    <li>Recognize optimization opportunities during coding interviews</li>
+                    <li>Build intuition for when and how to optimize code for maximum impact</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="optimization-fundamentals">
+                <h3>🔬 Optimization Fundamentals</h3>
+                <div class="fundamentals-intro">
+                    <p>Optimization is both an art and a science. It's about making informed decisions on where to invest your effort for maximum performance gains. Let's start with the core principles that guide all optimization decisions.</p>
+                </div>
+
+                <div class="optimization-principles">
+                    <div class="principle-card" data-principle="measure">
+                        <div class="principle-icon">📊</div>
+                        <div class="principle-content">
+                            <h4>Measure First, Optimize Second</h4>
+                            <p>Never optimize without data. Profile your code to identify real bottlenecks, not perceived ones.</p>
+                            <div class="principle-example">
+                                <strong>Example:</strong> 80% of execution time often comes from 20% of the code
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="principle-card" data-principle="tradeoffs">
+                        <div class="principle-icon">⚖️</div>
+                        <div class="principle-content">
+                            <h4>Understand Tradeoffs</h4>
+                            <p>Every optimization has costs. Learn to balance time, space, readability, and maintainability.</p>
+                            <div class="principle-example">
+                                <strong>Example:</strong> Hash tables trade space for time complexity improvements
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="principle-card" data-principle="context">
+                        <div class="principle-icon">🎯</div>
+                        <div class="principle-content">
+                            <h4>Context Matters</h4>
+                            <p>The best optimization depends on your constraints: data size, memory limits, and use patterns.</p>
+                            <div class="principle-example">
+                                <strong>Example:</strong> Different algorithms excel with small vs. large datasets
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="principle-card" data-principle="premature">
+                        <div class="principle-icon">⚠️</div>
+                        <div class="principle-content">
+                            <h4>Avoid Premature Optimization</h4>
+                            <p>Donald Knuth's famous quote: "Premature optimization is the root of all evil." Optimize when you have proof it's needed.</p>
+                            <div class="principle-example">
+                                <strong>Example:</strong> Write clean, correct code first, then optimize hot paths
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4>🧪 Interactive Optimization Demo</h4>
+                    <div class="demo-container">
+                        <div class="demo-controls">
+                            <label for="algorithmSelect">Choose Algorithm:</label>
+                            <select id="algorithmSelect" onchange="switchAlgorithm()">
+                                <option value="linear">Linear Search O(n)</option>
+                                <option value="binary">Binary Search O(log n)</option>
+                                <option value="hash">Hash Lookup O(1)</option>
+                            </select>
+                            
+                            <label for="dataSize">Data Size:</label>
+                            <input type="range" id="dataSize" min="10" max="1000" value="100" onchange="updateDataSize()">
+                            <span id="dataSizeDisplay">100</span>
+                            
+                            <button onclick="runDemo()" class="demo-run-btn">🚀 Run Demo</button>
+                        </div>
+                        
+                        <div class="demo-visualization">
+                            <canvas id="optimizationCanvas" width="600" height="300"></canvas>
+                        </div>
+                        
+                        <div class="demo-results">
+                            <div class="result-metric">
+                                <span class="metric-label">Operations:</span>
+                                <span class="metric-value" id="operationsCount">-</span>
+                            </div>
+                            <div class="result-metric">
+                                <span class="metric-label">Time:</span>
+                                <span class="metric-value" id="executionTime">-</span>
+                            </div>
+                            <div class="result-metric">
+                                <span class="metric-label">Efficiency:</span>
+                                <span class="metric-value" id="efficiency">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="space-time-tradeoffs">
+                <h3>⚖️ Space-Time Tradeoffs Mastery</h3>
+                <div class="tradeoffs-intro">
+                    <p>The heart of optimization lies in understanding space-time tradeoffs. Sometimes using more memory dramatically improves speed, and sometimes the opposite is true. Master these decisions and you'll think like an expert optimizer.</p>
+                </div>
+
+                <div class="optimization-examples">
+                    <div class="example-card">
+                        <h4>💾 Memoization Example</h4>
+                        <div class="code-comparison">
+                            <div class="code-before">
+                                <h5>Before (Exponential Time)</h5>
+                                <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Time: O(2^n), Space: O(n)</code></pre>
+                            </div>
+                            <div class="code-after">
+                                <h5>After (Linear Time)</h5>
+                                <pre><code>def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]
+
+# Time: O(n), Space: O(n)</code></pre>
+                            </div>
+                        </div>
+                        <div class="optimization-insight">
+                            <strong>Key Insight:</strong> Trading O(n) space for exponential time improvement - one of the most powerful optimizations in computer science!
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>🏗️ Preprocessing Example</h4>
+                        <div class="code-comparison">
+                            <div class="code-before">
+                                <h5>Raw Queries</h5>
+                                <pre><code>def range_sum(arr, left, right):
+    return sum(arr[left:right+1])
+
+# Setup: O(1), Query: O(n)</code></pre>
+                            </div>
+                            <div class="code-after">
+                                <h5>Prefix Sum Array</h5>
+                                <pre><code>class PrefixSum:
+    def __init__(self, arr):
+        self.prefix = [0]
+        for num in arr:
+            self.prefix.append(self.prefix[-1] + num)
+    
+    def range_sum(self, left, right):
+        return self.prefix[right+1] - self.prefix[left]
+
+# Setup: O(n), Query: O(1)</code></pre>
+                            </div>
+                        </div>
+                        <div class="optimization-insight">
+                            <strong>Key Insight:</strong> Upfront O(n) preprocessing cost pays dividends when you have multiple queries!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="advanced-techniques">
+                <h3>🚀 Advanced Optimization Techniques</h3>
+                
+                <div class="technique-showcase">
+                    <div class="technique-item">
+                        <h4>💾 Caching Strategies</h4>
+                        <p>Master different caching approaches: LRU, LFU, and custom cache policies for maximum performance gains.</p>
+                        <div class="technique-demo">
+                            <button onclick="demonstrateCaching()" class="demo-btn">🎯 Try Caching Demo</button>
+                        </div>
+                    </div>
+
+                    <div class="technique-item">
+                        <h4>😴 Lazy Evaluation</h4>
+                        <p>Defer computation until absolutely necessary. Sometimes the best optimization is not computing at all!</p>
+                        <div class="technique-demo">
+                            <button onclick="demonstrateLazy()" class="demo-btn">⏰ Try Lazy Loading</button>
+                        </div>
+                    </div>
+
+                    <div class="technique-item">
+                        <h4>📦 Batching Operations</h4>
+                        <p>Group operations together to reduce overhead and improve cache locality. Small changes, massive improvements.</p>
+                        <div class="technique-demo">
+                            <button onclick="demonstrateBatching()" class="demo-btn">📊 Try Batching Demo</button>
+                        </div>
+                    </div>
+
+                    <div class="technique-item">
+                        <h4>⚡ Parallelization</h4>
+                        <p>Leverage multiple cores effectively. Learn when parallelization helps and when it hurts performance.</p>
+                        <div class="technique-demo">
+                            <button onclick="demonstrateParallel()" class="demo-btn">🔥 Try Parallel Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="interview-mastery">
+                <h3>🎯 Interview Optimization Mastery</h3>
+                <div class="interview-intro">
+                    <p>In coding interviews, optimization skills can transform a mediocre solution into an impressive one. Learn the patterns interviewers look for and the techniques that wow them every time.</p>
+                </div>
+
+                <div class="optimization-challenge">
+                    <h4>🏆 Master Challenge: Maximum Subarray</h4>
+                    <div class="challenge-problem">
+                        <p><strong>Problem:</strong> Find the maximum sum of a contiguous subarray.</p>
+                        <p><strong>Example:</strong> [-2, 1, -3, 4, -1, 2, 1, -5, 4] → Maximum sum: 6</p>
+                        
+                        <div class="solution-progression">
+                            <div class="solution-step">
+                                <h5>Step 1: Brute Force O(n³)</h5>
+                                <pre><code>def max_subarray_brute(nums):
+    max_sum = float('-inf')
+    n = len(nums)
+    
+    for i in range(n):
+        for j in range(i, n):
+            current_sum = 0
+            for k in range(i, j + 1):
+                current_sum += nums[k]
+            max_sum = max(max_sum, current_sum)
+    
+    return max_sum</code></pre>
+                                <div class="complexity">Time: O(n³), Space: O(1)</div>
+                            </div>
+
+                            <div class="solution-step">
+                                <h5>Step 2: Optimized O(n²)</h5>
+                                <pre><code>def max_subarray_optimized(nums):
+    max_sum = float('-inf')
+    n = len(nums)
+    
+    for i in range(n):
+        current_sum = 0
+        for j in range(i, n):
+            current_sum += nums[j]
+            max_sum = max(max_sum, current_sum)
+    
+    return max_sum</code></pre>
+                                <div class="complexity">Time: O(n²), Space: O(1)</div>
+                            </div>
+
+                            <div class="solution-step">
+                                <h5>Step 3: Kadane's Algorithm O(n)</h5>
+                                <pre><code>def max_subarray_kadane(nums):
+    max_sum = current_sum = nums[0]
+    
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+    
+    return max_sum</code></pre>
+                                <div class="complexity">Time: O(n), Space: O(1)</div>
+                            </div>
+                        </div>
+
+                        <div class="interview-tips">
+                            <h5>💡 Interview Success Tips</h5>
+                            <ul>
+                                <li><strong>Start simple:</strong> Always explain the brute force approach first</li>
+                                <li><strong>Identify bottlenecks:</strong> "The triple nested loop is our performance bottleneck"</li>
+                                <li><strong>Propose optimization:</strong> "We can eliminate the innermost loop by..."</li>
+                                <li><strong>Explain intuition:</strong> "At each position, we decide whether to continue or start fresh"</li>
+                                <li><strong>Discuss tradeoffs:</strong> "This maintains O(1) space while achieving optimal time"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-problems">
+                    <h4>🎯 Practice Problems</h4>
+                    <div class="problem-list">
+                        <div class="problem-item">
+                            <h5>Two Sum Optimization</h5>
+                            <p>Optimize from O(n²) brute force to O(n) hash map solution</p>
+                        </div>
+                        <div class="problem-item">
+                            <h5>Longest Substring Without Repeating Characters</h5>
+                            <p>Apply sliding window technique for O(n) solution</p>
+                        </div>
+                        <div class="problem-item">
+                            <h5>Climbing Stairs</h5>
+                            <p>Transform recursive solution using dynamic programming</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎓 Phase 4 Mastery Complete!</h3>
+                <div class="completion-summary">
+                    <p>Congratulations! You've mastered the art of optimization and completed Phase 4. You now have the skills to:</p>
+                    <ul>
+                        <li>✅ Recognize optimization opportunities in any algorithm</li>
+                        <li>✅ Apply space-time tradeoffs strategically</li>
+                        <li>✅ Use advanced techniques like memoization and caching</li>
+                        <li>✅ Impress interviewers with step-by-step optimization</li>
+                        <li>✅ Think like an expert algorithm optimizer</li>
+                    </ul>
+                    
+                    <div class="next-phase-preview">
+                        <h4>🚀 Ready for Phase 5: LeetCode Mastery!</h4>
+                        <p>You're now ready to tackle the final phase: mastering LeetCode interview strategies, mock interview practice, and building an impressive portfolio. Let's make you interview-ready!</p>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Time & Space Complexity</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: LeetCode Strategy Framework →</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../../js/optimization-techniques-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    
+    <script>
+    function previousLesson() {
+        window.location.href = 'time-space-complexity.html';
+    }
+
+    function nextLesson() {
+        window.location.href = '../phase5/leetcode-strategy-framework.html';
+    }
+
+    // Demo functions (simplified implementations)
+    function switchAlgorithm() {
+        console.log('Algorithm switched');
+    }
+
+    function updateDataSize() {
+        const slider = document.getElementById('dataSize');
+        document.getElementById('dataSizeDisplay').textContent = slider.value;
+    }
+
+    function runDemo() {
+        // Simulate algorithm performance
+        const operations = Math.floor(Math.random() * 1000) + 100;
+        const time = Math.floor(Math.random() * 50) + 10;
+        const efficiency = Math.floor(Math.random() * 40) + 60;
+        
+        document.getElementById('operationsCount').textContent = operations;
+        document.getElementById('executionTime').textContent = time + 'ms';
+        document.getElementById('efficiency').textContent = efficiency + '%';
+    }
+
+    function demonstrateCaching() {
+        alert('🎯 Caching Demo\n\nCaching strategies like LRU (Least Recently Used) can dramatically improve performance by keeping frequently accessed data in fast memory.\n\nExample: A web server cache reduces database queries from 1000ms to 10ms - a 100x improvement!');
+    }
+
+    function demonstrateLazy() {
+        alert('⏰ Lazy Loading Demo\n\nLazy evaluation defers computation until absolutely necessary.\n\nExample: Loading a 1GB dataset\n• Eager: Load all 1GB upfront (slow startup)\n• Lazy: Load only needed portions (fast startup, efficient memory)');
+    }
+
+    function demonstrateBatching() {
+        alert('📊 Batching Demo\n\nBatching operations reduces overhead significantly.\n\nExample: Database inserts\n• Individual: 1000 inserts = 10 seconds\n• Batched: 10 batches of 100 = 1 second\n\n10x performance improvement!');
+    }
+
+    function demonstrateParallel() {
+        alert('🔥 Parallelization Demo\n\nUsing multiple CPU cores can dramatically speed up computation.\n\nExample: Processing 1000 images\n• Sequential (1 core): 1000 seconds\n• Parallel (4 cores): 250 seconds\n\n4x speedup with proper parallelization!');
+    }
+
+    // Report completion to dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            if (typeof reportLessonComplete === 'function') {
+                reportLessonComplete(4, 'Optimization Techniques');
+            }
+        }, 30000);
+    });
+    </script>
+</body>
+</html>
+</body>
+</html>

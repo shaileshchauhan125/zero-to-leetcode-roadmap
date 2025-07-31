@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Patterns & Recognition - Phase 4</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+
+    <!-- ADD THIS NEW PHASE 4 LINK -->
+    <link rel="stylesheet" href="../../css/phase4.css">
+    <link rel="stylesheet" href="../../css/problem-patterns.css">
+    <link rel="stylesheet" href="../../css/phase4.css">
+
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 4: Advanced Topics</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66%"></div>
+                        </div>
+                        <span class="progress-text">66% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>4.2 Problem Pattern Recognition</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#pattern-library">Pattern Library</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Pattern Detective</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Problem Classifier</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Live Practice Arena</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Problem Solving</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Problem Patterns & Recognition</span>
+            </div>
+
+            <header class="lesson-header">
+                <h1>Problem Patterns & Recognition</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 100 min interactive</span>
+                    <span class="difficulty difficulty-advanced">🔴 Advanced</span>
+                    <span class="progress">2 of 3 sections</span>
+                </div>
+                <div class="hero-banner">
+                    <div class="banner-content">
+                        <h2>🧠 Master the Art of Pattern Recognition</h2>
+                        <p>Learn to identify which algorithmic pattern applies to any coding problem in seconds. This is the secret weapon that transforms beginners into LeetCode masters.</p>
+                    </div>
+                    <div class="banner-visual">
+                        <div class="pattern-icons">
+                            <div class="pattern-icon">👆</div>
+                            <div class="pattern-icon">🪟</div>
+                            <div class="pattern-icon">🔍</div>
+                            <div class="pattern-icon">🌊</div>
+                            <div class="pattern-icon">🧮</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master These Essential Skills</h2>
+                <ul>
+                    <li>Instantly recognize which pattern applies to any coding problem</li>
+                    <li>Master the 5 most powerful algorithmic patterns for LeetCode success</li>
+                    <li>Build pattern recognition speed through interactive training</li>
+                    <li>Apply patterns to solve real LeetCode problems step-by-step</li>
+                    <li>Develop the intuition to choose optimal approaches quickly</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="pattern-library">
+                <h3>🏛️ The Essential Pattern Library</h3>
+                <div class="pattern-intro">
+                    <p>These 5 patterns solve approximately <strong>80% of all LeetCode problems</strong>. Master these, and you'll have the foundation to tackle any coding interview with confidence.</p>
+                </div>
+
+                <div class="pattern-library">
+                    <!-- Two Pointers Pattern -->
+                    <div class="pattern-card" data-pattern="two-pointers" onclick="explorePattern('two-pointers')">
+                        <div class="pattern-header">
+                            <div class="pattern-icon-large">👆</div>
+                            <div class="pattern-info">
+                                <h4>Two Pointers</h4>
+                                <div class="pattern-subtitle">Efficient Array/String Traversal</div>
+                                <div class="pattern-stats">
+                                    <span class="frequency">🔥 25% of problems</span>
+                                    <span class="complexity">⚡ O(n) time</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-visual">
+                            <div class="demo-array">
+                                <div class="array-element">1</div>
+                                <div class="array-element">2</div>
+                                <div class="array-element">3</div>
+                                <div class="array-element">4</div>
+                                <div class="array-element">5</div>
+                            </div>
+                            <div class="pointers">
+                                <div class="pointer left">L</div>
+                                <div class="pointer right">R</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-description">
+                            <p>Use two pointers moving toward each other or in the same direction to solve problems efficiently.</p>
+                            <div class="pattern-keywords">
+                                <span class="keyword">Sorted Array</span>
+                                <span class="keyword">Target Sum</span>
+                                <span class="keyword">Palindrome</span>
+                                <span class="keyword">Remove Duplicates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-examples">
+                            <h5>💡 Classic Problems:</h5>
+                            <ul>
+                                <li>Two Sum II (sorted array)</li>
+                                <li>Valid Palindrome</li>
+                                <li>Container With Most Water</li>
+                                <li>Remove Duplicates from Sorted Array</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Sliding Window Pattern -->
+                    <div class="pattern-card" data-pattern="sliding-window" onclick="explorePattern('sliding-window')">
+                        <div class="pattern-header">
+                            <div class="pattern-icon-large">🪟</div>
+                            <div class="pattern-info">
+                                <h4>Sliding Window</h4>
+                                <div class="pattern-subtitle">Subarray/Substring Optimization</div>
+                                <div class="pattern-stats">
+                                    <span class="frequency">🔥 20% of problems</span>
+                                    <span class="complexity">⚡ O(n) time</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-visual">
+                            <div class="demo-array">
+                                <div class="array-element highlighted">1</div>
+                                <div class="array-element highlighted">2</div>
+                                <div class="array-element highlighted">3</div>
+                                <div class="array-element">4</div>
+                                <div class="array-element">5</div>
+                            </div>
+                            <div class="window-indicator">
+                                <div class="window-frame"></div>
+                                <span class="window-label">Window Size: 3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-description">
+                            <p>Maintain a sliding window over data to find optimal subarrays or substrings efficiently.</p>
+                            <div class="pattern-keywords">
+                                <span class="keyword">Maximum/Minimum</span>
+                                <span class="keyword">Subarray Sum</span>
+                                <span class="keyword">Substring</span>
+                                <span class="keyword">Fixed/Variable Size</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-examples">
+                            <h5>💡 Classic Problems:</h5>
+                            <ul>
+                                <li>Longest Substring Without Repeating Characters</li>
+                                <li>Maximum Sum Subarray of Size K</li>
+                                <li>Minimum Window Substring</li>
+                                <li>Longest Repeating Character Replacement</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Binary Search Pattern -->
+                    <div class="pattern-card" data-pattern="binary-search" onclick="explorePattern('binary-search')">
+                        <div class="pattern-header">
+                            <div class="pattern-icon-large">🔍</div>
+                            <div class="pattern-info">
+                                <h4>Binary Search</h4>
+                                <div class="pattern-subtitle">Logarithmic Search Mastery</div>
+                                <div class="pattern-stats">
+                                    <span class="frequency">🔥 15% of problems</span>
+                                    <span class="complexity">⚡ O(log n) time</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-visual">
+                            <div class="demo-array">
+                                <div class="array-element">1</div>
+                                <div class="array-element">3</div>
+                                <div class="array-element highlighted">5</div>
+                                <div class="array-element">7</div>
+                                <div class="array-element">9</div>
+                            </div>
+                            <div class="search-indicator">
+                                <span class="search-label">Target: 5 | Found at index 2</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-description">
+                            <p>Eliminate half of the search space in each iteration to find elements or boundaries efficiently.</p>
+                            <div class="pattern-keywords">
+                                <span class="keyword">Sorted Data</span>
+                                <span class="keyword">Search Target</span>
+                                <span class="keyword">Find Boundary</span>
+                                <span class="keyword">Peak/Valley</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-examples">
+                            <h5>💡 Classic Problems:</h5>
+                            <ul>
+                                <li>Search in Rotated Sorted Array</li>
+                                <li>Find Peak Element</li>
+                                <li>Search for a Range</li>
+                                <li>Find Minimum in Rotated Sorted Array</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- BFS/DFS Pattern -->
+                    <div class="pattern-card" data-pattern="graph-traversal" onclick="explorePattern('graph-traversal')">
+                        <div class="pattern-header">
+                            <div class="pattern-icon-large">🌊</div>
+                            <div class="pattern-info">
+                                <h4>BFS/DFS Traversal</h4>
+                                <div class="pattern-subtitle">Graph & Tree Navigation</div>
+                                <div class="pattern-stats">
+                                    <span class="frequency">🔥 15% of problems</span>
+                                    <span class="complexity">⚡ O(V + E) time</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-visual">
+                            <div class="graph-demo">
+                                <div class="graph-node">A</div>
+                                <div class="graph-node">B</div>
+                                <div class="graph-node highlighted">C</div>
+                                <div class="graph-node">D</div>
+                            </div>
+                            <div class="traversal-indicator">
+                                <span class="traversal-label">BFS: A → B → C → D</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-description">
+                            <p>Systematically explore graphs and trees using breadth-first or depth-first strategies.</p>
+                            <div class="pattern-keywords">
+                                <span class="keyword">Trees</span>
+                                <span class="keyword">Graphs</span>
+                                <span class="keyword">Connected Components</span>
+                                <span class="keyword">Shortest Path</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-examples">
+                            <h5>💡 Classic Problems:</h5>
+                            <ul>
+                                <li>Number of Islands</li>
+                                <li>Binary Tree Level Order Traversal</li>
+                                <li>Course Schedule</li>
+                                <li>Word Ladder</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Programming Pattern -->
+                    <div class="pattern-card" data-pattern="dynamic-programming" onclick="explorePattern('dynamic-programming')">
+                        <div class="pattern-header">
+                            <div class="pattern-icon-large">🧮</div>
+                            <div class="pattern-info">
+                                <h4>Dynamic Programming</h4>
+                                <div class="pattern-subtitle">Optimal Subproblem Solutions</div>
+                                <div class="pattern-stats">
+                                    <span class="frequency">🔥 10% of problems</span>
+                                    <span class="complexity">⚡ Various time</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-visual">
+                            <div class="dp-demo">
+                                <div class="dp-cell">F(0)</div>
+                                <div class="dp-cell">F(1)</div>
+                                <div class="dp-cell highlighted">F(2)</div>
+                                <div class="dp-cell">F(3)</div>
+                            </div>
+                            <div class="dp-indicator">
+                                <span class="dp-label">F(n) = F(n-1) + F(n-2)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-description">
+                            <p>Break problems into smaller subproblems and build solutions from previously computed results.</p>
+                            <div class="pattern-keywords">
+                                <span class="keyword">Optimal Solutions</span>
+                                <span class="keyword">Overlapping Subproblems</span>
+                                <span class="keyword">Memoization</span>
+                                <span class="keyword">Bottom-up</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pattern-examples">
+                            <h5>💡 Classic Problems:</h5>
+                            <ul>
+                                <li>Climbing Stairs</li>
+                                <li>House Robber</li>
+                                <li>Longest Common Subsequence</li>
+                                <li>Coin Change</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🕵️ Pattern Detective Training</h3>
+                <div class="detective-training">
+                    <div class="training-intro">
+                        <h4>🎯 Test Your Pattern Recognition Skills</h4>
+                        <p>Read each problem description and identify which pattern would be most effective. Click your answer to see the detailed explanation!</p>
+                    </div>
+
+                    <div class="problem-quiz">
+                        <!-- Problem 1 -->
+                        <div class="quiz-problem" data-problem="1">
+                            <div class="problem-statement">
+                                <h5>🧩 Problem 1: Container With Most Water</h5>
+                                <div class="problem-description">
+                                    <p>You are given an array of heights representing vertical lines. Find two lines that together with the x-axis form a container that holds the most water.</p>
+                                    <div class="example-visual">
+                                        <code>Input: [1,8,6,2,5,4,8,3,7]</code><br>
+                                        <code>Output: 49 (lines at indices 1 and 8)</code>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pattern-options">
+                                <button class="pattern-option" onclick="selectAnswer(1, 'two-pointers')" data-correct="true">
+                                    👆 Two Pointers
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(1, 'sliding-window')">
+                                    🪟 Sliding Window
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(1, 'binary-search')">
+                                    🔍 Binary Search
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(1, 'graph-traversal')">
+                                    🌊 BFS/DFS
+                                </button>
+                            </div>
+                            
+                            <div class="explanation" id="explanation-1" style="display: none;">
+                                <div class="correct-explanation">
+                                    <h6>✅ Correct! Two Pointers is the optimal approach</h6>
+                                    <p><strong>Key insight:</strong> We need to find the maximum area between two lines. Starting with pointers at both ends and moving the shorter line inward ensures we don't miss the optimal solution.</p>
+                                    <div class="solution-approach">
+                                        <h6>🎯 Solution Approach:</h6>
+                                        <ol>
+                                            <li>Place one pointer at the beginning, one at the end</li>
+                                            <li>Calculate area: min(height[left], height[right]) × (right - left)</li>
+                                            <li>Move the pointer with the smaller height inward</li>
+                                            <li>Track the maximum area found</li>
+                                        </ol>
+                                    </div>
+                                    <div class="time-complexity">
+                                        <strong>Time Complexity:</strong> O(n) - Single pass through array<br>
+                                        <strong>Space Complexity:</strong> O(1) - Only using two pointers
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 2 -->
+                        <div class="quiz-problem" data-problem="2">
+                            <div class="problem-statement">
+                                <h5>🧩 Problem 2: Longest Substring Without Repeating Characters</h5>
+                                <div class="problem-description">
+                                    <p>Given a string, find the length of the longest substring without repeating characters.</p>
+                                    <div class="example-visual">
+                                        <code>Input: "abcabcbb"</code><br>
+                                        <code>Output: 3 (substring "abc")</code>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pattern-options">
+                                <button class="pattern-option" onclick="selectAnswer(2, 'two-pointers')">
+                                    👆 Two Pointers
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(2, 'sliding-window')" data-correct="true">
+                                    🪟 Sliding Window
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(2, 'binary-search')">
+                                    🔍 Binary Search
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(2, 'dynamic-programming')">
+                                    🧮 Dynamic Programming
+                                </button>
+                            </div>
+                            
+                            <div class="explanation" id="explanation-2" style="display: none;">
+                                <div class="correct-explanation">
+                                    <h6>✅ Correct! Sliding Window is perfect here</h6>
+                                    <p><strong>Key insight:</strong> We need to find the longest valid substring, which requires expanding and contracting a window based on the duplicate constraint.</p>
+                                    <div class="solution-approach">
+                                        <h6>🎯 Solution Approach:</h6>
+                                        <ol>
+                                            <li>Use a hashmap to track character positions</li>
+                                            <li>Expand window by moving right pointer</li>
+                                            <li>When duplicate found, shrink window from left</li>
+                                            <li>Track maximum window size encountered</li>
+                                        </ol>
+                                    </div>
+                                    <div class="time-complexity">
+                                        <strong>Time Complexity:</strong> O(n) - Each character visited at most twice<br>
+                                        <strong>Space Complexity:</strong> O(min(m,n)) - Size of character set
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 3 -->
+                        <div class="quiz-problem" data-problem="3">
+                            <div class="problem-statement">
+                                <h5>🧩 Problem 3: Search in Rotated Sorted Array</h5>
+                                <div class="problem-description">
+                                    <p>You are given a sorted array that has been rotated at some pivot. Search for a target value in O(log n) time.</p>
+                                    <div class="example-visual">
+                                        <code>Input: nums = [4,5,6,7,0,1,2], target = 0</code><br>
+                                        <code>Output: 4 (index of target)</code>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pattern-options">
+                                <button class="pattern-option" onclick="selectAnswer(3, 'two-pointers')">
+                                    👆 Two Pointers
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(3, 'sliding-window')">
+                                    🪟 Sliding Window
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(3, 'binary-search')" data-correct="true">
+                                    🔍 Binary Search
+                                </button>
+                                <button class="pattern-option" onclick="selectAnswer(3, 'graph-traversal')">
+                                    🌊 BFS/DFS
+                                </button>
+                            </div>
+                            
+                            <div class="explanation" id="explanation-3" style="display: none;">
+                                <div class="correct-explanation">
+                                    <h6>✅ Correct! Binary Search handles rotation elegantly</h6>
+                                    <p><strong>Key insight:</strong> Even though the array is rotated, we can still eliminate half the search space in each iteration by identifying which half is properly sorted.</p>
+                                    <div class="solution-approach">
+                                        <h6>🎯 Solution Approach:</h6>
+                                        <ol>
+                                            <li>Compare middle element with left and right bounds</li>
+                                            <li>Determine which half is properly sorted</li>
+                                            <li>Check if target lies in the sorted half</li>
+                                            <li>Eliminate the half that doesn't contain target</li>
+                                        </ol>
+                                    </div>
+                                    <div class="time-complexity">
+                                        <strong>Time Complexity:</strong> O(log n) - Binary search behavior maintained<br>
+                                        <strong>Space Complexity:</strong> O(1) - No extra space needed
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-score" id="quizScore">
+                        <h4>🎯 Your Pattern Recognition Score</h4>
+                        <div class="score-display">
+                            <span class="score" id="currentScore">0</span> / <span class="total" id="totalProblems">3</span>
+                        </div>
+                        <div class="score-feedback" id="scoreFeedback">
+                            Answer questions to see your pattern recognition skills!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🤖 AI Pattern Classifier</h3>
+                <div class="pattern-classifier">
+                    <div class="classifier-intro">
+                        <h4>🧠 Intelligent Problem Analysis</h4>
+                        <p>Paste any LeetCode problem description, and our AI will analyze it to identify the optimal pattern and approach. Perfect for building your pattern recognition intuition!</p>
+                    </div>
+
+                    <div class="classifier-interface">
+                        <div class="input-section">
+                            <textarea id="problemInput" placeholder="Paste a LeetCode problem description here...
+
+Example: 
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]" rows="10"></textarea>
+                            
+                            <div class="classifier-controls">
+                                <button class="classify-btn" onclick="classifyProblem()">
+                                    🔍 Analyze Problem
+                                </button>
+                                <button class="example-btn" onclick="loadExample()">
+                                    📝 Load Example
+                                </button>
+                                <button class="clear-btn" onclick="clearClassifier()">
+                                    🗑️ Clear
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="analysis-results" id="analysisResults" style="display: none;">
+                            <div class="analysis-header">
+                                <h5>🎯 Pattern Analysis Results</h5>
+                            </div>
+                            
+                            <div class="detected-patterns">
+                                <h6>🔍 Detected Patterns:</h6>
+                                <div class="pattern-tags" id="patternTags">
+                                    <!-- Pattern tags will be inserted here -->
+                                </div>
+                            </div>
+                            
+                            <div class="recommended-approach">
+                                <h6>⚡ Recommended Approach:</h6>
+                                <div class="approach-content" id="approachContent">
+                                    <!-- Approach details will be inserted here -->
+                                </div>
+                            </div>
+                            
+                            <div class="complexity-analysis">
+                                <h6>📊 Complexity Analysis:</h6>
+                                <div class="complexity-content" id="complexityContent">
+                                    <!-- Complexity details will be inserted here -->
+                                </div>
+                            </div>
+                            
+                            <div class="similar-problems">
+                                <h6>🎯 Similar Problems to Practice:</h6>
+                                <div class="similar-list" id="similarList">
+                                    <!-- Similar problems will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🏟️ Live Practice Arena</h3>
+                <div class="practice-arena">
+                    <div class="arena-intro">
+                        <h4>⚔️ Battle Real LeetCode Problems</h4>
+                        <p>Apply your pattern recognition skills to solve actual LeetCode problems. Each problem comes with pattern hints and step-by-step guidance.</p>
+                    </div>
+
+                    <div class="problem-selector">
+                        <h5>Choose Your Challenge Level:</h5>
+                        <div class="difficulty-tabs">
+                            <button class="difficulty-tab active" onclick="selectDifficulty('easy')">
+                                🟢 Easy
+                            </button>
+                            <button class="difficulty-tab" onclick="selectDifficulty('medium')">
+                                🟡 Medium
+                            </button>
+                            <button class="difficulty-tab" onclick="selectDifficulty('hard')">
+                                🔴 Hard
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="practice-problems" id="practiceProblems">
+                        <!-- Easy Problems -->
+                        <div class="problem-set easy active">
+                            <div class="problem-card" onclick="startProblem('two-sum')">
+                                <div class="problem-header">
+                                    <h6>1. Two Sum</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag easy">Easy</span>
+                                        <span class="tag pattern">👆 Two Pointers</span>
+                                    </div>
+                                </div>
+                                <p>Find two numbers in an array that add up to a target sum.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 2.1M submissions</span>
+                                    <span>🎯 Pattern: Hash Map</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-card" onclick="startProblem('valid-palindrome')">
+                                <div class="problem-header">
+                                    <h6>125. Valid Palindrome</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag easy">Easy</span>
+                                        <span class="tag pattern">👆 Two Pointers</span>
+                                    </div>
+                                </div>
+                                <p>Check if a string is a palindrome, ignoring non-alphanumeric characters.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 1.8M submissions</span>
+                                    <span>🎯 Pattern: Two Pointers</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-card" onclick="startProblem('best-time-stock')">
+                                <div class="problem-header">
+                                    <h6>121. Best Time to Buy and Sell Stock</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag easy">Easy</span>
+                                        <span class="tag pattern">🪟 Sliding Window</span>
+                                    </div>
+                                </div>
+                                <p>Find the maximum profit from buying and selling a stock once.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 2.3M submissions</span>
+                                    <span>🎯 Pattern: One Pass</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medium Problems -->
+                        <div class="problem-set medium">
+                            <div class="problem-card" onclick="startProblem('longest-substring')">
+                                <div class="problem-header">
+                                    <h6>3. Longest Substring Without Repeating Characters</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag medium">Medium</span>
+                                        <span class="tag pattern">🪟 Sliding Window</span>
+                                    </div>
+                                </div>
+                                <p>Find the length of the longest substring without repeating characters.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 3.5M submissions</span>
+                                    <span>🎯 Pattern: Sliding Window</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-card" onclick="startProblem('container-water')">
+                                <div class="problem-header">
+                                    <h6>11. Container With Most Water</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag medium">Medium</span>
+                                        <span class="tag pattern">👆 Two Pointers</span>
+                                    </div>
+                                </div>
+                                <p>Find two lines that form a container holding the most water.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 1.9M submissions</span>
+                                    <span>🎯 Pattern: Two Pointers</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-card" onclick="startProblem('search-rotated')">
+                                <div class="problem-header">
+                                    <h6>33. Search in Rotated Sorted Array</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag medium">Medium</span>
+                                        <span class="tag pattern">🔍 Binary Search</span>
+                                    </div>
+                                </div>
+                                <p>Search for a target in a rotated sorted array in O(log n) time.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 1.4M submissions</span>
+                                    <span>🎯 Pattern: Modified Binary Search</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hard Problems -->
+                        <div class="problem-set hard">
+                            <div class="problem-card" onclick="startProblem('median-arrays')">
+                                <div class="problem-header">
+                                    <h6>4. Median of Two Sorted Arrays</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag hard">Hard</span>
+                                        <span class="tag pattern">🔍 Binary Search</span>
+                                    </div>
+                                </div>
+                                <p>Find the median of two sorted arrays in O(log(min(m,n))) time.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 1.1M submissions</span>
+                                    <span>🎯 Pattern: Binary Search on Answer</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-card" onclick="startProblem('sliding-window-maximum')">
+                                <div class="problem-header">
+                                    <h6>239. Sliding Window Maximum</h6>
+                                    <div class="problem-tags">
+                                        <span class="tag hard">Hard</span>
+                                        <span class="tag pattern">🪟 Sliding Window</span>
+                                    </div>
+                                </div>
+                                <p>Find the maximum in each sliding window of size k.</p>
+                                <div class="problem-stats">
+                                    <span>✅ 789K submissions</span>
+                                    <span>🎯 Pattern: Deque + Sliding Window</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎓 Pattern Mastery Certification</h3>
+                <div class="certification-section">
+                    <div class="cert-intro">
+                        <h4>🏆 Prove Your Pattern Recognition Skills</h4>
+                        <p>Complete the comprehensive pattern recognition test to earn your certification. This demonstrates you can identify the optimal approach for any coding problem.</p>
+                    </div>
+
+                    <div class="certification-progress">
+                        <h5>📊 Your Progress</h5>
+                        <div class="progress-items">
+                            <div class="progress-item completed">
+                                <span class="progress-icon">✅</span>
+                                <span>Pattern Library Study</span>
+                            </div>
+                            <div class="progress-item current">
+                                <span class="progress-icon">🔄</span>
+                                <span>Detective Training</span>
+                            </div>
+                            <div class="progress-item locked">
+                                <span class="progress-icon">🔒</span>
+                                <span>Live Practice Arena</span>
+                            </div>
+                            <div class="progress-item locked">
+                                <span class="progress-icon">🔒</span>
+                                <span>Final Certification Test</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="certification-requirements">
+                        <h5>📋 Certification Requirements</h5>
+                        <ul>
+                            <li>Score 80%+ on Pattern Detective Training</li>
+                            <li>Solve 5+ problems in Live Practice Arena</li>
+                            <li>Pass comprehensive pattern recognition test</li>
+                            <li>Demonstrate mastery of all 5 core patterns</li>
+                        </ul>
+                    </div>
+
+                    <button class="cert-btn" onclick="startCertification()" disabled>
+                        🎓 Start Certification Test
+                    </button>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Graph Algorithms</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Time & Space Complexity →</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../../js/problem-patterns-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+function previousLesson() {
+    // Link to Phase 3 final lesson
+    window.location.href = '../phase3/graph-algorithms.html';
+}
+
+function nextLesson() {
+    // Link to next Phase 4 lesson
+    window.location.href = 'time-space-complexity.html';
+}
+
+// Report completion to dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        if (typeof reportLessonComplete === 'function') {
+            reportLessonComplete(4, 'Problem Patterns & Recognition');
+        }
+    }, 30000);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time & Space Complexity Analysis - Phase 4</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/phase4.css">
+    <link rel="stylesheet" href="../../css/complexity-analysis.css">
+    <link rel="stylesheet" href="../../css/phase4.css">
+
+</head>
+<body>
+    <div class="lesson-layout">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
+                    ← Back to Dashboard
+                </button>
+                <div class="phase-info">
+                    <h3>Phase 4: Advanced Topics</h3>
+                    <div class="phase-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <div class="nav-section">
+                    <h4>4.3 Time & Space Complexity</h4>
+                    <ul class="lesson-list">
+                        <li class="lesson-item active">
+                            <span class="status-icon">▶</span>
+                            <a href="#complexity-lab">Big O Laboratory</a>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Complexity Visualizer</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Optimization Challenge</span>
+                        </li>
+                        <li class="lesson-item locked">
+                            <span class="status-icon">🔒</span>
+                            <span>Interview Simulator</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="lesson-content">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <a href="../../dashboard.html" class="breadcrumb-link">🏠 Dashboard</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../../dashboard.html#phase4" class="breadcrumb-link">Phase 4: Advanced Problem Solving</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Time & Space Complexity</span>
+            </div>
+
+            <header class="lesson-header">
+                <h1>Time & Space Complexity Analysis</h1>
+                <div class="lesson-meta">
+                    <span class="duration">⏱️ 80 min interactive</span>
+                    <span class="difficulty difficulty-expert">🔴 Expert</span>
+                    <span class="progress">3 of 3 sections</span>
+                </div>
+                <div class="hero-banner complexity-hero">
+                    <div class="banner-content">
+                        <h2>⚡ Master Big O Notation & Algorithm Optimization</h2>
+                        <p>Learn to analyze, compare, and optimize algorithms like a senior engineer. This is the skill that separates good programmers from great ones.</p>
+                    </div>
+                    <div class="complexity-visual">
+                        <div class="big-o-chart">
+                            <div class="chart-line excellent" data-complexity="O(1)"></div>
+                            <div class="chart-line good" data-complexity="O(log n)"></div>
+                            <div class="chart-line fair" data-complexity="O(n)"></div>
+                            <div class="chart-line bad" data-complexity="O(n log n)"></div>
+                            <div class="chart-line terrible" data-complexity="O(n²)"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-objectives">
+                <h2>🎯 Master Algorithm Analysis Like a Pro</h2>
+                <ul>
+                    <li>Analyze time and space complexity of any algorithm instantly</li>
+                    <li>Visualize how algorithms scale with different input sizes</li>
+                    <li>Optimize algorithms through complexity-driven decision making</li>
+                    <li>Communicate complexity analysis clearly in technical interviews</li>
+                    <li>Make informed trade-offs between time and space efficiency</li>
+                </ul>
+            </section>
+
+            <section class="content-section" id="complexity-lab">
+                <h3>🧪 Big O Laboratory</h3>
+                <div class="complexity-intro">
+                    <p>Welcome to the most comprehensive algorithm analysis experience! Watch complexity functions come alive, compare algorithm efficiency, and master the art of optimization through interactive experimentation.</p>
+                </div>
+
+                <div class="big-o-fundamentals">
+                    <h4>📊 The Big O Family: From Lightning Fast to Catastrophically Slow</h4>
+                    
+                    <div class="complexity-grid">
+                        <!-- O(1) - Constant -->
+                        <div class="complexity-card excellent" data-complexity="constant" onclick="exploreComplexity('constant')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">⚡</div>
+                                <div class="complexity-info">
+                                    <h5>O(1) - Constant</h5>
+                                    <div class="complexity-rating">★★★★★ Excellent</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Lightning fast! Performance doesn't change with input size.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Array access</span>
+                                    <span class="example">Hash table lookup</span>
+                                    <span class="example">Stack push/pop</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart constant-chart"></div>
+                                <span class="visual-label">Flat line</span>
+                            </div>
+                        </div>
+
+                        <!-- O(log n) - Logarithmic -->
+                        <div class="complexity-card good" data-complexity="logarithmic" onclick="exploreComplexity('logarithmic')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">🔍</div>
+                                <div class="complexity-info">
+                                    <h5>O(log n) - Logarithmic</h5>
+                                    <div class="complexity-rating">★★★★☆ Good</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Scales beautifully! Eliminates half the problem each step.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Binary search</span>
+                                    <span class="example">Tree operations</span>
+                                    <span class="example">Heap operations</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart log-chart"></div>
+                                <span class="visual-label">Gentle curve</span>
+                            </div>
+                        </div>
+
+                        <!-- O(n) - Linear -->
+                        <div class="complexity-card fair" data-complexity="linear" onclick="exploreComplexity('linear')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">📈</div>
+                                <div class="complexity-info">
+                                    <h5>O(n) - Linear</h5>
+                                    <div class="complexity-rating">★★★☆☆ Fair</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Reasonable growth. Performance increases proportionally.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Array iteration</span>
+                                    <span class="example">Linear search</span>
+                                    <span class="example">Single loop</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart linear-chart"></div>
+                                <span class="visual-label">Straight line</span>
+                            </div>
+                        </div>
+
+                        <!-- O(n log n) - Linearithmic -->
+                        <div class="complexity-card bad" data-complexity="linearithmic" onclick="exploreComplexity('linearithmic')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">🔀</div>
+                                <div class="complexity-info">
+                                    <h5>O(n log n) - Linearithmic</h5>
+                                    <div class="complexity-rating">★★☆☆☆ OK</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Getting expensive. Often the best we can do for sorting.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Merge sort</span>
+                                    <span class="example">Heap sort</span>
+                                    <span class="example">Quick sort (avg)</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart nlogn-chart"></div>
+                                <span class="visual-label">Moderate curve</span>
+                            </div>
+                        </div>
+
+                        <!-- O(n²) - Quadratic -->
+                        <div class="complexity-card terrible" data-complexity="quadratic" onclick="exploreComplexity('quadratic')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">💀</div>
+                                <div class="complexity-info">
+                                    <h5>O(n²) - Quadratic</h5>
+                                    <div class="complexity-rating">★☆☆☆☆ Bad</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Danger zone! Avoid for large inputs. Often has nested loops.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Bubble sort</span>
+                                    <span class="example">Nested loops</span>
+                                    <span class="example">Selection sort</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart quadratic-chart"></div>
+                                <span class="visual-label">Steep curve</span>
+                            </div>
+                        </div>
+
+                        <!-- O(2^n) - Exponential -->
+                        <div class="complexity-card catastrophic" data-complexity="exponential" onclick="exploreComplexity('exponential')">
+                            <div class="complexity-header">
+                                <div class="complexity-icon">🔥</div>
+                                <div class="complexity-info">
+                                    <h5>O(2ⁿ) - Exponential</h5>
+                                    <div class="complexity-rating">☆☆☆☆☆ Catastrophic</div>
+                                </div>
+                            </div>
+                            <div class="complexity-description">
+                                <p>Computer killer! Only works for tiny inputs. Usually needs optimization.</p>
+                                <div class="complexity-examples">
+                                    <span class="example">Naive Fibonacci</span>
+                                    <span class="example">Tower of Hanoi</span>
+                                    <span class="example">Subset generation</span>
+                                </div>
+                            </div>
+                            <div class="complexity-visual-mini">
+                                <div class="mini-chart exponential-chart"></div>
+                                <span class="visual-label">Vertical explosion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>📊 Interactive Complexity Visualizer</h3>
+                <div class="complexity-visualizer">
+                    <div class="visualizer-controls">
+                        <div class="input-size-control">
+                            <label for="inputSizeSlider">Input Size (n):</label>
+                            <input type="range" id="inputSizeSlider" min="1" max="1000" value="100" 
+                                   oninput="updateVisualization(this.value)">
+                            <span id="inputSizeDisplay">100</span>
+                        </div>
+                        
+                        <div class="complexity-selectors">
+                            <h5>Select Complexities to Compare:</h5>
+                            <div class="complexity-checkboxes">
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="constant" checked onchange="toggleComplexity(this)">
+                                    <span class="complexity-label excellent">O(1)</span>
+                                </label>
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="logarithmic" checked onchange="toggleComplexity(this)">
+                                    <span class="complexity-label good">O(log n)</span>
+                                </label>
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="linear" checked onchange="toggleComplexity(this)">
+                                    <span class="complexity-label fair">O(n)</span>
+                                </label>
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="linearithmic" onchange="toggleComplexity(this)">
+                                    <span class="complexity-label bad">O(n log n)</span>
+                                </label>
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="quadratic" onchange="toggleComplexity(this)">
+                                    <span class="complexity-label terrible">O(n²)</span>
+                                </label>
+                                <label class="complexity-checkbox">
+                                    <input type="checkbox" value="exponential" onchange="toggleComplexity(this)">
+                                    <span class="complexity-label catastrophic">O(2ⁿ)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="complexity-chart-container">
+                        <canvas id="complexityChart" width="800" height="500"></canvas>
+                        <div class="chart-legend" id="chartLegend">
+                            <!-- Legend will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="complexity-stats" id="complexityStats">
+                        <h5>📊 Performance Comparison for n = <span id="currentN">100</span></h5>
+                        <div class="stats-grid" id="statsGrid">
+                            <!-- Stats will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎯 Algorithm Analysis Practice</h3>
+                <div class="analysis-practice">
+                    <div class="practice-intro">
+                        <h4>🧠 Test Your Complexity Analysis Skills</h4>
+                        <p>Analyze the time and space complexity of real code snippets. Can you identify the Big O notation correctly?</p>
+                    </div>
+
+                    <div class="code-analysis-challenges">
+                        <!-- Challenge 1 -->
+                        <div class="analysis-challenge" data-challenge="1">
+                            <div class="challenge-header">
+                                <h5>🧩 Challenge 1: Array Operations</h5>
+                                <div class="difficulty-badge medium">Medium</div>
+                            </div>
+                            
+                            <div class="code-snippet">
+                                <pre><code>def find_pair_sum(arr, target):
+    seen = set()
+    for num in arr:
+        complement = target - num
+        if complement in seen:
+            return True
+        seen.add(num)
+    return False</code></pre>
+                            </div>
+                            
+                            <div class="analysis-questions">
+                                <div class="question-group">
+                                    <h6>⏱️ Time Complexity:</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'time', 'O(1)')">O(1)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'time', 'O(log n)')">O(log n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'time', 'O(n)')" data-correct="true">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'time', 'O(n²)')">O(n²)</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="question-group">
+                                    <h6>💾 Space Complexity:</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'space', 'O(1)')">O(1)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'space', 'O(log n)')">O(log n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'space', 'O(n)')" data-correct="true">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(1, 'space', 'O(n²)')">O(n²)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-explanation" id="explanation-1" style="display: none;">
+                                <!-- Explanation will be shown after answering -->
+                            </div>
+                        </div>
+
+                        <!-- Challenge 2 -->
+                        <div class="analysis-challenge" data-challenge="2">
+                            <div class="challenge-header">
+                                <h5>🧩 Challenge 2: Nested Loops</h5>
+                                <div class="difficulty-badge hard">Hard</div>
+                            </div>
+                            
+                            <div class="code-snippet">
+                                <pre><code>def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
+    return arr</code></pre>
+                            </div>
+                            
+                            <div class="analysis-questions">
+                                <div class="question-group">
+                                    <h6>⏱️ Best Case Time Complexity:</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'best', 'O(1)')">O(1)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'best', 'O(n)')" data-correct="true">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'best', 'O(n log n)')">O(n log n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'best', 'O(n²)')">O(n²)</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="question-group">
+                                    <h6>⏱️ Worst Case Time Complexity:</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'worst', 'O(n)')">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'worst', 'O(n log n)')">O(n log n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'worst', 'O(n²)')" data-correct="true">O(n²)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(2, 'worst', 'O(2ⁿ)')">O(2ⁿ)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-explanation" id="explanation-2" style="display: none;">
+                                <!-- Explanation will be shown after answering -->
+                            </div>
+                        </div>
+
+                        <!-- Challenge 3 -->
+                        <div class="analysis-challenge" data-challenge="3">
+                            <div class="challenge-header">
+                                <h5>🧩 Challenge 3: Recursive Algorithm</h5>
+                                <div class="difficulty-badge expert">Expert</div>
+                            </div>
+                            
+                            <div class="code-snippet">
+                                <pre><code>def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]</code></pre>
+                            </div>
+                            
+                            <div class="analysis-questions">
+                                <div class="question-group">
+                                    <h6>⏱️ Time Complexity (with memoization):</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'time', 'O(1)')">O(1)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'time', 'O(n)')" data-correct="true">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'time', 'O(n²)')">O(n²)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'time', 'O(2ⁿ)')">O(2ⁿ)</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="question-group">
+                                    <h6>💾 Space Complexity:</h6>
+                                    <div class="complexity-options">
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'space', 'O(1)')">O(1)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'space', 'O(n)')" data-correct="true">O(n)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'space', 'O(n²)')">O(n²)</button>
+                                        <button class="complexity-option" onclick="selectComplexity(3, 'space', 'O(2ⁿ)')">O(2ⁿ)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-explanation" id="explanation-3" style="display: none;">
+                                <!-- Explanation will be shown after answering -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-score" id="practiceScore">
+                        <h4>📊 Your Analysis Skills</h4>
+                        <div class="score-display">
+                            <span class="score" id="currentPracticeScore">0</span> / <span class="total" id="totalChallenges">6</span>
+                        </div>
+                        <div class="score-feedback" id="practiceScoreFeedback">
+                            Complete challenges to assess your complexity analysis skills!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>⚡ Algorithm Optimization Challenge</h3>
+                <div class="optimization-challenge">
+                    <div class="challenge-intro">
+                        <h4>🏆 The Ultimate Optimization Challenge</h4>
+                        <p>You're given inefficient algorithms. Your mission: optimize them to achieve better time or space complexity. This mirrors real-world optimization scenarios!</p>
+                    </div>
+
+                    <div class="optimization-problems">
+                        <!-- Optimization Problem 1 -->
+                        <div class="optimization-problem" data-problem="1">
+                            <div class="problem-header">
+                                <h5>🎯 Challenge: Optimize the Duplicate Finder</h5>
+                                <div class="current-complexity">Current: <span class="complexity-bad">O(n²)</span></div>
+                                <div class="target-complexity">Target: <span class="complexity-good">O(n)</span></div>
+                            </div>
+
+                            <div class="problem-description">
+                                <p><strong>Problem:</strong> Find if an array contains any duplicates.</p>
+                                <p><strong>Current inefficient solution:</strong></p>
+                            </div>
+
+                            <div class="code-snippet inefficient">
+                                <pre><code>def has_duplicates_slow(arr):
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            if arr[i] == arr[j]:
+                return True
+    return False</code></pre>
+                            </div>
+
+                            <div class="optimization-workspace">
+                                <h6>💡 Your Optimized Solution:</h6>
+                                <textarea id="solution-1" class="solution-editor" placeholder="Write your O(n) solution here...
+
+# Hint: Think about what data structure provides O(1) lookups..."></textarea>
+                                
+                                <div class="optimization-controls">
+                                    <button class="optimize-btn" onclick="checkOptimization(1)">🧪 Test Solution</button>
+                                    <button class="hint-btn" onclick="showOptimizationHint(1)">💡 Show Hint</button>
+                                    <button class="solution-btn" onclick="showOptimalSolution(1)">👁️ Show Optimal Solution</button>
+                                </div>
+                            </div>
+
+                            <div class="optimization-feedback" id="feedback-1" style="display: none;">
+                                <!-- Feedback will be shown here -->
+                            </div>
+                        </div>
+
+                        <!-- Optimization Problem 2 -->
+                        <div class="optimization-problem" data-problem="2">
+                            <div class="problem-header">
+                                <h5>🎯 Challenge: Optimize the Fibonacci Calculator</h5>
+                                <div class="current-complexity">Current: <span class="complexity-catastrophic">O(2ⁿ)</span></div>
+                                <div class="target-complexity">Target: <span class="complexity-fair">O(n)</span></div>
+                            </div>
+
+                            <div class="problem-description">
+                                <p><strong>Problem:</strong> Calculate the nth Fibonacci number efficiently.</p>
+                                <p><strong>Current exponential solution:</strong></p>
+                            </div>
+
+                            <div class="code-snippet inefficient">
+                                <pre><code>def fibonacci_slow(n):
+    if n <= 1:
+        return n
+    return fibonacci_slow(n-1) + fibonacci_slow(n-2)</code></pre>
+                            </div>
+
+                            <div class="optimization-workspace">
+                                <h6>💡 Your Optimized Solution:</h6>
+                                <textarea id="solution-2" class="solution-editor" placeholder="Write your O(n) solution here...
+
+# Hint: Avoid recalculating the same values..."></textarea>
+                                
+                                <div class="optimization-controls">
+                                    <button class="optimize-btn" onclick="checkOptimization(2)">🧪 Test Solution</button>
+                                    <button class="hint-btn" onclick="showOptimizationHint(2)">💡 Show Hint</button>
+                                    <button class="solution-btn" onclick="showOptimalSolution(2)">👁️ Show Optimal Solution</button>
+                                </div>
+                            </div>
+
+                            <div class="optimization-feedback" id="feedback-2" style="display: none;">
+                                <!-- Feedback will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎤 Interview Communication Simulator</h3>
+                <div class="interview-simulator">
+                    <div class="simulator-intro">
+                        <h4>🎯 Master the Art of Explaining Complexity</h4>
+                        <p>Practice explaining algorithm complexity like a pro. This skill is crucial for technical interviews where clear communication matters as much as correct analysis.</p>
+                    </div>
+
+                    <div class="interview-scenarios">
+                        <div class="scenario-selector">
+                            <h5>Choose Your Interview Scenario:</h5>
+                            <div class="scenario-buttons">
+                                <button class="scenario-btn" onclick="startScenario('junior')">
+                                    👶 Junior Developer Position
+                                </button>
+                                <button class="scenario-btn" onclick="startScenario('senior')">
+                                    🧑‍💼 Senior Engineer Role
+                                </button>
+                                <button class="scenario-btn" onclick="startScenario('faang')">
+                                    🏢 FAANG Company Interview
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="interview-chat" id="interviewChat" style="display: none;">
+                            <div class="chat-header">
+                                <h5 id="interviewTitle">Interview Simulation</h5>
+                                <div class="interview-timer" id="interviewTimer">5:00</div>
+                            </div>
+                            
+                            <div class="chat-messages" id="chatMessages">
+                                <!-- Interview messages will appear here -->
+                            </div>
+                            
+                            <div class="chat-input">
+                                <textarea id="responseInput" placeholder="Type your explanation here..." rows="3"></textarea>
+                                <button class="send-btn" onclick="sendResponse()">Send Response</button>
+                            </div>
+                        </div>
+
+                        <div class="interview-tips">
+                            <h5>💡 Pro Tips for Interview Communication</h5>
+                            <ul>
+                                <li><strong>Start with the approach:</strong> Explain your thinking process before diving into complexity</li>
+                                <li><strong>Use concrete examples:</strong> "For an array of 1000 elements..."</li>
+                                <li><strong>Compare alternatives:</strong> "This is better than the O(n²) brute force because..."</li>
+                                <li><strong>Discuss trade-offs:</strong> "We're trading space for time here..."</li>
+                                <li><strong>Think out loud:</strong> Share your reasoning process</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3>🎓 Phase 4 Mastery Assessment</h3>
+                <div class="mastery-assessment">
+                    <div class="assessment-intro">
+                        <h4>🏆 Prove Your Advanced Algorithm Mastery</h4>
+                        <p>Complete this comprehensive assessment to demonstrate your expertise in algorithm analysis, optimization, and problem-solving patterns.</p>
+                    </div>
+
+                    <div class="assessment-progress">
+                        <h5>📊 Your Phase 4 Journey</h5>
+                        <div class="progress-items">
+                            <div class="progress-item completed">
+                                <span class="progress-icon">✅</span>
+                                <span>Sorting Algorithms Theater</span>
+                            </div>
+                            <div class="progress-item completed">
+                                <span class="progress-icon">✅</span>
+                                <span>Problem Patterns & Recognition</span>
+                            </div>
+                            <div class="progress-item current">
+                                <span class="progress-icon">🔄</span>
+                                <span>Time & Space Complexity</span>
+                            </div>
+                            <div class="progress-item locked">
+                                <span class="progress-icon">🔒</span>
+                                <span>Phase 4 Mastery Certificate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="assessment-requirements">
+                        <h5>📋 Mastery Requirements</h5>
+                        <ul>
+                            <li>Score 85%+ on complexity analysis challenges</li>
+                            <li>Successfully optimize 2+ algorithms</li>
+                            <li>Complete interview communication simulation</li>
+                            <li>Demonstrate mastery across all Phase 4 topics</li>
+                        </ul>
+                    </div>
+
+                    <button class="mastery-btn" onclick="startMasteryAssessment()">
+                        🎓 Begin Mastery Assessment
+                    </button>
+
+                    <div class="phase-completion">
+                        <h5>🚀 Ready for Phase 5?</h5>
+                        <p>Once you complete Phase 4, you'll unlock the ultimate LeetCode preparation experience:</p>
+                        <ul>
+                            <li><strong>LeetCode Strategy Framework</strong> - Master the systematic approach to any coding problem</li>
+                            <li><strong>Mock Interview Simulator</strong> - Practice with AI-powered interview scenarios</li>
+                            <li><strong>Portfolio Projects</strong> - Build impressive projects showcasing your skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="lesson-navigation">
+                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Problem Patterns</button>
+                <button class="nav-btn next" onclick="nextLesson()">Next: Optimization Techniques →</button>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../../js/complexity-analysis-engine.js"></script>
+    <script src="../../js/notes-system.js"></script>
+    <script>
+function previousLesson() {
+    window.location.href = 'problem-patterns.html';
+}
+
+function nextLesson() {
+    window.location.href = 'optimization-techniques.html';
+}
+
+// Report completion to dashboard
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        if (typeof reportLessonComplete === 'function') {
+            reportLessonComplete(4, 'Time & Space Complexity');
+        }
+    }, 30000);
+});
+</script>
+</body>
+</html>
