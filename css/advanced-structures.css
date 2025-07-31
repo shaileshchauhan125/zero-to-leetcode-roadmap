@@ -1,7 +1,7 @@
 /* Advanced Data Structures Styles */
 .tree-analogy {
     background: linear-gradient(135deg, #059669, #10b981);
-    color: white;
+    color: var(--text-inverse);
     border-radius: 12px;
     padding: 2rem;
     margin: 2rem 0;
@@ -28,7 +28,7 @@
 }
 
 .tree-node {
-    background: white;
+    background: var(--bg-primary);
     color: var(--text-primary);
     border-radius: 50%;
     width: 80px;
@@ -50,7 +50,7 @@
 
 .tree-node.root {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .tree-node.highlighted {

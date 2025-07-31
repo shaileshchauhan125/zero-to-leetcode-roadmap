@@ -582,9 +582,7 @@ else:
     }
 
     showAllPaths() {
-        alert(`🗺️ All Possible Adventure Paths:
-
-📚 The Focused Student - Choose to ignore the USB
+        showCustomModal(` The Focused Student - Choose to ignore the USB
 🕵️ The Mystery Student - Investigate → Hide the USB
 💾 The Code Adventurer - Investigate → Copy files and run
 ⚔️ The Brave Confronter - Investigate → Stay and confront
@@ -592,7 +590,7 @@ else:
 🤔 The Cautious Learner - Report → Politely decline
 👥 The Collaborative Coder - Report → Ask for a partner
 
-Each path demonstrates different conditional logic patterns!`);
+Each path demonstrates different conditional logic patterns!`, '🗺️ All Possible Adventure Paths');
     }
 
     updateAdventureCode() {
@@ -804,7 +802,27 @@ Continue coding to add more scenes, items, and complex decision trees!`;
 
     // Final Challenge Functions
     openFinalChallenge() {
-        alert(`🏠 Smart Home Automation Challenge
+        if (typeof showCustomModal === 'function') {
+            showCustomModal(`Combine all Phase 1 concepts to create an intelligent home system!
+
+Your system should:
+📊 Use VARIABLES to store sensor readings and preferences
+🧮 Apply MATHEMATICAL OPERATIONS for calculations and thresholds  
+🎛️ Implement CONTROL FLOW for smart decision making
+
+Example scenarios:
+• Adjust thermostat based on temperature and occupancy
+• Control lights based on time of day and motion sensors
+• Manage security system with multiple conditions
+• Calculate energy savings and costs
+
+Ready to start your final challenge?`, [
+                {label: 'Start Challenge', handler: () => {
+                    if (typeof closeCustomModal === 'function') closeCustomModal();
+                }}
+            ]);
+        } else {
+            alert(`🏠 Smart Home Automation Challenge
 
 Combine all Phase 1 concepts to create an intelligent home system!
 
@@ -820,6 +838,7 @@ Example scenarios:
 • Calculate energy savings and costs
 
 Ready to start your final challenge?`);
+        }
     }
 
     completePhase1() {
@@ -847,15 +866,26 @@ You've mastered:
 
 Phase 2 awaits your arrival!`;
 
-        alert(celebration);
+        if (typeof showCustomModal === 'function') {
+            showCustomModal(celebration, [
+                {label: 'Continue', handler: () => {
+                    if (typeof closeCustomModal === 'function') closeCustomModal();
+                    setTimeout(() => {
+                        if (typeof openPhase2Dialog === 'function') {
+                            openPhase2Dialog();
+                        }
+                    }, 500);
+                }}
+            ]);
+        } else {
+            alert(celebration);
+        }
         
         // Redirect to Phase 2 or Dashboard
         setTimeout(() => {
-            const goToPhase2 = confirm("🚀 Ready to start Phase 2: Core Concepts?");
-            if (goToPhase2) {
-                window.location.href = '../phase2/data-structures.html';
-            } else {
-                window.location.href = '../../dashboard.html';
+            // Use the existing Phase 2 dialog instead of confirm
+            if (typeof openPhase2Dialog === 'function') {
+                openPhase2Dialog();
             }
         }, 2000);
     }

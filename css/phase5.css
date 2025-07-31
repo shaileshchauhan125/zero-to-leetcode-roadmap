@@ -27,7 +27,7 @@
     background: var(--phase5-gradient-main);
     position: relative;
     overflow: hidden;
-    color: white;
+    color: var(--text-inverse);
 }
 
 .phase5-hero::before {

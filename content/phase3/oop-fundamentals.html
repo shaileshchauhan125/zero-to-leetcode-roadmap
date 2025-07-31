@@ -13,11 +13,12 @@
 </head>
 <body>
     <div class="lesson-layout">
-        <aside class="lesson-sidebar">
+        <!-- Restore Sidebar Button (appears only when sidebar is collapsed) -->
+        <button class="sidebar-restore-btn" id="sidebarRestoreBtn" title="Restore sidebar" onclick="toggleSidebar()" style="display:none;position:fixed;top:16px;left:16px;z-index:1001;font-size:2rem;padding:0.5rem 1rem;border-radius:50%;background:var(--bg-elevated);color:var(--text-primary);border:2px solid var(--border-medium);box-shadow:var(--shadow-md);cursor:pointer;transition:background 0.2s;">⮜</button>
+        <aside class="lesson-sidebar" id="lessonSidebar">
             <div class="sidebar-header">
-                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
-                    ← Back to Dashboard
-                </button>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar" onclick="toggleSidebar()">⮜</button>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
                 <div class="phase-info">
                     <h3>Phase 3: Application</h3>
                     <div class="phase-progress">
@@ -334,14 +335,364 @@ print(f"Alice's average: {alice.get_average()}")  # Output: 91.33</code></pre>
             </section>
 
             <nav class="lesson-navigation">
-                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Loops & Iteration</button>
-                <button class="nav-btn next" onclick="nextLesson()">Next: Advanced Data Structures →</button>
+                <div class="navigation-buttons">
+                    <button class="nav-btn prev" onclick="previousLesson()">← Previous: Loops & Iteration</button>
+                    <button class="nav-btn test-knowledge" onclick="showKnowledgeTest()">🧠 Test My Knowledge</button>
+                    <button class="nav-btn next" onclick="nextLesson()">Next: Advanced Data Structures →</button>
+                </div>
             </nav>
 
             <script>
-function nextLesson() {
-    window.location.href = 'advanced-data-structures.html';  // NOW LINKS TO ADVANCED STRUCTURES
-}
+            function showKnowledgeTest() {
+                // Trigger the Bank Account Project Challenge
+                console.log('showKnowledgeTest called');
+                try {
+                    console.log('Attempting to open project modal');
+                    openProjectModal('bank-account');
+                    console.log('Project modal opened successfully');
+                } catch (error) {
+                    console.error('Error opening project modal:', error);
+                    // Fallback: use showCustomModal if available
+                    if (typeof showCustomModal === 'function') {
+                        showCustomModal('Bank Account Project Challenge\n\nClick the "Start Bank Account Project" button below to begin!', '🏦 Bank Account Challenge');
+                    } else {
+                        alert('Bank Account Project Challenge - Please try clicking the "Start Bank Account Project" button below.');
+                    }
+                }
+            }
+
+            function nextLesson() {
+                window.location.href = 'advanced-data-structures.html';  // NOW LINKS TO ADVANCED STRUCTURES
+            }
+
+            function previousLesson() {
+                window.location.href = '../phase2/loops-iteration.html';
+            }
+
+            // Modern modal function for knowledge tests
+            function showCustomModal(message, title = '📢 Information') {
+                // Create modal if it doesn't exist
+                let modal = document.getElementById('customModal');
+                if (!modal) {
+                    modal = document.createElement('div');
+                    modal.id = 'customModal';
+                    modal.className = 'modal';
+                    modal.style.display = 'none';
+                    modal.innerHTML = `
+                        <div class="modal-content" style="max-width: 600px; padding: 2rem; border-radius: 1.25rem; background: var(--bg-elevated); box-shadow: var(--shadow-xl); position: relative; color: var(--text-primary); border: 1px solid var(--border-medium);">
+                            <button onclick="closeCustomModal()" class="close-btn" style="position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text-secondary);">×</button>
+                            <h2 id="customModalTitle" style="margin-bottom:1rem;font-size:1.3rem;display:flex;align-items:center;gap:0.5rem;"></h2>
+                            <div id="customModalMessage" style="font-size:1rem;white-space:pre-line;line-height:1.6;"></div>
+                            <button onclick="closeCustomModal()" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:1rem;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.5rem;cursor:pointer;">OK</button>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                }
+                
+                document.getElementById('customModalTitle').textContent = title;
+                document.getElementById('customModalMessage').textContent = message;
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.style.position = 'fixed';
+                modal.style.top = 0;
+                modal.style.left = 0;
+                modal.style.width = '100vw';
+                modal.style.height = '100vh';
+                modal.style.background = 'var(--bg-overlay)';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCustomModal() {
+                const modal = document.getElementById('customModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function openProjectModal(projectType) {
+                console.log('openProjectModal called with:', projectType);
+                const modal = document.getElementById('projectModal');
+                console.log('Modal element found:', modal);
+                if (modal) {
+                    // Set the project content based on type
+                    if (projectType === 'bank-account') {
+                        document.getElementById('projectTitle').textContent = 'Bank Account Project';
+                        // Set project instructions and initial code
+                        const instructions = document.getElementById('projectInstructions');
+                        if (instructions) {
+                            instructions.innerHTML = `
+                                <p>Create a comprehensive Bank Account class with the following features:</p>
+                                <ul>
+                                    <li>Account holder name and account number</li>
+                                    <li>Balance tracking with deposit/withdrawal methods</li>
+                                    <li>Transaction history</li>
+                                    <li>Interest calculation</li>
+                                    <li>Overdraft protection</li>
+                                </ul>
+                            `;
+                        }
+                        
+                        const editor = document.getElementById('projectEditor');
+                        if (editor) {
+                            editor.value = `# Bank Account Management System
+class BankAccount:
+    def __init__(self, account_holder, account_number, initial_balance=0):
+        """Initialize a new bank account"""
+        self.account_holder = account_holder
+        self.account_number = account_number
+        self.balance = initial_balance
+        self.transaction_history = []
+        self.interest_rate = 0.02  # 2% annual interest
+    
+    def deposit(self, amount):
+        """Deposit money into the account"""
+        if amount > 0:
+            self.balance += amount
+            self.transaction_history.append(f"Deposit: +${amount}")
+            print(f"Deposited ${amount}. New balance: ${self.balance}")
+        else:
+            print("Deposit amount must be positive")
+    
+    def withdraw(self, amount):
+        """Withdraw money from the account"""
+        # TODO: Implement withdrawal logic with overdraft protection
+        pass
+    
+    def get_balance(self):
+        """Get current account balance"""
+        return self.balance
+    
+    def calculate_interest(self):
+        """Calculate and add interest to the account"""
+        # TODO: Implement interest calculation
+        pass
+    
+    def get_transaction_history(self):
+        """Get list of all transactions"""
+        return self.transaction_history
+    
+    def __str__(self):
+        """String representation of the account"""
+        return f"Account: {self.account_number} | Holder: {self.account_holder} | Balance: ${self.balance}"
+
+# Example usage
+def main():
+    # Create a new account
+    account = BankAccount("Alice Johnson", "12345", 1000)
+    
+    # Test basic operations
+    print(account)
+    account.deposit(500)
+    account.withdraw(200)
+    
+    # TODO: Add more test cases
+
+if __name__ == "__main__":
+    main()`;
+                        }
+                    }
+                    
+                    modal.classList.add('active');
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeProjectModal() {
+                const modal = document.getElementById('projectModal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function runProject() {
+                const code = document.getElementById('projectEditor').value;
+                const output = document.getElementById('projectOutput');
+                
+                // Simple code execution simulation
+                output.textContent = `Running your Bank Account project...\n\n`;
+                
+                // Add some sample output
+                setTimeout(() => {
+                    output.textContent += `Account: 12345 | Holder: Alice Johnson | Balance: $1000\n`;
+                    output.textContent += `Deposited $500. New balance: $1500\n`;
+                    output.textContent += `\n✅ Project executed successfully!\n`;
+                    output.textContent += `\n💡 Complete the TODO items to add more functionality!`;
+                }, 500);
+            }
+
+            function resetProject() {
+                const editor = document.getElementById('projectEditor');
+                if (editor && confirm('Reset to original code? This will lose your changes.')) {
+                    openProjectModal('bank-account'); // Reload original code
+                }
+            }
+
+            function clearProjectOutput() {
+                const output = document.getElementById('projectOutput');
+                if (output) {
+                    output.textContent = '';
+                }
+            }
+
+            function closeConceptModal() {
+                const modal = document.getElementById('conceptModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function showConceptDetail(concept) {
+                const modal = document.getElementById('conceptModal');
+                const title = document.getElementById('conceptTitle');
+                const content = document.getElementById('conceptContent');
+                
+                const concepts = {
+                    'encapsulation': {
+                        title: '🔒 Encapsulation',
+                        content: `<h4>What is Encapsulation?</h4>
+                        <p>Encapsulation is the bundling of data (attributes) and methods that operate on that data within a single unit (class). It also restricts direct access to some of an object's components.</p>
+                        
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li><strong>Data Protection:</strong> Prevents external code from directly modifying object data</li>
+                            <li><strong>Code Organization:</strong> Keeps related data and methods together</li>
+                            <li><strong>Easier Maintenance:</strong> Changes to internal implementation don't affect external code</li>
+                        </ul>
+                        
+                        <h5>Example:</h5>
+                        <pre class="code-block"><code>class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance  # Protected attribute
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+    
+    def get_balance(self):
+        return self._balance  # Controlled access</code></pre>`
+                    },
+                    'inheritance': {
+                        title: '🧬 Inheritance',
+                        content: `<h4>What is Inheritance?</h4>
+                        <p>Inheritance allows a class to inherit attributes and methods from another class. The child class (subclass) can use or override the parent class (superclass) functionality.</p>
+                        
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li><strong>Code Reuse:</strong> Avoid duplicating code across similar classes</li>
+                            <li><strong>Hierarchical Organization:</strong> Create logical class relationships</li>
+                            <li><strong>Polymorphism Support:</strong> Enable different implementations of the same method</li>
+                        </ul>
+                        
+                        <h5>Example:</h5>
+                        <pre class="code-block"><code>class Vehicle:
+    def __init__(self, brand):
+        self.brand = brand
+    
+    def start(self):
+        print("Vehicle started")
+
+class Car(Vehicle):  # Car inherits from Vehicle
+    def __init__(self, brand, doors):
+        super().__init__(brand)  # Call parent constructor
+        self.doors = doors
+    
+    def start(self):  # Override parent method
+        print(f"{self.brand} car started with {self.doors} doors")</code></pre>`
+                    },
+                    'polymorphism': {
+                        title: '🎭 Polymorphism',
+                        content: `<h4>What is Polymorphism?</h4>
+                        <p>Polymorphism allows objects of different classes to be treated as objects of a common base class, while each class can have its own implementation of the same method.</p>
+                        
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li><strong>Flexibility:</strong> Same interface, different implementations</li>
+                            <li><strong>Extensibility:</strong> Easy to add new types without changing existing code</li>
+                            <li><strong>Simplified Code:</strong> One function can work with multiple object types</li>
+                        </ul>
+                        
+                        <h5>Example:</h5>
+                        <pre class="code-block"><code>class Animal:
+    def make_sound(self):
+        pass
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow!"
+
+def animal_concert(animals):
+    for animal in animals:
+        print(animal.make_sound())  # Polymorphism in action!
+
+# Same function works with different animal types
+animals = [Dog(), Cat(), Dog()]
+animal_concert(animals)  # Woof! Meow! Woof!</code></pre>`
+                    },
+                    'abstraction': {
+                        title: '🎨 Abstraction',
+                        content: `<h4>What is Abstraction?</h4>
+                        <p>Abstraction hides complex implementation details and exposes only the essential features of an object. It focuses on what an object does rather than how it does it.</p>
+                        
+                        <h5>Key Benefits:</h5>
+                        <ul>
+                            <li><strong>Simplicity:</strong> Users interact with simple interfaces</li>
+                            <li><strong>Reduced Complexity:</strong> Hide unnecessary implementation details</li>
+                            <li><strong>Better Design:</strong> Focus on essential functionality</li>
+                        </ul>
+                        
+                        <h5>Example:</h5>
+                        <pre class="code-block"><code>from abc import ABC, abstractmethod
+
+class Shape(ABC):  # Abstract base class
+    @abstractmethod
+    def area(self):
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+# Users don't need to know HOW area is calculated
+# They just know shapes HAVE an area method</code></pre>`
+                    }
+                };
+                
+                if (concepts[concept]) {
+                    title.textContent = concepts[concept].title;
+                    content.innerHTML = concepts[concept].content;
+                    modal.style.display = 'flex';
+                    modal.style.alignItems = 'center';
+                    modal.style.justifyContent = 'center';
+                    modal.style.position = 'fixed';
+                    modal.style.top = 0;
+                    modal.style.left = 0;
+                    modal.style.width = '100vw';
+                    modal.style.height = '100vh';
+                    modal.style.background = 'var(--bg-overlay)';
+                    document.body.style.overflow = 'hidden';
+                }
+            }
 </script>
         </main>
     </div>
@@ -395,4 +746,31 @@ function nextLesson() {
     <script src="../../js/notes-system.js"></script>
     <script src="../../js/phase3-engine.js"></script>
 </body>
+<script>
+// Sidebar collapse/restore logic
+const sidebar = document.getElementById('lessonSidebar');
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarRestoreBtn = document.getElementById('sidebarRestoreBtn');
+
+function toggleSidebar() {
+    if (sidebar.classList.contains('collapsed')) {
+        sidebar.classList.remove('collapsed');
+        sidebarRestoreBtn.style.display = 'none';
+    } else {
+        sidebar.classList.add('collapsed');
+        sidebarRestoreBtn.style.display = 'block';
+    }
+}
+
+// Hide restore button if sidebar is open on load
+window.addEventListener('DOMContentLoaded', () => {
+    if (!sidebar.classList.contains('collapsed')) {
+        sidebarRestoreBtn.style.display = 'none';
+    }
+});
+</script>
+<script src="../../js/main.js"></script>
+</body>
 </html>
+
+

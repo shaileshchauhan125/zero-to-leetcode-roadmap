@@ -8,16 +8,14 @@
     <link rel="stylesheet" href="../../css/lesson.css">
     <link rel="stylesheet" href="../../css/phase5.css">
     <link rel="stylesheet" href="../../css/leetcode-strategy.css">
-    <link rel="stylesheet" href="../../css/phase5.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
 
 </head>
 <body>
     <div class="lesson-layout">
         <aside class="lesson-sidebar">
             <div class="sidebar-header">
-                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
-                    ← Back to Dashboard
-                </button>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar" onclick="toggleSidebar()">⮜</button>`n                <button class="theme-toggle" id="themeToggle">🌙</button>
                 <div class="phase-info">
                     <h3>Phase 5: LeetCode Mastery</h3>
                     <div class="phase-progress">
@@ -611,14 +609,18 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]." rows="12"></text
             </section>
 
             <nav class="lesson-navigation">
-                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Optimization Techniques</button>
-                <button class="nav-btn next" onclick="nextLesson()">Next: Mock Interview Simulator →</button>
+                <div class="lesson-nav-btns" style="display:flex;justify-content:space-between;gap:1.5rem;margin-top:2.5rem;">
+                  <button class="nav-btn prev" onclick="previousLesson()" style="flex:1;max-width:320px;padding:1.1rem 0;font-size:1.15rem;font-weight:600;background:linear-gradient(90deg,#f3f4f6,#e0e7ff);color:#3730a3;border:none;border-radius:0.75rem;box-shadow:0 2px 8px rgba(99,102,241,0.08);cursor:pointer;transition:background 0.2s;">← Previous: Optimization Techniques</button>
+                  <button class="nav-btn next" onclick="nextLesson()" style="flex:1;max-width:320px;padding:1.1rem 0;font-size:1.15rem;font-weight:600;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.75rem;box-shadow:0 2px 8px rgba(99,102,241,0.12);cursor:pointer;transition:background 0.2s;">Next: Mock Interview Simulator →</button>
+                </div>
             </nav>
         </main>
     </div>
 
     <script src="../../js/leetcode-strategy-engine.js"></script>
     <script src="../../js/notes-system.js"></script>
+    <script src="../../js/phase5-engine.js"></script>
+    <script src="../../js/navigation.js"></script>
     <script>
     // Progress tracking for existing dashboard
     document.addEventListener('DOMContentLoaded', () => {
@@ -660,5 +662,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]." rows="12"></text
         }, 30000);
     });
     </script>
-</body>
+<script src="../../js/main.js"></script>`n</body>`n    <script src="../../js/main.js"></script>
 </html>
+
+

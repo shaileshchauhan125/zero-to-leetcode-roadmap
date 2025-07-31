@@ -675,7 +675,7 @@ class Phase3Engine {
             
         // Show result message
         setTimeout(() => {
-            alert(message);
+            showCustomModal(message);
         }, 500);
     }
 

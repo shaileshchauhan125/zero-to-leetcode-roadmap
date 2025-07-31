@@ -527,11 +527,15 @@ function runBasicExample() {
 }
 
 function openChallengeModal() {
-    document.getElementById('challengeModal').style.display = 'block';
+    const modal = document.getElementById('challengeModal');
+    modal.classList.add('active');
+    modal.style.display = 'flex';
 }
 
 function closeChallengeModal() {
-    document.getElementById('challengeModal').style.display = 'none';
+    const modal = document.getElementById('challengeModal');
+    modal.classList.remove('active');
+    modal.style.display = 'none';
     phase1Engine.hintIndex = 0;
 }
 
