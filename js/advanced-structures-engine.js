@@ -121,20 +121,20 @@ class AdvancedStructuresEngine {
         
         if (!input) {
             console.error('❌ nodeValue input not found');
-            alert('Error: Node value input field not found');
+            showCustomModal('Node value input field not found', '❌ Error');
             return;
         }
         
         const value = parseInt(input.value);
         
         if (!value || value < 1 || value > 100) {
-            alert('Please enter a valid number between 1 and 100');
+            showCustomModal('Please enter a valid number between 1 and 100', '⚠️ Invalid Input');
             return;
         }
         
         this.binarySearchTree.insert(value);
         this.renderTree();
-        alert(`✅ Added ${value} to the tree`);
+        showCustomModal(`Added ${value} to the tree`, '✅ Success');
         input.value = '';
     }
 
@@ -143,20 +143,20 @@ class AdvancedStructuresEngine {
         const input = document.getElementById('nodeValue');
         
         if (!input) {
-            alert('Error: Node value input field not found');
+            showCustomModal('Node value input field not found', '❌ Error');
             return;
         }
         
         const value = parseInt(input.value);
         
         if (!value) {
-            alert('Please enter a value to delete');
+            showCustomModal('Please enter a value to delete', '⚠️ Invalid Input');
             return;
         }
         
         this.binarySearchTree.delete(value);
         this.renderTree();
-        alert(`✅ Deleted ${value} from the tree`);
+        showCustomModal(`Deleted ${value} from the tree`, '✅ Success');
         input.value = '';
     }
 
@@ -164,7 +164,7 @@ class AdvancedStructuresEngine {
         console.log('🌳 Clear Tree called');
         this.binarySearchTree = new BinarySearchTree();
         this.renderTree();
-        alert('✅ Tree cleared');
+        showCustomModal('Tree cleared', '✅ Success');
         document.getElementById('traversalResults').textContent = '';
     }
 
@@ -177,7 +177,7 @@ class AdvancedStructuresEngine {
             output.textContent = `${type.toUpperCase()} Traversal: ${results.join(' → ')}`;
         }
         
-        alert(`✅ ${type.toUpperCase()} traversal: ${results.join(', ')}`);
+        showCustomModal(`${type.toUpperCase()} traversal: ${results.join(', ')}`, '✅ Traversal Complete');
     }
 
     renderTree() {
@@ -223,7 +223,7 @@ class AdvancedStructuresEngine {
         // Reset heap
         this.minHeap = new MinHeap();
         this.renderHeap();
-        alert(`✅ Switched to ${type} heap`);
+        showCustomModal(`Switched to ${type} heap`, '✅ Success');
     }
 
     insertHeap() {
@@ -231,33 +231,33 @@ class AdvancedStructuresEngine {
         const input = document.getElementById('heapValue');
         
         if (!input) {
-            alert('Error: Heap value input field not found');
+            showCustomModal('Heap value input field not found', '❌ Error');
             return;
         }
         
         const value = parseInt(input.value);
         
         if (!value || value < 1 || value > 100) {
-            alert('Please enter a valid number between 1 and 100');
+            showCustomModal('Please enter a valid number between 1 and 100', '⚠️ Invalid Input');
             return;
         }
         
         this.minHeap.insert(value);
         this.renderHeap();
-        alert(`✅ Inserted ${value} into ${this.currentHeapType} heap`);
+        showCustomModal(`Inserted ${value} into ${this.currentHeapType} heap`, '✅ Success');
         input.value = '';
     }
 
     extractHeap() {
         console.log('📊 Extract Heap called');
         if (this.minHeap.isEmpty()) {
-            alert('⚠️ Heap is empty!');
+            showCustomModal('Heap is empty!', '⚠️ Warning');
             return;
         }
         
         const extracted = this.minHeap.extract();
         this.renderHeap();
-        alert(`✅ Extracted ${extracted} from heap`);
+        showCustomModal(`Extracted ${extracted} from heap`, '✅ Success');
     }
 
     buildRandomHeap() {
@@ -272,14 +272,14 @@ class AdvancedStructuresEngine {
         }
         
         this.renderHeap();
-        alert(`✅ Built random heap: [${randomValues.join(', ')}]`);
+        showCustomModal(`Built random heap: [${randomValues.join(', ')}]`, '✅ Success');
     }
 
     clearHeap() {
         console.log('📊 Clear Heap called');
         this.minHeap = new MinHeap();
         this.renderHeap();
-        alert('✅ Heap cleared');
+        showCustomModal('Heap cleared', '✅ Success');
     }
 
     renderHeap() {
@@ -335,7 +335,7 @@ class AdvancedStructuresEngine {
         });
         
         this.renderGraph();
-        alert(`✅ Switched to ${type} graph`);
+        showCustomModal(`Switched to ${type} graph`, '✅ Success');
     }
 
     addVertex() {
@@ -343,25 +343,25 @@ class AdvancedStructuresEngine {
         const input = document.getElementById('vertexName');
         
         if (!input) {
-            alert('Error: Vertex name input field not found');
+            showCustomModal('Vertex name input field not found', '❌ Error');
             return;
         }
         
         const name = input.value.trim().toUpperCase();
         
         if (!name || name.length > 3) {
-            alert('Please enter a vertex name (1-3 characters)');
+            showCustomModal('Please enter a vertex name (1-3 characters)', '⚠️ Invalid Input');
             return;
         }
         
         if (this.graph.hasVertex(name)) {
-            alert(`⚠️ Vertex ${name} already exists`);
+            showCustomModal(`Vertex ${name} already exists`, '⚠️ Warning');
             return;
         }
         
         this.graph.addVertex(name);
         this.renderGraph();
-        alert(`✅ Added vertex ${name}`);
+        showCustomModal(`Added vertex ${name}`, '✅ Success');
         input.value = '';
     }
 
@@ -370,7 +370,7 @@ class AdvancedStructuresEngine {
         const vertices = this.graph.getVertices();
         
         if (vertices.length < 2) {
-            alert('⚠️ Need at least 2 vertices to add an edge');
+            showCustomModal('Need at least 2 vertices to add an edge', '⚠️ Warning');
             return;
         }
         
@@ -380,14 +380,14 @@ class AdvancedStructuresEngine {
         
         this.graph.addEdge(from, to);
         this.renderGraph();
-        alert(`✅ Added edge ${from} → ${to}`);
+        showCustomModal(`Added edge ${from} → ${to}`, '✅ Success');
     }
 
     clearGraph() {
         console.log('🗺️ Clear Graph called');
         this.graph = new Graph();
         this.renderGraph();
-        alert('✅ Graph cleared');
+        showCustomModal('Graph cleared', '✅ Success');
         
         const output = document.getElementById('algorithmResults');
         if (output) output.textContent = '';
@@ -428,7 +428,7 @@ class AdvancedStructuresEngine {
         const vertices = this.graph.getVertices();
         
         if (vertices.length === 0) {
-            alert('⚠️ Graph is empty!');
+            showCustomModal('Graph is empty!', '⚠️ Warning');
             return;
         }
         
@@ -439,7 +439,7 @@ class AdvancedStructuresEngine {
             output.textContent = `BFS Traversal from ${vertices[0]}:\n${result.join(' → ')}\n\nNodes visited: ${result.length}`;
         }
         
-        alert(`✅ BFS from ${vertices[0]}: ${result.join(' → ')}`);
+        showCustomModal(`BFS from ${vertices[0]}: ${result.join(' → ')}`, '✅ BFS Complete');
     }
 
     runDFS() {
@@ -447,7 +447,7 @@ class AdvancedStructuresEngine {
         const vertices = this.graph.getVertices();
         
         if (vertices.length === 0) {
-            alert('⚠️ Graph is empty!');
+            showCustomModal('⚠️ Graph is empty!');
             return;
         }
         
@@ -458,7 +458,7 @@ class AdvancedStructuresEngine {
             output.textContent = `DFS Traversal from ${vertices[0]}:\n${result.join(' → ')}\n\nNodes visited: ${result.length}`;
         }
         
-        alert(`✅ DFS from ${vertices[0]}: ${result.join(' → ')}`);
+        showCustomModal(`✅ DFS from ${vertices[0]}: ${result.join(' → ')}`);
     }
 
     findShortestPath() {
@@ -466,7 +466,7 @@ class AdvancedStructuresEngine {
         const vertices = this.graph.getVertices();
         
         if (vertices.length < 2) {
-            alert('⚠️ Need at least 2 vertices for shortest path');
+            showCustomModal('⚠️ Need at least 2 vertices for shortest path');
             return;
         }
         
@@ -484,9 +484,9 @@ class AdvancedStructuresEngine {
         }
         
         if (result.distance === -1) {
-            alert(`⚠️ No path found between ${from} and ${to}`);
+            showCustomModal(`⚠️ No path found between ${from} and ${to}`);
         } else {
-            alert(`✅ Shortest path ${from} → ${to}: ${result.path.join(' → ')} (distance: ${result.distance})`);
+            showCustomModal(`✅ Shortest path ${from} → ${to}: ${result.path.join(' → ')} (distance: ${result.distance})`);
         }
     }
 
@@ -520,7 +520,7 @@ class AdvancedStructuresEngine {
 
     // ===== PROJECT & NAVIGATION METHODS =====
     openSocialNetworkProject() {
-        alert(`🚀 Social Network Analyzer Project
+        showCustomModal(`🚀 Social Network Analyzer Project
 
 This advanced project combines all data structures:
 
@@ -534,7 +534,7 @@ Ready to start this comprehensive project?`);
     }
 
     completePhase3() {
-        alert(`🎉 PHASE 3 COMPLETE! 🎉
+        showCustomModal(`🎉 PHASE 3 COMPLETE! 🎉
 
 You've mastered:
 ✅ Object-Oriented Programming
@@ -544,9 +544,19 @@ You've mastered:
 
 Ready for Phase 4: Advanced Topics?`);
         
-        const proceed = confirm("Continue to Phase 4?");
-        if (proceed) {
-            window.location.href = '../phase4/sorting-algorithms.html';
+        // Use modern modal instead of browser confirm
+        if (typeof showConfirmModal === 'function') {
+            showConfirmModal(
+                'Continue to Phase 4?',
+                () => { window.location.href = '../phase4/sorting-algorithms.html'; },
+                () => { /* Do nothing, stay on page */ }
+            );
+        } else {
+            // Fallback for pages without showConfirmModal
+            const proceed = confirm("Continue to Phase 4?");
+            if (proceed) {
+                window.location.href = '../phase4/sorting-algorithms.html';
+            }
         }
     }
 

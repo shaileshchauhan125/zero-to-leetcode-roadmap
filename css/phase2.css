@@ -12,7 +12,7 @@
 
 .enhanced-comparison-table th {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: white;
+    color: var(--text-inverse);
     padding: 1rem;
     text-align: left;
     font-weight: 600;
@@ -52,7 +52,7 @@
 
 .clickable-cell:hover {
     background: var(--accent-primary) !important;
-    color: white;
+    color: var(--text-inverse);
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }

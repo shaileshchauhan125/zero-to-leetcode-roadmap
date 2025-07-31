@@ -1207,9 +1207,7 @@ class SortingAlgorithmsEngine {
     }
 
     showComplexityChart() {
-        alert(`📈 Algorithm Complexity Chart
-
-Time Complexity Comparison:
+        showCustomModal(`Time Complexity Comparison:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫧 Bubble Sort:    Best O(n)     Average O(n²)   Worst O(n²)
@@ -1233,13 +1231,11 @@ Stability:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✅ Stable: Bubble, Insertion, Merge
-❌ Unstable: Selection, Quick, Heap`);
+❌ Unstable: Selection, Quick, Heap`, '📈 Algorithm Complexity Chart');
     }
 
     bestWorstCaseAnalysis() {
-        alert(`⚖️ Best vs Worst Case Analysis
-
-BEST CASE SCENARIOS:
+        showCustomModal(`BEST CASE SCENARIOS:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫧 Bubble Sort: Already sorted array → O(n)
@@ -1275,7 +1271,7 @@ PRACTICAL IMPLICATIONS:
 • Use Insertion Sort for small arrays (< 50 elements)
 • Use Quick Sort for general-purpose sorting
 • Use Merge Sort when stability is required
-• Use Heap Sort when memory is limited`);
+• Use Heap Sort when memory is limited`, '⚖️ Best vs Worst Case Analysis');
     }
 
     // ===== DATA PATTERN GENERATION =====
@@ -1428,13 +1424,11 @@ PRACTICAL IMPLICATIONS:
         const result = analysis[pattern];
         if (result) {
             setTimeout(() => {
-                alert(`📋 Data Pattern Analysis: ${pattern.toUpperCase()}
-
-🏆 Best Algorithm: ${result.best}
+                showCustomModal(`🏆 Best Algorithm: ${result.best}
 💀 Worst Algorithm: ${result.worst}
 🎉 Surprise Factor: ${result.surprise}
 
-Try running different algorithms on this data pattern to see the difference in performance!`);
+Try running different algorithms on this data pattern to see the difference in performance!`, `📋 Data Pattern Analysis: ${pattern.toUpperCase()}`);
             }, 500);
         }
     }
@@ -1783,9 +1777,7 @@ def merge(left, right):
     }
 
     visualizeImplementation() {
-        alert(`👁️ Implementation Visualization
-
-🎬 Your algorithm implementation will now be visualized with the same animation system!
+        showCustomModal(`🎬 Your algorithm implementation will now be visualized with the same animation system!
 
 Features:
 ✅ Step-by-step execution of YOUR code
@@ -1795,7 +1787,7 @@ Features:
 
 This would integrate your custom code with the visualization engine, showing exactly how your implementation performs!
 
-(In a real implementation, this would execute your code and create custom animation frames)`);
+(In a real implementation, this would execute your code and create custom animation frames)`, '👁️ Implementation Visualization');
     }
 
     submitImplementation() {
@@ -1958,9 +1950,7 @@ This would integrate your custom code with the visualization engine, showing exa
         
         const appData = applications[app];
         if (appData) {
-            alert(`${appData.title}
-
-${appData.content.replace(/<[^>]*>/g, '').replace(/\n\s+/g, '\n')}`);
+            showCustomModal(appData.content.replace(/<[^>]*>/g, '').replace(/\n\s+/g, '\n'), appData.title);
         }
     }
 
@@ -1977,16 +1967,14 @@ ${appData.content.replace(/<[^>]*>/g, '').replace(/\n\s+/g, '\n')}`);
         };
         
         setTimeout(() => {
-            alert(tips[algorithm] || "💡 Let's see how this algorithm performs!");
+            showCustomModal(tips[algorithm] || "Let's see how this algorithm performs!", '💡 Algorithm Tip');
         }, 500);
     }
 
     showCompletionMessage() {
         const algo = this.algorithms[this.currentAlgorithm];
         setTimeout(() => {
-            alert(`🎉 ${algo.name} Complete!
-
-📊 Final Statistics:
+            showCustomModal(`📊 Final Statistics:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Comparisons: ${this.stats.comparisons.toLocaleString()}
@@ -2001,7 +1989,7 @@ Time Complexity: ${algo.timeComplexity}
 Space Complexity: ${algo.spaceComplexity}
 Stability: ${algo.stability}
 
-Try a different algorithm or data pattern to see how performance changes!`);
+Try a different algorithm or data pattern to see how performance changes!`, `🎉 ${algo.name} Complete!`);
         }, 1000);
     }
 
@@ -2012,17 +2000,8 @@ Try a different algorithm or data pattern to see how performance changes!`);
     }
 
     nextLesson() {
-        // For now, show coming soon message
-        alert(`🚀 Coming Next: Problem Patterns & Recognition
-
-In the next lesson, you'll master:
-🎯 Two Pointers Technique
-🪟 Sliding Window Pattern  
-🔍 Binary Search Mastery
-🌊 BFS/DFS Traversals
-🎨 Dynamic Programming Fundamentals
-
-This lesson will teach you to recognize which pattern applies to any given problem - the key skill for LeetCode success!`);
+        // Navigate to the actual next lesson
+        window.location.href = 'problem-patterns.html';
     }
 }
 

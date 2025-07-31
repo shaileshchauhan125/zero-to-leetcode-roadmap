@@ -1,0 +1,50 @@
+/* Navigation Buttons - Big, Colorful, and Consistent Across Phases */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2.5rem 0 1.5rem 0;
+}
+
+.nav-btn {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1.1rem 2.5rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(60, 60, 120, 0.10);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.3s;
+    outline: none;
+    color: var(--text-inverse);
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.nav-btn.prev {
+    background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);
+}
+
+.nav-btn.next {
+    background: linear-gradient(90deg, #f59e0b 0%, #6366f1 100%);
+}
+
+.nav-btn:focus, .nav-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(60, 60, 120, 0.18);
+    filter: brightness(1.08);
+}
+
+@media (max-width: 600px) {
+    .lesson-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav-btn {
+        width: 100%;
+        font-size: 1.05rem;
+        padding: 1rem 0.5rem;
+    }
+}

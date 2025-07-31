@@ -6,6 +6,49 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('CodeMaster Academy loaded successfully!');
 });
 
+// Global Modern Modal Function for all pages
+window.showCustomModal = function(message, title = '📢 Information') {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('customModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'customModal';
+        modal.className = 'modal';
+        modal.style.display = 'none';
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 520px; padding: 2rem; border-radius: 1.25rem; background: var(--bg-primary); color: var(--text-primary); box-shadow: var(--shadow-xl); position: relative; border: 1px solid var(--border-medium);">
+                <button onclick="closeCustomModal()" class="close-btn" style="position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text-secondary);">×</button>
+                <h2 id="customModalTitle" style="margin-bottom:1rem;font-size:1.3rem;display:flex;align-items:center;gap:0.5rem;color:var(--text-primary);"></h2>
+                <div id="customModalMessage" style="font-size:1rem;white-space:pre-line;line-height:1.6;color:var(--text-primary);"></div>
+                <button onclick="closeCustomModal()" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:1rem;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.5rem;cursor:pointer;">OK</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    
+    document.getElementById('customModalTitle').textContent = title;
+    document.getElementById('customModalMessage').textContent = message;
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'var(--bg-overlay)';
+    modal.style.zIndex = 10000;
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeCustomModal = function() {
+    const modal = document.getElementById('customModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
+
 // Theme Management - FIXED
 function initializeTheme() {
     const themeToggle = document.getElementById('themeToggle');

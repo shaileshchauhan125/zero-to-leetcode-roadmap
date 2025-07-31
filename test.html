@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feature Test - CodeMaster Academy</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body { 
             font-family: system-ui; 
@@ -39,7 +40,10 @@
     </style>
 </head>
 <body>
-    <h1>🧪 CodeMaster Academy - Feature Tests</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1>🧪 CodeMaster Academy - Feature Tests</h1>
+        <button class="theme-toggle" id="themeToggle" style="background: #f3f4f6; border: 2px solid #d1d5db; color: #374151; font-size: 1.25rem; cursor: pointer; padding: 0.5rem; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">🌙</button>
+    </div>
     <p>Test all major features to ensure everything is working properly.</p>
 
     <div class="test-section">
@@ -227,5 +231,6 @@ print(f"Language: {name}, Age: {age}")
         style.textContent = css;
         document.head.appendChild(style);
     </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

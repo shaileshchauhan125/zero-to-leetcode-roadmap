@@ -44,7 +44,7 @@
 
 .calc-btn {
     background: #374151;
-    color: white;
+    color: var(--text-inverse);
     border: none;
     border-radius: 8px;
     padding: 1rem;

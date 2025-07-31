@@ -4,7 +4,7 @@
     border-radius: 12px;
     padding: 2rem;
     margin: 2rem 0;
-    color: white;
+    color: var(--text-inverse);
 }
 
 .tree-visual {
@@ -29,7 +29,7 @@
 }
 
 .decision-node {
-    background: white;
+    background: var(--bg-primary);
     color: var(--text-primary);
     border-radius: 12px;
     padding: 1.5rem;
@@ -43,7 +43,7 @@
 
 .decision-node.root {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .decision-node.highlighted {
@@ -75,12 +75,12 @@
 
 .condition-btn.true {
     background: var(--success-color);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .condition-btn.false {
     background: var(--error-color);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .condition-btn:hover {
@@ -89,7 +89,7 @@
 
 .result-node {
     background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
+    color: var(--text-inverse);
     border-radius: 12px;
     padding: 1.5rem;
     min-width: 180px;

@@ -62,7 +62,7 @@
 
 .coding-panel {
     font-size: 3rem;
-    color: #10b981;
+    color: var(--success-color);
     animation: codingBlink 1.5s ease-in-out infinite;
 }
 

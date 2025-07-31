@@ -4,7 +4,7 @@
     border-radius: 16px;
     padding: 3rem 2rem;
     margin: 2rem 0;
-    color: white;
+    color: var(--text-inverse);
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -11,11 +11,12 @@
 </head>
 <body>
     <div class="lesson-layout">
-        <aside class="lesson-sidebar">
+        <!-- Restore Sidebar Button (appears only when sidebar is collapsed) -->
+        <button class="sidebar-restore-btn" id="sidebarRestoreBtn" title="Restore sidebar" onclick="toggleSidebar()" style="display:none;position:fixed;top:16px;left:16px;z-index:1001;font-size:2rem;padding:0.5rem 1rem;border-radius:50%;background:var(--bg-elevated);color:var(--text-primary);border:2px solid var(--border-medium);box-shadow:var(--shadow-md);cursor:pointer;transition:background 0.2s;">⮜</button>
+        <aside class="lesson-sidebar" id="lessonSidebar">
             <div class="sidebar-header">
-                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
-                    ← Back to Dashboard
-                </button>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar" onclick="toggleSidebar()">⮜</button>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
                 <div class="phase-info">
                     <h3>Phase 1: Foundations</h3>
                     <div class="phase-progress">
@@ -652,14 +653,76 @@ fourth_root_16 = 16 ** 0.25  # 2.0</code></pre>
             </section>
 
             <nav class="lesson-navigation">
-                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Variables & Data Types</button>
-                <button class="nav-btn next" onclick="nextLesson()">Next: Control Flow →</button>
+                <div class="navigation-buttons">
+                  <button class="nav-btn prev" onclick="previousLesson()">← Previous: Variables & Data Types</button>
+                  <button class="nav-btn test-knowledge" onclick="showKnowledgeTest()">🧠 Test My Knowledge</button>
+                  <button class="nav-btn next" onclick="nextLesson()">Next: Control Flow →</button>
+                </div>
             </nav>
 
             <script>
+            function showKnowledgeTest() {
+                // Trigger the Calculator Project Challenge
+                if (typeof mathEngine !== 'undefined' && mathEngine.openCalculatorProject) {
+                    mathEngine.openCalculatorProject();
+                } else {
+                    // Fallback to direct modal opening
+                    const modal = document.getElementById('calculatorModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                }
+            }
+
             // Updated navigation functions
             function nextLesson() {
                 window.location.href = 'control-flow.html';  // NOW LINKS TO CONTROL FLOW
+            }
+
+            function previousLesson() {
+                window.location.href = 'variables-datatypes.html';
+            }
+
+            // Modern modal function for knowledge tests
+            function showCustomModal(message, title = '📢 Information') {
+                // Create modal if it doesn't exist
+                let modal = document.getElementById('customModal');
+                if (!modal) {
+                    modal = document.createElement('div');
+                    modal.id = 'customModal';
+                    modal.className = 'modal';
+                    modal.style.display = 'none';
+                    modal.innerHTML = `
+                        <div class="modal-content" style="max-width: 600px; padding: 2rem; border-radius: 1.25rem; background: var(--bg-elevated); box-shadow: var(--shadow-xl); position: relative; color: var(--text-primary); border: 1px solid var(--border-medium);">
+                            <button onclick="closeCustomModal()" class="close-btn" style="position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text-secondary);">×</button>
+                            <h2 id="customModalTitle" style="margin-bottom:1rem;font-size:1.3rem;display:flex;align-items:center;gap:0.5rem;"></h2>
+                            <div id="customModalMessage" style="font-size:1rem;white-space:pre-line;line-height:1.6;"></div>
+                            <button onclick="closeCustomModal()" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:1rem;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.5rem;cursor:pointer;">OK</button>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                }
+                
+                document.getElementById('customModalTitle').textContent = title;
+                document.getElementById('customModalMessage').textContent = message;
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.style.position = 'fixed';
+                modal.style.top = 0;
+                modal.style.left = 0;
+                modal.style.width = '100vw';
+                modal.style.height = '100vh';
+                modal.style.background = 'var(--bg-overlay)';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCustomModal() {
+                const modal = document.getElementById('customModal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
             }
             </script>
         </main>
@@ -841,5 +904,34 @@ if __name__ == "__main__":
 
     <script src="../../js/math-operations-engine.js"></script>
     <script src="../../js/notes-system.js"></script>
+    <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('lessonSidebar');
+        const layout = document.querySelector('.lesson-layout');
+        const btn = document.getElementById('sidebarToggle');
+        const restoreBtn = document.getElementById('sidebarRestoreBtn');
+        sidebar.classList.toggle('collapsed');
+        layout.classList.toggle('sidebar-collapsed');
+        if (sidebar.classList.contains('collapsed')) {
+            btn.innerText = '⮞';
+            btn.title = 'Expand sidebar';
+            restoreBtn.style.display = 'block';
+        } else {
+            btn.innerText = '⮜';
+            btn.title = 'Collapse sidebar';
+            restoreBtn.style.display = 'none';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebar = document.getElementById('lessonSidebar');
+        const restoreBtn = document.getElementById('sidebarRestoreBtn');
+        if (sidebar && restoreBtn && sidebar.classList.contains('collapsed')) {
+            restoreBtn.style.display = 'block';
+        }
+    });
+    </script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>
+
+

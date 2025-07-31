@@ -11,11 +11,9 @@
 </head>
 <body>
     <div class="lesson-layout">
-        <aside class="lesson-sidebar">
+        <aside class="lesson-sidebar" id="lessonSidebar">
             <div class="sidebar-header">
-                <button class="back-button" onclick="window.location.href='../../dashboard.html'">
-                    ← Back to Dashboard
-                </button>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar" onclick="toggleSidebar()">⮜</button>`n                <button class="theme-toggle" id="themeToggle">🌙</button>
                 <div class="phase-info">
                     <h3>Phase 4: Advanced Problem Solving</h3>
                     <div class="phase-progress">
@@ -418,17 +416,35 @@
             </section>
 
             <nav class="lesson-navigation">
-                <button class="nav-btn prev" onclick="previousLesson()">← Previous: Time & Space Complexity</button>
-                <button class="nav-btn next" onclick="nextLesson()">Next: LeetCode Strategy Framework →</button>
+                <div class="lesson-nav-btns" style="display:flex;justify-content:space-between;gap:1.5rem;margin-top:2.5rem;">
+                  <button class="nav-btn prev" onclick="previousLesson()" style="flex:1;max-width:320px;padding:1.1rem 0;font-size:1.15rem;font-weight:600;background:linear-gradient(90deg,#f3f4f6,#e0e7ff);color:#3730a3;border:none;border-radius:0.75rem;box-shadow:0 2px 8px rgba(99,102,241,0.08);cursor:pointer;transition:background 0.2s;">← Previous: Time & Space Complexity</button>
+                  <button class="nav-btn next" onclick="nextLesson()" style="flex:1;max-width:320px;padding:1.1rem 0;font-size:1.15rem;font-weight:600;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.75rem;box-shadow:0 2px 8px rgba(99,102,241,0.12);cursor:pointer;transition:background 0.2s;">Next: LeetCode Strategy Framework →</button>
+                </div>
             </nav>
         </main>
     </div>
 
     <script src="../../js/optimization-techniques-engine.js"></script>
     <script src="../../js/notes-system.js"></script>
-    
     <script>
-    function previousLesson() {
+    function toggleSidebar() {
+        const sidebar = document.getElementById('lessonSidebar');
+        const layout = document.querySelector('.lesson-layout');
+        const btn = document.getElementById('sidebarToggle');
+        sidebar.classList.toggle('collapsed');
+        layout.classList.toggle('sidebar-collapsed');
+        if (sidebar.classList.contains('collapsed')) {
+            btn.innerText = '⮞';
+            btn.title = 'Expand sidebar';
+        } else {
+            btn.innerText = '⮜';
+            btn.title = 'Collapse sidebar';
+        }
+    }
+    </script>
+    <script src="../../js/phase4-engine.js"></script>
+<script src="../../js/main.js"></script>`n</body>`n    <script src="../../js/main.js"></script>
+</html>
         window.location.href = 'time-space-complexity.html';
     }
 
@@ -458,19 +474,47 @@
     }
 
     function demonstrateCaching() {
-        alert('🎯 Caching Demo\n\nCaching strategies like LRU (Least Recently Used) can dramatically improve performance by keeping frequently accessed data in fast memory.\n\nExample: A web server cache reduces database queries from 1000ms to 10ms - a 100x improvement!');
+        showDemoModal('🎯 Caching Demo\n\nCaching strategies like LRU (Least Recently Used) can dramatically improve performance by keeping frequently accessed data in fast memory.\n\nExample: A web server cache reduces database queries from 1000ms to 10ms - a 100x improvement!');
     }
 
     function demonstrateLazy() {
-        alert('⏰ Lazy Loading Demo\n\nLazy evaluation defers computation until absolutely necessary.\n\nExample: Loading a 1GB dataset\n• Eager: Load all 1GB upfront (slow startup)\n• Lazy: Load only needed portions (fast startup, efficient memory)');
+        showDemoModal('⏰ Lazy Loading Demo\n\nLazy evaluation defers computation until absolutely necessary.\n\nExample: Loading a 1GB dataset\n• Eager: Load all 1GB upfront (slow startup)\n• Lazy: Load only needed portions (fast startup, efficient memory)');
     }
 
     function demonstrateBatching() {
-        alert('📊 Batching Demo\n\nBatching operations reduces overhead significantly.\n\nExample: Database inserts\n• Individual: 1000 inserts = 10 seconds\n• Batched: 10 batches of 100 = 1 second\n\n10x performance improvement!');
+        showDemoModal('📊 Batching Demo\n\nBatching operations reduces overhead significantly.\n\nExample: Database inserts\n• Individual: 1000 inserts = 10 seconds\n• Batched: 10 batches of 100 = 1 second\n\n10x performance improvement!');
     }
 
     function demonstrateParallel() {
-        alert('🔥 Parallelization Demo\n\nUsing multiple CPU cores can dramatically speed up computation.\n\nExample: Processing 1000 images\n• Sequential (1 core): 1000 seconds\n• Parallel (4 cores): 250 seconds\n\n4x speedup with proper parallelization!');
+        showDemoModal('🔥 Parallelization Demo\n\nUsing multiple CPU cores can dramatically speed up computation.\n\nExample: Processing 1000 images\n• Sequential (1 core): 1000 seconds\n• Parallel (4 cores): 250 seconds\n\n4x speedup with proper parallelization!');
+</main>
+<!-- Demo Modal -->
+<div class="modal" id="demoModal" style="display:none;">
+  <div class="modal-content" style="max-width: 420px; padding: 2rem; border-radius: 1.25rem; background: var(--bg-elevated); box-shadow: var(--shadow-xl); position: relative; color: var(--text-primary); border: 1px solid var(--border-medium);">
+    <button onclick="closeDemoModal()" class="close-btn" style="position:absolute;top:1rem;right:1rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--text-secondary);">×</button>
+    <div id="demoMessage" style="font-size:1.1rem;white-space:pre-line;"></div>
+    <button onclick="closeDemoModal()" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:1rem;background:var(--accent-gradient);color:var(--text-inverse);border:none;border-radius:0.5rem;cursor:pointer;">OK</button>
+  </div>
+</div>
+<script>
+function showDemoModal(message) {
+  document.getElementById('demoMessage').textContent = message;
+  document.getElementById('demoModal').style.display = 'flex';
+  document.getElementById('demoModal').style.alignItems = 'center';
+  document.getElementById('demoModal').style.justifyContent = 'center';
+  document.getElementById('demoModal').style.position = 'fixed';
+  document.getElementById('demoModal').style.top = 0;
+  document.getElementById('demoModal').style.left = 0;
+  document.getElementById('demoModal').style.width = '100vw';
+  document.getElementById('demoModal').style.height = '100vh';
+  document.getElementById('demoModal').style.background = 'var(--bg-overlay)';
+  document.body.style.overflow = 'hidden';
+}
+function closeDemoModal() {
+  document.getElementById('demoModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+</script>
     }
 
     // Report completion to dashboard
@@ -482,7 +526,9 @@
         }, 30000);
     });
     </script>
-</body>
+<script src="../../js/main.js"></script>`n</body>`n    <script src="../../js/main.js"></script>
 </html>
-</body>
+<script src="../../js/main.js"></script>`n</body>
 </html>
+
+
